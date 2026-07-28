@@ -1252,7 +1252,7 @@
   function fbSignInGoogle(){
     if(!fbReady){ showSyncNote(t("syncUnavailable")); return; }
     var provider = new firebase.auth.GoogleAuthProvider();
-    fbAuth.signInWithPopup(provider).catch(function(err){ showSyncNote(err.message || t("syncUnavailable")); });
+    fbAuth.signInWithRedirect(provider).catch(function(err){ showSyncNote(err.message || t("syncUnavailable")); });
   }
   function fbSignInEmail(email, pass){
     if(!fbReady){ showSyncNote(t("syncUnavailable")); return; }
