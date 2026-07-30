@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Action Logger — Anti-Schedule, Pro-Action</title>
+<style>
+  :root{
+    --bg:        #1e222a;
+    --bg-raise:  #252b37;
+    --line:      #3b4252;
+    --ink:       #a3be8c;
+    --ink-dim:   #607060;
+    --ok:        #a3be8c;
+    --err:       #bf616a;
+    --sys:       #88c0d0;
+    --new:       #b48ead;
+    --mono: ui-monospace, "JetBrains Mono", "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    height:100%;
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--mono);
+  }
+
+  body{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+
+  /* subtle CRT scanline texture, static — no motion */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,176,0,0.025) 0px,
+      rgba(255,176,0,0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    z-index:50;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  #topbar{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 20px;
+    border-bottom:1px solid var(--line);
+    background:var(--bg-raise);
+  }
+
+  #brand{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    min-width:0;
+  }
+
+  #brand .title{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+
+  #brand .tagline{
+    font-size:10.5px;
+    color:var(--ink-dim);
+    letter-spacing:0.08em;
+    white-space:nowrap;
+  }
+
+  #stat{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    white-space:nowrap;
+  }
+
+  #stat .label{
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:0.1em;
+  }
+
+  #stat .value{
+    font-size:22px;
+    font-weight:700;
+    color:var(--ink);
+    text-shadow:0 0 8px rgba(255,176,0,0.35);
+  }
+
+  #listBtn{
+    flex:0 0 auto;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:8px 12px;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  #listBtn:hover{ background:rgba(255,176,0,0.08); border-color:var(--ink-dim); }
+  #listBtn:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--ink);
+    outline-offset:2px;
+  }
+
+  /* ---------- OUTPUT LOG ---------- */
+  #log{
+    flex:1 1 auto;
+    overflow-y:auto;
+    padding:18px 20px 10px;
+    font-size:13px;
+    line-height:1.65;
+  }
+
+  #log .row{ white-space:pre-wrap; word-break:break-word; }
+  #log .ts{ color:var(--ink-dim); margin-right:8px; }
+
+  .c-ok  { color:var(--ok); }
+  .c-err { color:var(--err); }
+  .c-sys { color:var(--sys); }
+  .c-new { color:var(--new); }
+  .c-echo{ color:var(--ink); opacity:0.55; }
+
+  /* ---------- INPUT BAR ---------- */
+  #inputbar{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 20px;
+    border-top:1px solid var(--line);
+    background:var(--bg-raise);
+  }
+
+  #prompt{ color:var(--ink); font-weight:700; }
+
+  #cmd{
+    flex:1 1 auto;
+    background:transparent;
+    border:none;
+    color:var(--ink);
+    font-family:var(--mono);
+    font-size:14px;
+    caret-color:var(--ink);
+  }
+  #cmd:focus{ outline:none; }
+
+  /* ---------- MODAL ---------- */
+  #overlay{
+    position:fixed; inset:0;
+    background:rgba(0,0,0,0.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    padding:20px;
+  }
+  #overlay.open{ display:flex; }
+
+  #modal{
+    width:min(640px, 100%);
+    max-height:80vh;
+    overflow-y:auto;
+    background:var(--bg-raise);
+    border:1px solid var(--line);
+    padding:20px 22px 24px;
+  }
+
+  #modal h2{
+    margin:0 0 4px;
+    font-size:16px;
+    letter-spacing:0.06em;
+    color:var(--ink);
+  }
+  #modal .sub{
+    margin:0 0 18px;
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:0.06em;
+  }
+
+  table{ width:100%; border-collapse:collapse; font-size:12.5px; }
+  th, td{ text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); }
+  th{ color:var(--ink-dim); font-weight:600; letter-spacing:0.05em; font-size:11px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+
+  .bar-row{ display:flex; align-items:center; gap:8px; margin:9px 0; }
+  .bar-label{ width:38%; font-size:11.5px; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-track{ flex:1; background:var(--line); height:9px; position:relative; }
+  .bar-fill{ height:100%; background:var(--ink); }
+  .bar-count{ width:34px; text-align:right; font-size:11px; color:var(--ink-dim); }
+
+  #modalClose{
+    margin-top:18px;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:var(--mono);
+    padding:8px 14px;
+    cursor:pointer;
+    font-size:12px;
+  }
+  #modalClose:hover{ background:rgba(255,176,0,0.08); }
+
+  #empty{ color:var(--ink-dim); font-size:12.5px; padding:6px 0 2px; }
+
+  /* scrollbar, quiet */
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-thumb{ background:var(--line); }
+  ::-webkit-scrollbar-track{ background:transparent; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="topbar">
+    <div id="brand">
+      <div class="title">⚡ ACTION LOGGER</div>
+      <div class="tagline">ANTI-SCHEDULE // PRO-ACTION</div>
+    </div>
+    <button id="listBtn" type="button">📊 /list</button>
+    <div id="stat">
+      <span class="label">TOTAL SP</span>
+      <span class="value" id="totalSp">0</span>
+    </div>
+  </div>
+
+  <div id="log"></div>
+
+  <div id="inputbar">
+    <span id="prompt">&gt;</span>
+    <input id="cmd" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="/add hoc bai 10  ·  /help" />
+  </div>
+
+  <div id="overlay">
+    <div id="modal">
+      <h2>BẢNG THỐNG KÊ</h2>
+      <div class="sub">Kho hành động &amp; tần suất ghi nhận</div>
+      <div id="modalBody"></div>
+      <button id="modalClose" type="button">Đóng (Esc)</button>
+    </div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+
+  var STORAGE_KEY = "action_logger_v1";
+  var DEFAULT_SP = 10;
+
+  var state = loadState();
+
+  var logEl = document.getElementById("log");
+  var cmdEl = document.getElementById("cmd");
+  var totalSpEl = document.getElementById("totalSp");
+  var overlayEl = document.getElementById("overlay");
+  var modalBodyEl = document.getElementById("modalBody");
+  var listBtn = document.getElementById("listBtn");
+  var modalClose = document.getElementById("modalClose");
+
+  var cmdHistory = [];
+  var cmdHistoryIdx = -1;
+
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(raw){
+        var parsed = JSON.parse(raw);
+        return {
+          total_sp: parsed.total_sp || 0,
+          tasks: parsed.tasks || {},
+          history: parsed.history || []
+        };
+      }
+    }catch(e){}
+    return { total_sp:0, tasks:{}, history:[] };
+  }
+
+  function saveState(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }catch(e){
+      print("Không thể lưu dữ liệu (localStorage lỗi).", "err");
+    }
+  }
+
+  function timeNow(){
+    var d = new Date();
+    function pad(n){ return String(n).padStart(2,"0"); }
+    return pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());
+  }
+
+  function escapeHtml(s){
+    return String(s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function print(text, cls){
+    var row = document.createElement("div");
+    row.className = "row";
+    var ts = document.createElement("span");
+    ts.className = "ts";
+    ts.textContent = "["+timeNow()+"]";
+    row.appendChild(ts);
+    var span = document.createElement("span");
+    span.className = cls ? ("c-"+cls) : "";
+    span.innerHTML = escapeHtml(text);
+    row.appendChild(span);
+    logEl.appendChild(row);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  function printEcho(raw){
+    var row = document.createElement("div");
+    row.className = "row c-echo";
+    row.textContent = "> "+raw;
+    logEl.appendChild(row);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  function refreshTotal(){
+    totalSpEl.textContent = state.total_sp;
+  }
+
+  function normalizeTaskName(name){
+    return name.trim().toLowerCase().replace(/\s+/g," ");
+  }
+
+  // ---------- Command implementations ----------
+
+  function cmdAdd(args){
+    if(args.length === 0){
+      print("Cú pháp: /add <việc> [sp]", "err");
+      return;
+    }
+    var last = args[args.length-1];
+    var maybeSp = Number(last);
+    var hasExplicitSp = args.length > 1 && !isNaN(maybeSp) && last.trim() !== "";
+    var nameParts = hasExplicitSp ? args.slice(0, -1) : args;
+    var taskName = normalizeTaskName(nameParts.join(" "));
+
+    if(!taskName){
+      print("Tên việc không hợp lệ.", "err");
+      return;
+    }
+
+    var existing = state.tasks[taskName];
+
+    if(existing){
+      var sp = hasExplicitSp ? maybeSp : existing.base_sp;
+      existing.count += 1;
+      existing.last_done = Date.now();
+      if(hasExplicitSp) existing.base_sp = maybeSp;
+      state.total_sp += sp;
+      state.history.push({ ts: Date.now(), task: taskName, sp: sp });
+      saveState();
+      refreshTotal();
+      print("✅ +"+sp+" SP — \""+taskName+"\" (lần thứ "+existing.count+")", "ok");
+    }else{
+      var newSp = hasExplicitSp ? maybeSp : DEFAULT_SP;
+      state.tasks[taskName] = { base_sp: newSp, count: 1, unit: null, last_done: Date.now() };
+      state.total_sp += newSp;
+      state.history.push({ ts: Date.now(), task: taskName, sp: newSp });
+      saveState();
+      refreshTotal();
+      print("🆕 Đã ghi nhận việc mới vào kho: \""+taskName+"\" (+"+newSp+" SP)", "new");
+    }
+  }
+
+  function cmdDel(args){
+    if(args.length === 0){
+      print("Cú pháp: /del <việc>", "err");
+      return;
+    }
+    var taskName = normalizeTaskName(args.join(" "));
+    if(state.tasks[taskName]){
+      delete state.tasks[taskName];
+      saveState();
+      print("🗑️ Đã xóa \""+taskName+"\" khỏi kho.", "sys");
+    }else{
+      print("Không tìm thấy \""+taskName+"\" trong kho.", "err");
+    }
+  }
+
+  function cmdClear(){
+    logEl.innerHTML = "";
+    print("Đã dọn màn hình log (dữ liệu vẫn được giữ nguyên).", "sys");
+  }
+
+  function cmdHelp(){
+    print("── DANH SÁCH LỆNH ──", "sys");
+    print("/add <việc> <sp?>   ghi nhận 1 hành động (sp không bắt buộc nếu đã có trong kho)", "sys");
+    print("/del <việc>         xóa hành động khỏi kho", "sys");
+    print("/list               xem bảng thống kê & biểu đồ tần suất", "sys");
+    print("/export             tải file backup dữ liệu (.json)", "sys");
+    print("/clear              dọn màn hình log (không xóa dữ liệu)", "sys");
+    print("/help               xem lại danh sách lệnh", "sys");
+  }
+
+  function cmdExport(){
+    var blob = new Blob([JSON.stringify(state, null, 2)], { type:"application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "action-logger-backup.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    print("📦 Đã xuất file backup.", "sys");
+  }
+
+  function openList(){
+    var names = Object.keys(state.tasks);
+    modalBodyEl.innerHTML = "";
+
+    if(names.length === 0){
+      var empty = document.createElement("div");
+      empty.id = "empty";
+      empty.textContent = "Kho trống. Gõ /add <việc> để bắt đầu ghi nhận.";
+      modalBodyEl.appendChild(empty);
+      overlayEl.classList.add("open");
+      return;
+    }
+
+    names.sort(function(a,b){ return state.tasks[b].count - state.tasks[a].count; });
+    var maxCount = Math.max.apply(null, names.map(function(n){ return state.tasks[n].count; }));
+
+    // table
+    var table = document.createElement("table");
+    var thead = document.createElement("thead");
+    thead.innerHTML = "<tr><th>Việc</th><th>Số lần</th><th>SP/lần</th><th>Tổng SP</th></tr>";
+    table.appendChild(thead);
+    var tbody = document.createElement("tbody");
+    names.forEach(function(n){
+      var t = state.tasks[n];
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td>"+escapeHtml(n)+"</td>"+
+                      "<td class='num'>"+t.count+"</td>"+
+                      "<td class='num'>"+t.base_sp+"</td>"+
+                      "<td class='num'>"+(t.count*t.base_sp)+"</td>";
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    modalBodyEl.appendChild(table);
+
+    // chart
+    var chartTitle = document.createElement("div");
+    chartTitle.className = "sub";
+    chartTitle.style.marginTop = "18px";
+    chartTitle.textContent = "TẦN SUẤT";
+    modalBodyEl.appendChild(chartTitle);
+
+    names.forEach(function(n){
+      var t = state.tasks[n];
+      var row = document.createElement("div");
+      row.className = "bar-row";
+      var pct = maxCount > 0 ? Math.max(4, (t.count/maxCount)*100) : 0;
+      row.innerHTML =
+        "<div class='bar-label'>"+escapeHtml(n)+"</div>"+
+        "<div class='bar-track'><div class='bar-fill' style='width:"+pct+"%'></div></div>"+
+        "<div class='bar-count'>"+t.count+"</div>";
+      modalBodyEl.appendChild(row);
+    });
+
+    overlayEl.classList.add("open");
+  }
+
+  function closeList(){
+    overlayEl.classList.remove("open");
+  }
+
+  // ---------- Parser ----------
+
+  function handleCommand(raw){
+    var trimmed = raw.trim();
+    if(!trimmed) return;
+
+    printEcho(trimmed);
+
+    var tokens = trimmed.split(/\s+/);
+    var cmd = tokens[0].toLowerCase();
+    var args = tokens.slice(1);
+
+    switch(cmd){
+      case "/add":   cmdAdd(args); break;
+      case "/del":   cmdDel(args); break;
+      case "/list":  openList(); break;
+      case "/clear": cmdClear(); break;
+      case "/help":  cmdHelp(); break;
+      case "/export":cmdExport(); break;
+      default:
+        print("Lệnh không tồn tại: \""+cmd+"\". Gõ /help để xem danh sách lệnh.", "err");
+    }
+  }
+
+  // ---------- Events ----------
+
+  cmdEl.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      var val = cmdEl.value;
+      if(val.trim()){
+        cmdHistory.push(val);
+        cmdHistoryIdx = cmdHistory.length;
+      }
+      cmdEl.value = "";
+      handleCommand(val);
+    }else if(e.key === "ArrowUp"){
+      if(cmdHistory.length){
+        cmdHistoryIdx = Math.max(0, cmdHistoryIdx - 1);
+        cmdEl.value = cmdHistory[cmdHistoryIdx] || "";
+        e.preventDefault();
+      }
+    }else if(e.key === "ArrowDown"){
+      if(cmdHistory.length){
+        cmdHistoryIdx = Math.min(cmdHistory.length, cmdHistoryIdx + 1);
+        cmdEl.value = cmdHistory[cmdHistoryIdx] || "";
+        e.preventDefault();
+      }
+    }
+  });
+
+  listBtn.addEventListener("click", openList);
+  modalClose.addEventListener("click", closeList);
+  overlayEl.addEventListener("click", function(e){
+    if(e.target === overlayEl) closeList();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && overlayEl.classList.contains("open")) closeList();
+  });
+
+  document.addEventListener("click", function(e){
+    if(!overlayEl.classList.contains("open")) cmdEl.focus();
+  });
+
+  // ---------- Boot ----------
+
+  refreshTotal();
+  print("SYSTEM BOOT — ACTION LOGGER v1.0", "sys");
+  print("Triết lý: Anti-Schedule, Pro-Action — không lịch trình, chỉ ghi nhận hành động thật.", "sys");
+  print("Gõ /help để xem danh sách lệnh.", "sys");
+  cmdEl.focus();
+
+})();
+</script>
+</body>
+</html>
