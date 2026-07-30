@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<link rel="manifest" href="manifest.json">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Acta — a record of things done</title>
-<link rel="stylesheet" href="acta.css">
+<title>Acta â€” a record of things done</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -13,7 +12,7 @@
     <div id="brandWrap">
       <div id="brand">
         <div class="title">ACTA</div>
-        <div class="tagline" id="taglineText">things done — not things planned</div>
+        <div class="tagline" id="taglineText">things done â€” not things planned</div>
       </div>
       <div id="levelBlock" tabindex="0">
         <div class="lv"><span id="lvPrefix">LEVEL</span> <b id="levelValue">0</b></div>
@@ -49,9 +48,15 @@
       <button class="icon-btn" id="importBtn" title="Import">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
       </button>
-      <button class="icon-btn" id="exportBtn" title="Export">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-      </button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="exportBtn" title="Export">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+        </button>
+        <div id="exportPop" class="mini-pop">
+          <button id="exportJsonBtn" class="mini-pop-item"><span id="exportJsonLabel">Export JSON</span></button>
+          <button id="exportPdfBtn" class="mini-pop-item"><span id="exportPdfLabel">Export PDF</span></button>
+        </div>
+      </div>
       <input type="file" id="importFile" accept="application/json" style="display:none;">
 
       <div class="toolbar-sep"></div>
@@ -87,10 +92,10 @@
 
   <div id="dock">
     <div id="streakStrip">
-      <span class="flames" id="flameIcons"><span class="flame" data-i="0">🔥</span></span>
+      <span class="flames" id="flameIcons"><span class="flame" data-i="0">ðŸ”¥</span></span>
       <span class="num" id="streakNum">0</span>
       <span class="label" id="streakLabelText">day streak</span>
-      <span class="sep">·</span>
+      <span class="sep">Â·</span>
       <span class="num" id="todayCountNum">0</span>
       <span class="label" id="todayCountLabelText">today</span>
     </div>
@@ -109,7 +114,7 @@
     <div id="modal">
       <div id="modalHead">
         <h2 id="statsTitleText">STATISTICS</h2>
-        <button id="modalCloseX" aria-label="Close">✕</button>
+        <button id="modalCloseX" aria-label="Close">âœ•</button>
       </div>
       <div id="tabs">
         <button class="tab-btn active" data-tab="overview" id="tabOverviewBtn">Overview</button>
@@ -127,27 +132,54 @@
   <div id="drawerScrim"></div>
 
   <div class="drawer" id="todoDrawer">
-    <div class="drawer-head"><h2 id="todoDrawerTitle">To-Do</h2><button class="drawer-close" data-close="todoDrawer">✕</button></div>
+    <div class="drawer-head"><h2 id="todoDrawerTitle">To-Do</h2><button class="drawer-close" data-close="todoDrawer">âœ•</button></div>
     <div class="drawer-body">
       <div id="todoAddRow">
-        <input type="text" id="todoAddInput" placeholder="Add a task… #tag">
+        <input type="text" id="todoAddInput" placeholder="Add a taskâ€¦ #tag">
         <button id="todoAddBtn">+</button>
       </div>
       <div id="todoList"></div>
     </div>
   </div>
 
-  <div class="drawer" id="userDrawer">
-    <div class="drawer-head"><h2 id="accountTitleText">Account</h2><button class="drawer-close" data-close="userDrawer">✕</button></div>
+  <div class="drawer wide" id="userDrawer">
+    <div class="drawer-head"><h2 id="accountTitleText">Account</h2><button class="drawer-close" data-close="userDrawer">âœ•</button></div>
     <div class="drawer-body">
-      <div class="acc-tabs">
-        <button class="acc-tab-btn active" data-acctab="sync" id="accTabSyncBtn">Sync</button>
-        <button class="acc-tab-btn" data-acctab="achievements" id="accTabAchBtn">Achievements</button>
-        <button class="acc-tab-btn" data-acctab="language" id="accTabLangBtn">Language</button>
+      <div class="profile-header">
+        <div class="profile-avatar-wrap" id="avatarWrap">
+          <img id="profileAvatarImg" class="profile-avatar" style="display:none;" alt="">
+          <div class="profile-avatar-fallback" id="profileAvatarFallback">?</div>
+          <div class="avatar-edit-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+          </div>
+          <input type="file" id="avatarFileInput" accept="image/*" style="display:none;">
+        </div>
+        <div class="profile-identity">
+          <input type="text" id="profileNameInput" class="profile-name-input">
+          <div class="profile-level-row">
+            <span id="profileLevelText">Level 0</span>
+            <span class="sep">Â·</span>
+            <span id="profileApText">0 AP</span>
+          </div>
+        </div>
       </div>
-      <div class="acc-pane active" id="acc-sync"></div>
-      <div class="acc-pane" id="acc-achievements"></div>
-      <div class="acc-pane" id="acc-language"></div>
+
+      <div class="profile-main">
+        <div class="profile-nav">
+          <button class="profile-nav-btn" data-pnav="achievements" id="pnavAchBtn">Achievements</button>
+          <button class="profile-nav-btn" data-pnav="account" id="pnavAccountBtn">Account</button>
+          <button class="profile-nav-btn" data-pnav="language" id="pnavLangBtn">Language</button>
+          <button class="profile-nav-btn" data-pnav="card" id="pnavCardBtn">Acta Card</button>
+          <button class="profile-nav-btn danger" id="pnavEraseBtn">Erase all data</button>
+        </div>
+        <div class="profile-content">
+          <div class="acc-pane active" id="acc-default"></div>
+          <div class="acc-pane" id="acc-achievements"></div>
+          <div class="acc-pane" id="acc-account"></div>
+          <div class="acc-pane" id="acc-language"></div>
+          <div class="acc-pane" id="acc-card"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -170,16 +202,28 @@
   </div>
 
   <div id="toastHost"></div>
+  <div id="printArea"></div>
 
+  <div id="firstRunOverlay">
+    <div id="firstRunCard">
+      <div class="t" id="firstRunTitleText">Save your journey</div>
+      <div class="m" id="firstRunMsgText">Sign in to keep your progress safe.</div>
+      <div class="btns">
+        <button id="firstRunSignInBtn"></button>
+        <button id="firstRunLaterBtn"></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="publicProfilePage">
+    <div id="publicProfileInner"></div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="acta.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
-  }
-</script>
+<script src="script.js"></script>
 </body>
 </html>
 
