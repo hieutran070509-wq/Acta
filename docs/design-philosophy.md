@@ -1,4 +1,4 @@
-# ACTA Design Philosophy
+# Design Philosophy
 
 ## Introduction
 
