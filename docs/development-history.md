@@ -1,4 +1,4 @@
-# ACTA Development History
+# Development History
 ## Introduction
 
 ACTA was not built as a complete product from day one.
