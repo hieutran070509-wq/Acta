@@ -1,4 +1,3 @@
-
 (function(){
   "use strict";
 
@@ -7,608 +6,608 @@
   ========================================================= */
 
   var LANGS = ["en","vi","es","fr","de","pt","ja","ko","zh","ru","hi","id"];
-  var LANG_NAMES = { en:"English", vi:"Tiáº¿ng Viá»‡t", es:"EspaÃ±ol", fr:"FranÃ§ais", de:"Deutsch", pt:"PortuguÃªs", ja:"æ—¥æœ¬èªž", ko:"í•œêµ­ì–´", zh:"ä¸­æ–‡", ru:"Ð ÑƒÑÑÐºÐ¸Ð¹", hi:"à¤¹à¤¿à¤¨à¥à¤¦à¥€", id:"Bahasa Indonesia" };
+  var LANG_NAMES = { en:"English", vi:"Tiếng Việt", es:"Español", fr:"Français", de:"Deutsch", pt:"Português", ja:"日本語", ko:"한국어", zh:"中文", ru:"Русский", hi:"हिन्दी", id:"Bahasa Indonesia" };
 
   var STRINGS = {
-    en:{ tagline:"things done â€” not things planned", level:"LEVEL", ap:"AP", streak:"day streak",
+    en:{ tagline:"things done — not things planned", level:"LEVEL", ap:"AP", streak:"day streak",
       stats:"Statistics", todo:"To-Do", hint:"No pressure, just progress. What did you complete today?",
       tabOverview:"Overview", tabHistory:"History", tabDaily:"Daily", statsTitle:"STATISTICS",
       overviewEmpty:"The repository is empty. Type /add <task> to start logging.",
-      overviewSummary:"{count} tracked task(s) Â· {ap} total AP",
+      overviewSummary:"{count} tracked task(s) · {ap} total AP",
       colTask:"Task", colCount:"Count", colTotalAp:"Total AP", colDate:"Date", colTime:"Time", colAp:"AP",
-      searchPlaceholder:"Search by task nameâ€¦", clearFilters:"Clear filters", noMatch:"No entries match this search.",
+      searchPlaceholder:"Search by task name…", clearFilters:"Clear filters", noMatch:"No entries match this search.",
       dailyEntries:"ENTRIES", dailyEmpty:"No actions logged on this day.", freqTitle:"FREQUENCY",
-      todoAddPlaceholder:"Add a taskâ€¦", todoEmpty:"Nothing here yet. Add your first task above.",
+      todoAddPlaceholder:"Add a task…", todoEmpty:"Nothing here yet. Add your first task above.",
       diffEasy:"Easy", diffNormal:"Normal", diffHard:"Hard",
       tabSync:"Sync", tabAchievements:"Achievements", tabLanguage:"Language",
       syncIntro:"Connect an account to sync your data across devices.",
       syncSoon:"Cloud sync is coming in a future update. For now, use Export / Import to move your data between devices.",
       syncGoogle:"Continue with Google", syncGithub:"Continue with GitHub", syncApple:"Continue with Apple", syncEmail:"Continue with Email",
       achIntro:"Reach these levels to unlock them.", achLocked:"Locked",
-      langIntro:"Choose your language. Everything switches â€” every screen, every message.",
+      langIntro:"Choose your language. Everything switches — every screen, every message.",
       soundLabel:"Sound", vibLabel:"Vibration", volLabel:"Volume", close:"Close",
-      bootMsg:"Session started â€” Acta v3.6.3", philMsg:"Philosophy: things done, not things planned. No schedule, only recognition.",
+      bootMsg:"Session started — Acta v3.6.3", philMsg:"Philosophy: things done, not things planned. No schedule, only recognition.",
       helpMsg:"Type /help for the command list, or just type what you did.", helpHeader:"COMMAND LIST",
       unknownCmd:"Unknown command: \"{cmd}\". Type /help for the command list.",
       addUsage:"Usage: /add <task>", addInvalid:"That task name isn't valid.",
-      addExisting:"+1 AP â€” \"{task}\" (occurrence #{count})", addNew:"New task registered: \"{task}\" (+1 AP)",
+      addExisting:"+1 AP — \"{task}\" (occurrence #{count})", addNew:"New task registered: \"{task}\" (+1 AP)",
       delUsage:"Usage: /del <task>", delOk:"Removed \"{task}\" from the repository.", delNotFound:"\"{task}\" was not found in the repository.",
       clearedMsg:"Feed cleared. Your data is untouched.", exportedMsg:"Backup file downloaded.",
       importedMsg:"Data imported from \"{file}\".", importFailed:"Import failed: the file isn't valid JSON.", importReadFail:"Import failed: could not read the file.",
       undidMsg:"Undid the last action.", redidMsg:"Redid the last undone action.",
-      todoDoneMsg:"Completed \"{task}\" (+{ap} AP) Â· To-Do", levelUp:"Level {level}!", nicedBtn:"Nice!", account:"Account",
+      todoDoneMsg:"Completed \"{task}\" (+{ap} AP) · To-Do", levelUp:"Level {level}!", nicedBtn:"Nice!", account:"Account",
       cmdAdd:"Log an action. Existing task adds AP and increments its count; a new one registers automatically.",
       cmdDel:"Remove a task from the repository.", cmdList:"Open Statistics.", cmdExport:"Download a backup of your data as JSON.",
       cmdImport:"Load data from a backup JSON file.", cmdUndo:"Undo the last action.", cmdRedo:"Redo the last undone action.",
       cmdTheme:"Toggle light / dark theme.", cmdClear:"Clear the feed. Your data is kept.", cmdHelp:"Show this list again.",
       dataLabel:"Data", eraseData:"Erase all data", eraseConfirmMsg:"This will permanently delete all your AP, tasks, history and to-dos. This cannot be undone.",
       erasedMsg:"All data erased.", cancelBtn:"Cancel", confirmBtn:"Erase", restoreHint:"Use Import to restore from a backup.",
-      apTooltip:"AP = Acta Point, earned by completing actions. Level is calculated from your total AP on an RPG-style curve â€” reach milestone levels for a small celebration.",
+      apTooltip:"AP = Acta Point, earned by completing actions. Level is calculated from your total AP on an RPG-style curve — reach milestone levels for a small celebration.",
       syncedAs:"Signed in as {email}", signOut:"Sign out", continueBtn:"Continue", syncFillFields:"Enter both email and password.",
       syncActiveNote:"Your data now syncs automatically across your devices while signed in.",
       syncConflictMsg:"This account already has data saved from another device. Which would you like to keep?",
-      syncKeepDevice:"Keep this device", syncUseCloud:"Use cloud data", syncUnavailable:"Sync isn't available right now â€” check your connection.",
+      syncKeepDevice:"Keep this device", syncUseCloud:"Use cloud data", syncUnavailable:"Sync isn't available right now — check your connection.",
       todayLabel:"done today", shortcutsHeader:"KEYBOARD SHORTCUTS", scFocus:"Focus the input", scEsc:"Close dialogs", scUndo:"Undo", scRedo:"Redo",
       scExport:"Export backup", scImport:"Import backup", scStats:"Open Statistics", scTheme:"Toggle theme", monthlyTitle:"MONTHLY FREQUENCY",
       exportJsonLabel:"Export JSON", exportPdfLabel:"Export PDF", navActaCard:"Acta Card",
-      profileNameLabel:"Name", profileNamePlaceholder:"Your name", profileBioLabel:"Bio", profileBioPlaceholder:"Tell us about yourselfâ€¦",
+      profileNameLabel:"Name", profileNamePlaceholder:"Your name", profileBioLabel:"Bio", profileBioPlaceholder:"Tell us about yourself…",
       profileCountryLabel:"Country", profileCountryPlaceholder:"Your country", changeAvatarLabel:"Tap to change photo",
       firstRunTitle:"Save your journey", firstRunMsg:"Sign in to keep your actions, streaks, and progress safe across every device.",
       firstRunSignIn:"Sign in", firstRunLater:"Maybe later",
       actaCardDownload:"Download Card", actaCardTasksDone:"Tasks done", actaCardMaxStreak:"Max streak", actaCardLinkProfile:"Profile link",
       actaCardThankYou:"Thank you", actaCardNeedSignIn:"Sign in to generate your Acta Card", actaCardVerified:"Verified",
-      publicProfileNotFound:"Profile not found", publicProfileTryActa:"Try Acta yourself", publicProfileLoading:"Loading profileâ€¦",
-      settingsTitle:"Settings", pdfUnavailable:"PDF export needs an internet connection to load â€” try again once you're online." },
+      publicProfileNotFound:"Profile not found", publicProfileTryActa:"Try Acta yourself", publicProfileLoading:"Loading profile…",
+      settingsTitle:"Settings", pdfUnavailable:"PDF export needs an internet connection to load — try again once you're online." },
 
-    vi:{ tagline:"viá»‡c Ä‘Ã£ lÃ m â€” khÃ´ng pháº£i viá»‡c Ä‘Ã£ Ä‘á»‹nh", level:"Cáº¤P", ap:"AP", streak:"ngÃ y liÃªn tiáº¿p",
-      stats:"Thá»‘ng kÃª", todo:"Viá»‡c cáº§n lÃ m", hint:"KhÃ´ng Ã¡p lá»±c, chá»‰ cÃ³ tiáº¿n bá»™. HÃ´m nay báº¡n Ä‘Ã£ hoÃ n thÃ nh gÃ¬?",
-      tabOverview:"Tá»•ng quan", tabHistory:"Lá»‹ch sá»­", tabDaily:"Theo ngÃ y", statsTitle:"THá»NG KÃŠ",
-      overviewEmpty:"Kho trá»‘ng. GÃµ /add <viá»‡c> Ä‘á»ƒ báº¯t Ä‘áº§u ghi nháº­n.",
-      overviewSummary:"{count} viá»‡c Ä‘ang theo dÃµi Â· {ap} AP",
-      colTask:"Viá»‡c", colCount:"Sá»‘ láº§n", colTotalAp:"Tá»•ng AP", colDate:"NgÃ y", colTime:"Giá»", colAp:"AP",
-      searchPlaceholder:"TÃ¬m theo tÃªn viá»‡câ€¦", clearFilters:"XÃ³a bá»™ lá»c", noMatch:"KhÃ´ng cÃ³ káº¿t quáº£ phÃ¹ há»£p.",
-      dailyEntries:"CÃC Má»¤C", dailyEmpty:"KhÃ´ng cÃ³ hÃ nh Ä‘á»™ng nÃ o Ä‘Æ°á»£c ghi trong ngÃ y nÃ y.", freqTitle:"Táº¦N SUáº¤T",
-      todoAddPlaceholder:"ThÃªm má»™t viá»‡câ€¦", todoEmpty:"ChÆ°a cÃ³ gÃ¬ á»Ÿ Ä‘Ã¢y. ThÃªm viá»‡c Ä‘áº§u tiÃªn á»Ÿ trÃªn.",
-      diffEasy:"Dá»…", diffNormal:"BÃ¬nh thÆ°á»ng", diffHard:"KhÃ³",
-      tabSync:"Äá»“ng bá»™", tabAchievements:"ThÃ nh tÃ­ch", tabLanguage:"NgÃ´n ngá»¯",
-      syncIntro:"Káº¿t ná»‘i tÃ i khoáº£n Ä‘á»ƒ Ä‘á»“ng bá»™ dá»¯ liá»‡u qua nhiá»u thiáº¿t bá»‹.",
-      syncSoon:"Äá»“ng bá»™ Ä‘Ã¡m mÃ¢y sáº½ cÃ³ trong báº£n cáº­p nháº­t sau. Hiá»‡n táº¡i, hÃ£y dÃ¹ng Export / Import Ä‘á»ƒ chuyá»ƒn dá»¯ liá»‡u giá»¯a cÃ¡c thiáº¿t bá»‹.",
-      syncGoogle:"Tiáº¿p tá»¥c vá»›i Google", syncGithub:"Tiáº¿p tá»¥c vá»›i GitHub", syncApple:"Tiáº¿p tá»¥c vá»›i Apple", syncEmail:"Tiáº¿p tá»¥c vá»›i Email",
-      achIntro:"Äáº¡t cÃ¡c cáº¥p nÃ y Ä‘á»ƒ má»Ÿ khÃ³a.", achLocked:"ÄÃ£ khÃ³a",
-      langIntro:"Chá»n ngÃ´n ngá»¯. Má»i thá»© sáº½ Ä‘á»•i theo â€” má»i mÃ n hÃ¬nh, má»i thÃ´ng bÃ¡o.",
-      soundLabel:"Ã‚m thanh", vibLabel:"Rung", volLabel:"Ã‚m lÆ°á»£ng", close:"ÄÃ³ng",
-      bootMsg:"PhiÃªn lÃ m viá»‡c báº¯t Ä‘áº§u â€” Acta v3.6.3", philMsg:"Triáº¿t lÃ½: viá»‡c Ä‘Ã£ lÃ m, khÃ´ng pháº£i viá»‡c Ä‘Ã£ Ä‘á»‹nh. KhÃ´ng lá»‹ch trÃ¬nh, chá»‰ ghi nháº­n.",
-      helpMsg:"GÃµ /help Ä‘á»ƒ xem danh sÃ¡ch lá»‡nh, hoáº·c gÃµ tháº³ng viá»‡c báº¡n Ä‘Ã£ lÃ m.", helpHeader:"DANH SÃCH Lá»†NH",
-      unknownCmd:"Lá»‡nh khÃ´ng tá»“n táº¡i: \"{cmd}\". GÃµ /help Ä‘á»ƒ xem danh sÃ¡ch lá»‡nh.",
-      addUsage:"CÃº phÃ¡p: /add <viá»‡c>", addInvalid:"TÃªn viá»‡c khÃ´ng há»£p lá»‡.",
-      addExisting:"+1 AP â€” \"{task}\" (láº§n thá»© {count})", addNew:"ÄÃ£ ghi nháº­n viá»‡c má»›i: \"{task}\" (+1 AP)",
-      delUsage:"CÃº phÃ¡p: /del <viá»‡c>", delOk:"ÄÃ£ xÃ³a \"{task}\" khá»i kho.", delNotFound:"KhÃ´ng tÃ¬m tháº¥y \"{task}\" trong kho.",
-      clearedMsg:"ÄÃ£ dá»n mÃ n hÃ¬nh. Dá»¯ liá»‡u váº«n Ä‘Æ°á»£c giá»¯ nguyÃªn.", exportedMsg:"ÄÃ£ táº£i file backup.",
-      importedMsg:"ÄÃ£ nháº­p dá»¯ liá»‡u tá»« \"{file}\".", importFailed:"Nháº­p tháº¥t báº¡i: file khÃ´ng Ä‘Ãºng Ä‘á»‹nh dáº¡ng JSON.", importReadFail:"Nháº­p tháº¥t báº¡i: khÃ´ng Ä‘á»c Ä‘Æ°á»£c file.",
-      undidMsg:"ÄÃ£ hoÃ n tÃ¡c thao tÃ¡c vá»«a rá»“i.", redidMsg:"ÄÃ£ lÃ m láº¡i thao tÃ¡c vá»«a hoÃ n tÃ¡c.",
-      todoDoneMsg:"ÄÃ£ hoÃ n thÃ nh \"{task}\" (+{ap} AP) Â· Viá»‡c cáº§n lÃ m", levelUp:"LÃªn cáº¥p {level}!", nicedBtn:"Tuyá»‡t!", account:"TÃ i khoáº£n",
-      cmdAdd:"Ghi nháº­n 1 hÃ nh Ä‘á»™ng. Viá»‡c cÅ© +AP vÃ  tÄƒng sá»‘ láº§n; viá»‡c má»›i tá»± Ä‘Äƒng kÃ½.",
-      cmdDel:"XÃ³a má»™t viá»‡c khá»i kho.", cmdList:"Má»Ÿ Thá»‘ng kÃª.", cmdExport:"Táº£i file backup dá»¯ liá»‡u dáº¡ng JSON.",
-      cmdImport:"Nháº­p dá»¯ liá»‡u tá»« file backup JSON.", cmdUndo:"HoÃ n tÃ¡c thao tÃ¡c gáº§n nháº¥t.", cmdRedo:"LÃ m láº¡i thao tÃ¡c vá»«a hoÃ n tÃ¡c.",
-      cmdTheme:"Chuyá»ƒn Ä‘á»•i giao diá»‡n sÃ¡ng / tá»‘i.", cmdClear:"Dá»n mÃ n hÃ¬nh. Dá»¯ liá»‡u váº«n Ä‘Æ°á»£c giá»¯.", cmdHelp:"Hiá»‡n láº¡i danh sÃ¡ch lá»‡nh.",
-      dataLabel:"Dá»¯ liá»‡u", eraseData:"XÃ³a toÃ n bá»™ dá»¯ liá»‡u", eraseConfirmMsg:"Thao tÃ¡c nÃ y sáº½ xÃ³a vÄ©nh viá»…n toÃ n bá»™ AP, viá»‡c, lá»‹ch sá»­ vÃ  viá»‡c cáº§n lÃ m cá»§a báº¡n. KhÃ´ng thá»ƒ hoÃ n tÃ¡c.",
-      erasedMsg:"ÄÃ£ xÃ³a toÃ n bá»™ dá»¯ liá»‡u.", cancelBtn:"Há»§y", confirmBtn:"XÃ³a", restoreHint:"DÃ¹ng Import Ä‘á»ƒ khÃ´i phá»¥c tá»« báº£n backup.",
-      apTooltip:"AP = Acta Point, nháº­n Ä‘Æ°á»£c khi hoÃ n thÃ nh hÃ nh Ä‘á»™ng. Cáº¥p Ä‘á»™ Ä‘Æ°á»£c tÃ­nh tá»« tá»•ng AP theo Ä‘Æ°á»ng cong kiá»ƒu RPG â€” Ä‘áº¡t cÃ¡c má»‘c cáº¥p Ä‘á»™ Ä‘á»ƒ cÃ³ má»™t khoáº£nh kháº¯c Äƒn má»«ng nhá».",
-      syncedAs:"ÄÃ£ Ä‘Äƒng nháº­p vá»›i {email}", signOut:"ÄÄƒng xuáº¥t", continueBtn:"Tiáº¿p tá»¥c", syncFillFields:"Vui lÃ²ng nháº­p cáº£ email vÃ  máº­t kháº©u.",
-      syncActiveNote:"Dá»¯ liá»‡u cá»§a báº¡n giá» sáº½ tá»± Ä‘á»™ng Ä‘á»“ng bá»™ qua cÃ¡c thiáº¿t bá»‹ khi Ä‘Ã£ Ä‘Äƒng nháº­p.",
-      syncConflictMsg:"TÃ i khoáº£n nÃ y Ä‘Ã£ cÃ³ dá»¯ liá»‡u lÆ°u tá»« thiáº¿t bá»‹ khÃ¡c. Báº¡n muá»‘n giá»¯ bÃªn nÃ o?",
-      syncKeepDevice:"Giá»¯ thiáº¿t bá»‹ nÃ y", syncUseCloud:"DÃ¹ng dá»¯ liá»‡u Ä‘Ã¡m mÃ¢y", syncUnavailable:"Äá»“ng bá»™ hiá»‡n khÃ´ng kháº£ dá»¥ng â€” kiá»ƒm tra káº¿t ná»‘i máº¡ng.",
-      todayLabel:"hoÃ n thÃ nh hÃ´m nay", shortcutsHeader:"PHÃM Táº®T", scFocus:"Focus vÃ o Ã´ nháº­p", scEsc:"ÄÃ³ng há»™p thoáº¡i", scUndo:"HoÃ n tÃ¡c", scRedo:"LÃ m láº¡i",
-      scExport:"Xuáº¥t backup", scImport:"Nháº­p backup", scStats:"Má»Ÿ Thá»‘ng kÃª", scTheme:"Äá»•i giao diá»‡n", monthlyTitle:"Táº¦N SUáº¤T THEO THÃNG",
-      exportJsonLabel:"Xuáº¥t JSON", exportPdfLabel:"Xuáº¥t PDF", navActaCard:"Acta Card",
-      profileNameLabel:"TÃªn", profileNamePlaceholder:"TÃªn cá»§a báº¡n", profileBioLabel:"Tiá»ƒu sá»­", profileBioPlaceholder:"Giá»›i thiá»‡u vá» báº¡nâ€¦",
-      profileCountryLabel:"Quá»‘c gia", profileCountryPlaceholder:"Quá»‘c gia cá»§a báº¡n", changeAvatarLabel:"Cháº¡m Ä‘á»ƒ Ä‘á»•i áº£nh",
-      firstRunTitle:"LÆ°u giá»¯ hÃ nh trÃ¬nh cá»§a báº¡n", firstRunMsg:"ÄÄƒng nháº­p Ä‘á»ƒ giá»¯ an toÃ n hÃ nh Ä‘á»™ng, chuá»—i ngÃ y vÃ  tiáº¿n trÃ¬nh cá»§a báº¡n trÃªn má»i thiáº¿t bá»‹.",
-      firstRunSignIn:"ÄÄƒng nháº­p", firstRunLater:"Äá»ƒ sau",
-      actaCardDownload:"Táº£i Card", actaCardTasksDone:"Viá»‡c Ä‘Ã£ lÃ m", actaCardMaxStreak:"Chuá»—i tá»‘i Ä‘a", actaCardLinkProfile:"Link há»“ sÆ¡",
-      actaCardThankYou:"Cáº£m Æ¡n báº¡n", actaCardNeedSignIn:"ÄÄƒng nháº­p Ä‘á»ƒ táº¡o Acta Card", actaCardVerified:"ÄÃ£ xÃ¡c thá»±c",
-      publicProfileNotFound:"KhÃ´ng tÃ¬m tháº¥y há»“ sÆ¡", publicProfileTryActa:"Tá»± tráº£i nghiá»‡m Acta", publicProfileLoading:"Äang táº£i há»“ sÆ¡â€¦",
-      settingsTitle:"CÃ i Ä‘áº·t", pdfUnavailable:"Xuáº¥t PDF cáº§n káº¿t ná»‘i máº¡ng Ä‘á»ƒ táº£i â€” thá»­ láº¡i khi cÃ³ máº¡ng." },
+    vi:{ tagline:"việc đã làm — không phải việc đã định", level:"CẤP", ap:"AP", streak:"ngày liên tiếp",
+      stats:"Thống kê", todo:"Việc cần làm", hint:"Không áp lực, chỉ có tiến bộ. Hôm nay bạn đã hoàn thành gì?",
+      tabOverview:"Tổng quan", tabHistory:"Lịch sử", tabDaily:"Theo ngày", statsTitle:"THỐNG KÊ",
+      overviewEmpty:"Kho trống. Gõ /add <việc> để bắt đầu ghi nhận.",
+      overviewSummary:"{count} việc đang theo dõi · {ap} AP",
+      colTask:"Việc", colCount:"Số lần", colTotalAp:"Tổng AP", colDate:"Ngày", colTime:"Giờ", colAp:"AP",
+      searchPlaceholder:"Tìm theo tên việc…", clearFilters:"Xóa bộ lọc", noMatch:"Không có kết quả phù hợp.",
+      dailyEntries:"CÁC MỤC", dailyEmpty:"Không có hành động nào được ghi trong ngày này.", freqTitle:"TẦN SUẤT",
+      todoAddPlaceholder:"Thêm một việc…", todoEmpty:"Chưa có gì ở đây. Thêm việc đầu tiên ở trên.",
+      diffEasy:"Dễ", diffNormal:"Bình thường", diffHard:"Khó",
+      tabSync:"Đồng bộ", tabAchievements:"Thành tích", tabLanguage:"Ngôn ngữ",
+      syncIntro:"Kết nối tài khoản để đồng bộ dữ liệu qua nhiều thiết bị.",
+      syncSoon:"Đồng bộ đám mây sẽ có trong bản cập nhật sau. Hiện tại, hãy dùng Export / Import để chuyển dữ liệu giữa các thiết bị.",
+      syncGoogle:"Tiếp tục với Google", syncGithub:"Tiếp tục với GitHub", syncApple:"Tiếp tục với Apple", syncEmail:"Tiếp tục với Email",
+      achIntro:"Đạt các cấp này để mở khóa.", achLocked:"Đã khóa",
+      langIntro:"Chọn ngôn ngữ. Mọi thứ sẽ đổi theo — mọi màn hình, mọi thông báo.",
+      soundLabel:"Âm thanh", vibLabel:"Rung", volLabel:"Âm lượng", close:"Đóng",
+      bootMsg:"Phiên làm việc bắt đầu — Acta v3.6.3", philMsg:"Triết lý: việc đã làm, không phải việc đã định. Không lịch trình, chỉ ghi nhận.",
+      helpMsg:"Gõ /help để xem danh sách lệnh, hoặc gõ thẳng việc bạn đã làm.", helpHeader:"DANH SÁCH LỆNH",
+      unknownCmd:"Lệnh không tồn tại: \"{cmd}\". Gõ /help để xem danh sách lệnh.",
+      addUsage:"Cú pháp: /add <việc>", addInvalid:"Tên việc không hợp lệ.",
+      addExisting:"+1 AP — \"{task}\" (lần thứ {count})", addNew:"Đã ghi nhận việc mới: \"{task}\" (+1 AP)",
+      delUsage:"Cú pháp: /del <việc>", delOk:"Đã xóa \"{task}\" khỏi kho.", delNotFound:"Không tìm thấy \"{task}\" trong kho.",
+      clearedMsg:"Đã dọn màn hình. Dữ liệu vẫn được giữ nguyên.", exportedMsg:"Đã tải file backup.",
+      importedMsg:"Đã nhập dữ liệu từ \"{file}\".", importFailed:"Nhập thất bại: file không đúng định dạng JSON.", importReadFail:"Nhập thất bại: không đọc được file.",
+      undidMsg:"Đã hoàn tác thao tác vừa rồi.", redidMsg:"Đã làm lại thao tác vừa hoàn tác.",
+      todoDoneMsg:"Đã hoàn thành \"{task}\" (+{ap} AP) · Việc cần làm", levelUp:"Lên cấp {level}!", nicedBtn:"Tuyệt!", account:"Tài khoản",
+      cmdAdd:"Ghi nhận 1 hành động. Việc cũ +AP và tăng số lần; việc mới tự đăng ký.",
+      cmdDel:"Xóa một việc khỏi kho.", cmdList:"Mở Thống kê.", cmdExport:"Tải file backup dữ liệu dạng JSON.",
+      cmdImport:"Nhập dữ liệu từ file backup JSON.", cmdUndo:"Hoàn tác thao tác gần nhất.", cmdRedo:"Làm lại thao tác vừa hoàn tác.",
+      cmdTheme:"Chuyển đổi giao diện sáng / tối.", cmdClear:"Dọn màn hình. Dữ liệu vẫn được giữ.", cmdHelp:"Hiện lại danh sách lệnh.",
+      dataLabel:"Dữ liệu", eraseData:"Xóa toàn bộ dữ liệu", eraseConfirmMsg:"Thao tác này sẽ xóa vĩnh viễn toàn bộ AP, việc, lịch sử và việc cần làm của bạn. Không thể hoàn tác.",
+      erasedMsg:"Đã xóa toàn bộ dữ liệu.", cancelBtn:"Hủy", confirmBtn:"Xóa", restoreHint:"Dùng Import để khôi phục từ bản backup.",
+      apTooltip:"AP = Acta Point, nhận được khi hoàn thành hành động. Cấp độ được tính từ tổng AP theo đường cong kiểu RPG — đạt các mốc cấp độ để có một khoảnh khắc ăn mừng nhỏ.",
+      syncedAs:"Đã đăng nhập với {email}", signOut:"Đăng xuất", continueBtn:"Tiếp tục", syncFillFields:"Vui lòng nhập cả email và mật khẩu.",
+      syncActiveNote:"Dữ liệu của bạn giờ sẽ tự động đồng bộ qua các thiết bị khi đã đăng nhập.",
+      syncConflictMsg:"Tài khoản này đã có dữ liệu lưu từ thiết bị khác. Bạn muốn giữ bên nào?",
+      syncKeepDevice:"Giữ thiết bị này", syncUseCloud:"Dùng dữ liệu đám mây", syncUnavailable:"Đồng bộ hiện không khả dụng — kiểm tra kết nối mạng.",
+      todayLabel:"hoàn thành hôm nay", shortcutsHeader:"PHÍM TẮT", scFocus:"Focus vào ô nhập", scEsc:"Đóng hộp thoại", scUndo:"Hoàn tác", scRedo:"Làm lại",
+      scExport:"Xuất backup", scImport:"Nhập backup", scStats:"Mở Thống kê", scTheme:"Đổi giao diện", monthlyTitle:"TẦN SUẤT THEO THÁNG",
+      exportJsonLabel:"Xuất JSON", exportPdfLabel:"Xuất PDF", navActaCard:"Acta Card",
+      profileNameLabel:"Tên", profileNamePlaceholder:"Tên của bạn", profileBioLabel:"Tiểu sử", profileBioPlaceholder:"Giới thiệu về bạn…",
+      profileCountryLabel:"Quốc gia", profileCountryPlaceholder:"Quốc gia của bạn", changeAvatarLabel:"Chạm để đổi ảnh",
+      firstRunTitle:"Lưu giữ hành trình của bạn", firstRunMsg:"Đăng nhập để giữ an toàn hành động, chuỗi ngày và tiến trình của bạn trên mọi thiết bị.",
+      firstRunSignIn:"Đăng nhập", firstRunLater:"Để sau",
+      actaCardDownload:"Tải Card", actaCardTasksDone:"Việc đã làm", actaCardMaxStreak:"Chuỗi tối đa", actaCardLinkProfile:"Link hồ sơ",
+      actaCardThankYou:"Cảm ơn bạn", actaCardNeedSignIn:"Đăng nhập để tạo Acta Card", actaCardVerified:"Đã xác thực",
+      publicProfileNotFound:"Không tìm thấy hồ sơ", publicProfileTryActa:"Tự trải nghiệm Acta", publicProfileLoading:"Đang tải hồ sơ…",
+      settingsTitle:"Cài đặt", pdfUnavailable:"Xuất PDF cần kết nối mạng để tải — thử lại khi có mạng." },
 
-    es:{ tagline:"cosas hechas â€” no cosas planeadas", level:"NIVEL", ap:"PA", streak:"dÃ­as seguidos",
-      stats:"EstadÃ­sticas", todo:"Tareas", hint:"Sin presiÃ³n, solo progreso. Â¿QuÃ© lograste hoy?",
-      tabOverview:"Resumen", tabHistory:"Historial", tabDaily:"Diario", statsTitle:"ESTADÃSTICAS",
-      overviewEmpty:"El repositorio estÃ¡ vacÃ­o. Escribe /add <tarea> para empezar.",
-      overviewSummary:"{count} tarea(s) registradas Â· {ap} PA en total",
+    es:{ tagline:"cosas hechas — no cosas planeadas", level:"NIVEL", ap:"PA", streak:"días seguidos",
+      stats:"Estadísticas", todo:"Tareas", hint:"Sin presión, solo progreso. ¿Qué lograste hoy?",
+      tabOverview:"Resumen", tabHistory:"Historial", tabDaily:"Diario", statsTitle:"ESTADÍSTICAS",
+      overviewEmpty:"El repositorio está vacío. Escribe /add <tarea> para empezar.",
+      overviewSummary:"{count} tarea(s) registradas · {ap} PA en total",
       colTask:"Tarea", colCount:"Veces", colTotalAp:"PA total", colDate:"Fecha", colTime:"Hora", colAp:"PA",
-      searchPlaceholder:"Buscar por nombre de tareaâ€¦", clearFilters:"Limpiar filtros", noMatch:"NingÃºn resultado coincide.",
-      dailyEntries:"ENTRADAS", dailyEmpty:"No se registraron acciones este dÃ­a.", freqTitle:"FRECUENCIA",
-      todoAddPlaceholder:"AÃ±adir una tareaâ€¦", todoEmpty:"Nada por aquÃ­ todavÃ­a. AÃ±ade tu primera tarea arriba.",
-      diffEasy:"FÃ¡cil", diffNormal:"Normal", diffHard:"DifÃ­cil",
+      searchPlaceholder:"Buscar por nombre de tarea…", clearFilters:"Limpiar filtros", noMatch:"Ningún resultado coincide.",
+      dailyEntries:"ENTRADAS", dailyEmpty:"No se registraron acciones este día.", freqTitle:"FRECUENCIA",
+      todoAddPlaceholder:"Añadir una tarea…", todoEmpty:"Nada por aquí todavía. Añade tu primera tarea arriba.",
+      diffEasy:"Fácil", diffNormal:"Normal", diffHard:"Difícil",
       tabSync:"Sincronizar", tabAchievements:"Logros", tabLanguage:"Idioma",
       syncIntro:"Conecta una cuenta para sincronizar tus datos entre dispositivos.",
-      syncSoon:"La sincronizaciÃ³n en la nube llegarÃ¡ en una futura actualizaciÃ³n. Por ahora, usa Exportar / Importar.",
+      syncSoon:"La sincronización en la nube llegará en una futura actualización. Por ahora, usa Exportar / Importar.",
       syncGoogle:"Continuar con Google", syncGithub:"Continuar con GitHub", syncApple:"Continuar con Apple", syncEmail:"Continuar con Email",
       achIntro:"Alcanza estos niveles para desbloquearlos.", achLocked:"Bloqueado",
-      langIntro:"Elige tu idioma. Todo cambia â€” cada pantalla, cada mensaje.",
-      soundLabel:"Sonido", vibLabel:"VibraciÃ³n", volLabel:"Volumen", close:"Cerrar",
-      bootMsg:"SesiÃ³n iniciada â€” Acta v3.6.3", philMsg:"FilosofÃ­a: cosas hechas, no cosas planeadas. Sin horarios, solo reconocimiento.",
+      langIntro:"Elige tu idioma. Todo cambia — cada pantalla, cada mensaje.",
+      soundLabel:"Sonido", vibLabel:"Vibración", volLabel:"Volumen", close:"Cerrar",
+      bootMsg:"Sesión iniciada — Acta v3.6.3", philMsg:"Filosofía: cosas hechas, no cosas planeadas. Sin horarios, solo reconocimiento.",
       helpMsg:"Escribe /help para ver los comandos, o simplemente escribe lo que hiciste.", helpHeader:"LISTA DE COMANDOS",
       unknownCmd:"Comando desconocido: \"{cmd}\". Escribe /help para ver la lista.",
-      addUsage:"Uso: /add <tarea>", addInvalid:"Ese nombre de tarea no es vÃ¡lido.",
-      addExisting:"+1 PA â€” \"{task}\" (vez #{count})", addNew:"Nueva tarea registrada: \"{task}\" (+1 PA)",
-      delUsage:"Uso: /del <tarea>", delOk:"Se eliminÃ³ \"{task}\" del repositorio.", delNotFound:"No se encontrÃ³ \"{task}\" en el repositorio.",
-      clearedMsg:"Pantalla despejada. Tus datos estÃ¡n intactos.", exportedMsg:"Archivo de backup descargado.",
-      importedMsg:"Datos importados desde \"{file}\".", importFailed:"Error al importar: el archivo no es JSON vÃ¡lido.", importReadFail:"Error al importar: no se pudo leer el archivo.",
-      undidMsg:"Se deshizo la Ãºltima acciÃ³n.", redidMsg:"Se rehizo la Ãºltima acciÃ³n deshecha.",
-      todoDoneMsg:"Completado \"{task}\" (+{ap} PA) Â· Tareas", levelUp:"Â¡Nivel {level}!", nicedBtn:"Â¡Genial!", account:"Cuenta",
-      cmdAdd:"Registra una acciÃ³n. Tarea existente: +PA y +1 al contador; una nueva se registra sola.",
-      cmdDel:"Elimina una tarea del repositorio.", cmdList:"Abre EstadÃ­sticas.", cmdExport:"Descarga un backup de tus datos en JSON.",
-      cmdImport:"Carga datos desde un archivo de backup JSON.", cmdUndo:"Deshace la Ãºltima acciÃ³n.", cmdRedo:"Rehace la Ãºltima acciÃ³n deshecha.",
+      addUsage:"Uso: /add <tarea>", addInvalid:"Ese nombre de tarea no es válido.",
+      addExisting:"+1 PA — \"{task}\" (vez #{count})", addNew:"Nueva tarea registrada: \"{task}\" (+1 PA)",
+      delUsage:"Uso: /del <tarea>", delOk:"Se eliminó \"{task}\" del repositorio.", delNotFound:"No se encontró \"{task}\" en el repositorio.",
+      clearedMsg:"Pantalla despejada. Tus datos están intactos.", exportedMsg:"Archivo de backup descargado.",
+      importedMsg:"Datos importados desde \"{file}\".", importFailed:"Error al importar: el archivo no es JSON válido.", importReadFail:"Error al importar: no se pudo leer el archivo.",
+      undidMsg:"Se deshizo la última acción.", redidMsg:"Se rehizo la última acción deshecha.",
+      todoDoneMsg:"Completado \"{task}\" (+{ap} PA) · Tareas", levelUp:"¡Nivel {level}!", nicedBtn:"¡Genial!", account:"Cuenta",
+      cmdAdd:"Registra una acción. Tarea existente: +PA y +1 al contador; una nueva se registra sola.",
+      cmdDel:"Elimina una tarea del repositorio.", cmdList:"Abre Estadísticas.", cmdExport:"Descarga un backup de tus datos en JSON.",
+      cmdImport:"Carga datos desde un archivo de backup JSON.", cmdUndo:"Deshace la última acción.", cmdRedo:"Rehace la última acción deshecha.",
       cmdTheme:"Alterna entre tema claro y oscuro.", cmdClear:"Limpia la pantalla. Tus datos se conservan.", cmdHelp:"Muestra esta lista de nuevo.",
-      dataLabel:"Datos", eraseData:"Borrar todos los datos", eraseConfirmMsg:"Esto eliminarÃ¡ permanentemente todo tu AP, tareas, historial y lista de tareas. No se puede deshacer.",
+      dataLabel:"Datos", eraseData:"Borrar todos los datos", eraseConfirmMsg:"Esto eliminará permanentemente todo tu AP, tareas, historial y lista de tareas. No se puede deshacer.",
       erasedMsg:"Todos los datos han sido borrados.", cancelBtn:"Cancelar", confirmBtn:"Borrar", restoreHint:"Usa Importar para restaurar desde un backup.",
-      apTooltip:"PA = Acta Point, se gana completando acciones. El nivel se calcula a partir del total de PA con una curva estilo RPG â€” alcanza niveles hito para una pequeÃ±a celebraciÃ³n.",
-      syncedAs:"SesiÃ³n iniciada como {email}", signOut:"Cerrar sesiÃ³n", continueBtn:"Continuar", syncFillFields:"Introduce el email y la contraseÃ±a.",
-      syncActiveNote:"Tus datos ahora se sincronizan automÃ¡ticamente entre tus dispositivos mientras tengas la sesiÃ³n iniciada.",
-      syncConflictMsg:"Esta cuenta ya tiene datos guardados de otro dispositivo. Â¿CuÃ¡l quieres conservar?",
-      syncKeepDevice:"Conservar este dispositivo", syncUseCloud:"Usar datos de la nube", syncUnavailable:"La sincronizaciÃ³n no estÃ¡ disponible ahora â€” revisa tu conexiÃ³n.",
-      todayLabel:"hechas hoy", shortcutsHeader:"ATAJOS DE TECLADO", scFocus:"Enfocar el campo de entrada", scEsc:"Cerrar diÃ¡logos", scUndo:"Deshacer", scRedo:"Rehacer",
-      scExport:"Exportar backup", scImport:"Importar backup", scStats:"Abrir EstadÃ­sticas", scTheme:"Cambiar tema", monthlyTitle:"FRECUENCIA MENSUAL",
+      apTooltip:"PA = Acta Point, se gana completando acciones. El nivel se calcula a partir del total de PA con una curva estilo RPG — alcanza niveles hito para una pequeña celebración.",
+      syncedAs:"Sesión iniciada como {email}", signOut:"Cerrar sesión", continueBtn:"Continuar", syncFillFields:"Introduce el email y la contraseña.",
+      syncActiveNote:"Tus datos ahora se sincronizan automáticamente entre tus dispositivos mientras tengas la sesión iniciada.",
+      syncConflictMsg:"Esta cuenta ya tiene datos guardados de otro dispositivo. ¿Cuál quieres conservar?",
+      syncKeepDevice:"Conservar este dispositivo", syncUseCloud:"Usar datos de la nube", syncUnavailable:"La sincronización no está disponible ahora — revisa tu conexión.",
+      todayLabel:"hechas hoy", shortcutsHeader:"ATAJOS DE TECLADO", scFocus:"Enfocar el campo de entrada", scEsc:"Cerrar diálogos", scUndo:"Deshacer", scRedo:"Rehacer",
+      scExport:"Exportar backup", scImport:"Importar backup", scStats:"Abrir Estadísticas", scTheme:"Cambiar tema", monthlyTitle:"FRECUENCIA MENSUAL",
       exportJsonLabel:"Exportar JSON", exportPdfLabel:"Exportar PDF", navActaCard:"Acta Card",
-      profileNameLabel:"Nombre", profileNamePlaceholder:"Tu nombre", profileBioLabel:"BiografÃ­a", profileBioPlaceholder:"CuÃ©ntanos sobre tiâ€¦",
-      profileCountryLabel:"PaÃ­s", profileCountryPlaceholder:"Tu paÃ­s", changeAvatarLabel:"Toca para cambiar la foto",
-      firstRunTitle:"Guarda tu recorrido", firstRunMsg:"Inicia sesiÃ³n para mantener seguras tus acciones, rachas y progreso en todos tus dispositivos.",
-      firstRunSignIn:"Iniciar sesiÃ³n", firstRunLater:"QuizÃ¡s luego",
-      actaCardDownload:"Descargar Card", actaCardTasksDone:"Tareas hechas", actaCardMaxStreak:"Racha mÃ¡xima", actaCardLinkProfile:"Enlace del perfil",
-      actaCardThankYou:"Gracias", actaCardNeedSignIn:"Inicia sesiÃ³n para generar tu Acta Card", actaCardVerified:"Verificado",
-      publicProfileNotFound:"Perfil no encontrado", publicProfileTryActa:"Prueba Acta tÃº mismo", publicProfileLoading:"Cargando perfilâ€¦",
-      settingsTitle:"Ajustes", pdfUnavailable:"La exportaciÃ³n a PDF necesita conexiÃ³n a internet â€” intÃ©ntalo de nuevo con conexiÃ³n." },
+      profileNameLabel:"Nombre", profileNamePlaceholder:"Tu nombre", profileBioLabel:"Biografía", profileBioPlaceholder:"Cuéntanos sobre ti…",
+      profileCountryLabel:"País", profileCountryPlaceholder:"Tu país", changeAvatarLabel:"Toca para cambiar la foto",
+      firstRunTitle:"Guarda tu recorrido", firstRunMsg:"Inicia sesión para mantener seguras tus acciones, rachas y progreso en todos tus dispositivos.",
+      firstRunSignIn:"Iniciar sesión", firstRunLater:"Quizás luego",
+      actaCardDownload:"Descargar Card", actaCardTasksDone:"Tareas hechas", actaCardMaxStreak:"Racha máxima", actaCardLinkProfile:"Enlace del perfil",
+      actaCardThankYou:"Gracias", actaCardNeedSignIn:"Inicia sesión para generar tu Acta Card", actaCardVerified:"Verificado",
+      publicProfileNotFound:"Perfil no encontrado", publicProfileTryActa:"Prueba Acta tú mismo", publicProfileLoading:"Cargando perfil…",
+      settingsTitle:"Ajustes", pdfUnavailable:"La exportación a PDF necesita conexión a internet — inténtalo de nuevo con conexión." },
 
-    fr:{ tagline:"des choses faites â€” pas des choses prÃ©vues", level:"NIVEAU", ap:"PA", streak:"jours de suite",
-      stats:"Statistiques", todo:"Ã€ faire", hint:"Sans pression, juste du progrÃ¨s. Qu'avez-vous accompli aujourd'hui ?",
-      tabOverview:"AperÃ§u", tabHistory:"Historique", tabDaily:"Journalier", statsTitle:"STATISTIQUES",
-      overviewEmpty:"Le dÃ©pÃ´t est vide. Tapez /add <tÃ¢che> pour commencer.",
-      overviewSummary:"{count} tÃ¢che(s) suivie(s) Â· {ap} PA au total",
-      colTask:"TÃ¢che", colCount:"Occurrences", colTotalAp:"PA total", colDate:"Date", colTime:"Heure", colAp:"PA",
-      searchPlaceholder:"Rechercher une tÃ¢cheâ€¦", clearFilters:"RÃ©initialiser", noMatch:"Aucun rÃ©sultat.",
-      dailyEntries:"ENTRÃ‰ES", dailyEmpty:"Aucune action enregistrÃ©e ce jour-lÃ .", freqTitle:"FRÃ‰QUENCE",
-      todoAddPlaceholder:"Ajouter une tÃ¢cheâ€¦", todoEmpty:"Rien ici pour l'instant. Ajoutez votre premiÃ¨re tÃ¢che ci-dessus.",
+    fr:{ tagline:"des choses faites — pas des choses prévues", level:"NIVEAU", ap:"PA", streak:"jours de suite",
+      stats:"Statistiques", todo:"À faire", hint:"Sans pression, juste du progrès. Qu'avez-vous accompli aujourd'hui ?",
+      tabOverview:"Aperçu", tabHistory:"Historique", tabDaily:"Journalier", statsTitle:"STATISTIQUES",
+      overviewEmpty:"Le dépôt est vide. Tapez /add <tâche> pour commencer.",
+      overviewSummary:"{count} tâche(s) suivie(s) · {ap} PA au total",
+      colTask:"Tâche", colCount:"Occurrences", colTotalAp:"PA total", colDate:"Date", colTime:"Heure", colAp:"PA",
+      searchPlaceholder:"Rechercher une tâche…", clearFilters:"Réinitialiser", noMatch:"Aucun résultat.",
+      dailyEntries:"ENTRÉES", dailyEmpty:"Aucune action enregistrée ce jour-là.", freqTitle:"FRÉQUENCE",
+      todoAddPlaceholder:"Ajouter une tâche…", todoEmpty:"Rien ici pour l'instant. Ajoutez votre première tâche ci-dessus.",
       diffEasy:"Facile", diffNormal:"Normal", diffHard:"Difficile",
-      tabSync:"Synchro", tabAchievements:"SuccÃ¨s", tabLanguage:"Langue",
-      syncIntro:"Connectez un compte pour synchroniser vos donnÃ©es entre appareils.",
-      syncSoon:"La synchronisation cloud arrive dans une prochaine mise Ã  jour. Utilisez Exporter / Importer pour l'instant.",
+      tabSync:"Synchro", tabAchievements:"Succès", tabLanguage:"Langue",
+      syncIntro:"Connectez un compte pour synchroniser vos données entre appareils.",
+      syncSoon:"La synchronisation cloud arrive dans une prochaine mise à jour. Utilisez Exporter / Importer pour l'instant.",
       syncGoogle:"Continuer avec Google", syncGithub:"Continuer avec GitHub", syncApple:"Continuer avec Apple", syncEmail:"Continuer avec Email",
-      achIntro:"Atteignez ces niveaux pour les dÃ©bloquer.", achLocked:"VerrouillÃ©",
-      langIntro:"Choisissez votre langue. Tout change â€” chaque Ã©cran, chaque message.",
+      achIntro:"Atteignez ces niveaux pour les débloquer.", achLocked:"Verrouillé",
+      langIntro:"Choisissez votre langue. Tout change — chaque écran, chaque message.",
       soundLabel:"Son", vibLabel:"Vibration", volLabel:"Volume", close:"Fermer",
-      bootMsg:"Session dÃ©marrÃ©e â€” Acta v3.6.3", philMsg:"Philosophie : des choses faites, pas des choses prÃ©vues. Pas d'horaire, juste de la reconnaissance.",
+      bootMsg:"Session démarrée — Acta v3.6.3", philMsg:"Philosophie : des choses faites, pas des choses prévues. Pas d'horaire, juste de la reconnaissance.",
       helpMsg:"Tapez /help pour la liste des commandes, ou tapez simplement ce que vous avez fait.", helpHeader:"LISTE DES COMMANDES",
       unknownCmd:"Commande inconnue : \"{cmd}\". Tapez /help pour la liste.",
-      addUsage:"Usage : /add <tÃ¢che>", addInvalid:"Ce nom de tÃ¢che n'est pas valide.",
-      addExisting:"+1 PA â€” \"{task}\" (occurrence nÂ°{count})", addNew:"Nouvelle tÃ¢che enregistrÃ©e : \"{task}\" (+1 PA)",
-      delUsage:"Usage : /del <tÃ¢che>", delOk:"\"{task}\" a Ã©tÃ© retirÃ©e du dÃ©pÃ´t.", delNotFound:"\"{task}\" est introuvable dans le dÃ©pÃ´t.",
-      clearedMsg:"Ã‰cran nettoyÃ©. Vos donnÃ©es sont intactes.", exportedMsg:"Fichier de sauvegarde tÃ©lÃ©chargÃ©.",
-      importedMsg:"DonnÃ©es importÃ©es depuis \"{file}\".", importFailed:"Ã‰chec de l'import : fichier JSON invalide.", importReadFail:"Ã‰chec de l'import : lecture du fichier impossible.",
-      undidMsg:"DerniÃ¨re action annulÃ©e.", redidMsg:"DerniÃ¨re annulation rÃ©tablie.",
-      todoDoneMsg:"TerminÃ© \"{task}\" (+{ap} PA) Â· Ã€ faire", levelUp:"Niveau {level} !", nicedBtn:"Super !", account:"Compte",
-      cmdAdd:"Enregistre une action. TÃ¢che existante : +PA et +1 occurrence ; une nouvelle s'enregistre automatiquement.",
-      cmdDel:"Retire une tÃ¢che du dÃ©pÃ´t.", cmdList:"Ouvre les Statistiques.", cmdExport:"TÃ©lÃ©charge une sauvegarde JSON de vos donnÃ©es.",
-      cmdImport:"Charge des donnÃ©es depuis un fichier de sauvegarde JSON.", cmdUndo:"Annule la derniÃ¨re action.", cmdRedo:"RÃ©tablit la derniÃ¨re annulation.",
-      cmdTheme:"Bascule entre thÃ¨me clair et sombre.", cmdClear:"Nettoie l'Ã©cran. Vos donnÃ©es sont conservÃ©es.", cmdHelp:"RÃ©affiche cette liste.",
-      dataLabel:"DonnÃ©es", eraseData:"Effacer toutes les donnÃ©es", eraseConfirmMsg:"Cela supprimera dÃ©finitivement tous vos PA, tÃ¢ches, historique et to-do. Action irrÃ©versible.",
-      erasedMsg:"Toutes les donnÃ©es ont Ã©tÃ© effacÃ©es.", cancelBtn:"Annuler", confirmBtn:"Effacer", restoreHint:"Utilisez Importer pour restaurer depuis une sauvegarde.",
-      apTooltip:"PA = Acta Point, gagnÃ© en accomplissant des actions. Le niveau est calculÃ© Ã  partir du total de PA selon une courbe faÃ§on RPG â€” atteignez des niveaux jalons pour une petite cÃ©lÃ©bration.",
-      syncedAs:"ConnectÃ© en tant que {email}", signOut:"Se dÃ©connecter", continueBtn:"Continuer", syncFillFields:"Renseignez l'email et le mot de passe.",
-      syncActiveNote:"Vos donnÃ©es se synchronisent dÃ©sormais automatiquement entre vos appareils tant que vous Ãªtes connectÃ©.",
-      syncConflictMsg:"Ce compte a dÃ©jÃ  des donnÃ©es enregistrÃ©es depuis un autre appareil. Lesquelles voulez-vous garder ?",
-      syncKeepDevice:"Garder cet appareil", syncUseCloud:"Utiliser les donnÃ©es du cloud", syncUnavailable:"La synchronisation n'est pas disponible pour le moment â€” vÃ©rifiez votre connexion.",
-      todayLabel:"faites aujourd'hui", shortcutsHeader:"RACCOURCIS CLAVIER", scFocus:"Focaliser la saisie", scEsc:"Fermer les dialogues", scUndo:"Annuler", scRedo:"RÃ©tablir",
-      scExport:"Exporter la sauvegarde", scImport:"Importer une sauvegarde", scStats:"Ouvrir les Statistiques", scTheme:"Changer de thÃ¨me", monthlyTitle:"FRÃ‰QUENCE MENSUELLE",
+      addUsage:"Usage : /add <tâche>", addInvalid:"Ce nom de tâche n'est pas valide.",
+      addExisting:"+1 PA — \"{task}\" (occurrence n°{count})", addNew:"Nouvelle tâche enregistrée : \"{task}\" (+1 PA)",
+      delUsage:"Usage : /del <tâche>", delOk:"\"{task}\" a été retirée du dépôt.", delNotFound:"\"{task}\" est introuvable dans le dépôt.",
+      clearedMsg:"Écran nettoyé. Vos données sont intactes.", exportedMsg:"Fichier de sauvegarde téléchargé.",
+      importedMsg:"Données importées depuis \"{file}\".", importFailed:"Échec de l'import : fichier JSON invalide.", importReadFail:"Échec de l'import : lecture du fichier impossible.",
+      undidMsg:"Dernière action annulée.", redidMsg:"Dernière annulation rétablie.",
+      todoDoneMsg:"Terminé \"{task}\" (+{ap} PA) · À faire", levelUp:"Niveau {level} !", nicedBtn:"Super !", account:"Compte",
+      cmdAdd:"Enregistre une action. Tâche existante : +PA et +1 occurrence ; une nouvelle s'enregistre automatiquement.",
+      cmdDel:"Retire une tâche du dépôt.", cmdList:"Ouvre les Statistiques.", cmdExport:"Télécharge une sauvegarde JSON de vos données.",
+      cmdImport:"Charge des données depuis un fichier de sauvegarde JSON.", cmdUndo:"Annule la dernière action.", cmdRedo:"Rétablit la dernière annulation.",
+      cmdTheme:"Bascule entre thème clair et sombre.", cmdClear:"Nettoie l'écran. Vos données sont conservées.", cmdHelp:"Réaffiche cette liste.",
+      dataLabel:"Données", eraseData:"Effacer toutes les données", eraseConfirmMsg:"Cela supprimera définitivement tous vos PA, tâches, historique et to-do. Action irréversible.",
+      erasedMsg:"Toutes les données ont été effacées.", cancelBtn:"Annuler", confirmBtn:"Effacer", restoreHint:"Utilisez Importer pour restaurer depuis une sauvegarde.",
+      apTooltip:"PA = Acta Point, gagné en accomplissant des actions. Le niveau est calculé à partir du total de PA selon une courbe façon RPG — atteignez des niveaux jalons pour une petite célébration.",
+      syncedAs:"Connecté en tant que {email}", signOut:"Se déconnecter", continueBtn:"Continuer", syncFillFields:"Renseignez l'email et le mot de passe.",
+      syncActiveNote:"Vos données se synchronisent désormais automatiquement entre vos appareils tant que vous êtes connecté.",
+      syncConflictMsg:"Ce compte a déjà des données enregistrées depuis un autre appareil. Lesquelles voulez-vous garder ?",
+      syncKeepDevice:"Garder cet appareil", syncUseCloud:"Utiliser les données du cloud", syncUnavailable:"La synchronisation n'est pas disponible pour le moment — vérifiez votre connexion.",
+      todayLabel:"faites aujourd'hui", shortcutsHeader:"RACCOURCIS CLAVIER", scFocus:"Focaliser la saisie", scEsc:"Fermer les dialogues", scUndo:"Annuler", scRedo:"Rétablir",
+      scExport:"Exporter la sauvegarde", scImport:"Importer une sauvegarde", scStats:"Ouvrir les Statistiques", scTheme:"Changer de thème", monthlyTitle:"FRÉQUENCE MENSUELLE",
       exportJsonLabel:"Exporter JSON", exportPdfLabel:"Exporter PDF", navActaCard:"Acta Card",
-      profileNameLabel:"Nom", profileNamePlaceholder:"Votre nom", profileBioLabel:"Bio", profileBioPlaceholder:"Parlez-nous de vousâ€¦",
+      profileNameLabel:"Nom", profileNamePlaceholder:"Votre nom", profileBioLabel:"Bio", profileBioPlaceholder:"Parlez-nous de vous…",
       profileCountryLabel:"Pays", profileCountryPlaceholder:"Votre pays", changeAvatarLabel:"Touchez pour changer la photo",
-      firstRunTitle:"Sauvegardez votre parcours", firstRunMsg:"Connectez-vous pour garder vos actions, sÃ©ries et progrÃ¨s en sÃ©curitÃ© sur tous vos appareils.",
+      firstRunTitle:"Sauvegardez votre parcours", firstRunMsg:"Connectez-vous pour garder vos actions, séries et progrès en sécurité sur tous vos appareils.",
       firstRunSignIn:"Se connecter", firstRunLater:"Plus tard",
-      actaCardDownload:"TÃ©lÃ©charger la Card", actaCardTasksDone:"TÃ¢ches faites", actaCardMaxStreak:"SÃ©rie max", actaCardLinkProfile:"Lien du profil",
-      actaCardThankYou:"Merci", actaCardNeedSignIn:"Connectez-vous pour gÃ©nÃ©rer votre Acta Card", actaCardVerified:"VÃ©rifiÃ©",
-      publicProfileNotFound:"Profil introuvable", publicProfileTryActa:"Essayez Acta vous-mÃªme", publicProfileLoading:"Chargement du profilâ€¦",
-      settingsTitle:"RÃ©glages", pdfUnavailable:"L'export PDF nÃ©cessite une connexion internet â€” rÃ©essayez une fois en ligne." },
+      actaCardDownload:"Télécharger la Card", actaCardTasksDone:"Tâches faites", actaCardMaxStreak:"Série max", actaCardLinkProfile:"Lien du profil",
+      actaCardThankYou:"Merci", actaCardNeedSignIn:"Connectez-vous pour générer votre Acta Card", actaCardVerified:"Vérifié",
+      publicProfileNotFound:"Profil introuvable", publicProfileTryActa:"Essayez Acta vous-même", publicProfileLoading:"Chargement du profil…",
+      settingsTitle:"Réglages", pdfUnavailable:"L'export PDF nécessite une connexion internet — réessayez une fois en ligne." },
 
-    de:{ tagline:"Erledigtes â€” kein Geplantes", level:"STUFE", ap:"AP", streak:"Tage in Folge",
+    de:{ tagline:"Erledigtes — kein Geplantes", level:"STUFE", ap:"AP", streak:"Tage in Folge",
       stats:"Statistik", todo:"Aufgaben", hint:"Kein Druck, nur Fortschritt. Was hast du heute geschafft?",
-      tabOverview:"Ãœbersicht", tabHistory:"Verlauf", tabDaily:"TÃ¤glich", statsTitle:"STATISTIK",
+      tabOverview:"Übersicht", tabHistory:"Verlauf", tabDaily:"Täglich", statsTitle:"STATISTIK",
       overviewEmpty:"Das Verzeichnis ist leer. Tippe /add <Aufgabe>, um zu starten.",
-      overviewSummary:"{count} erfasste Aufgabe(n) Â· {ap} AP insgesamt",
+      overviewSummary:"{count} erfasste Aufgabe(n) · {ap} AP insgesamt",
       colTask:"Aufgabe", colCount:"Anzahl", colTotalAp:"AP gesamt", colDate:"Datum", colTime:"Zeit", colAp:"AP",
-      searchPlaceholder:"Nach Aufgabenname suchenâ€¦", clearFilters:"Filter zurÃ¼cksetzen", noMatch:"Keine Treffer.",
-      dailyEntries:"EINTRÃ„GE", dailyEmpty:"An diesem Tag wurden keine Aktionen erfasst.", freqTitle:"HÃ„UFIGKEIT",
-      todoAddPlaceholder:"Aufgabe hinzufÃ¼genâ€¦", todoEmpty:"Noch nichts hier. FÃ¼ge oben deine erste Aufgabe hinzu.",
+      searchPlaceholder:"Nach Aufgabenname suchen…", clearFilters:"Filter zurücksetzen", noMatch:"Keine Treffer.",
+      dailyEntries:"EINTRÄGE", dailyEmpty:"An diesem Tag wurden keine Aktionen erfasst.", freqTitle:"HÄUFIGKEIT",
+      todoAddPlaceholder:"Aufgabe hinzufügen…", todoEmpty:"Noch nichts hier. Füge oben deine erste Aufgabe hinzu.",
       diffEasy:"Leicht", diffNormal:"Normal", diffHard:"Schwer",
       tabSync:"Sync", tabAchievements:"Erfolge", tabLanguage:"Sprache",
-      syncIntro:"Verbinde ein Konto, um Daten gerÃ¤teÃ¼bergreifend zu synchronisieren.",
-      syncSoon:"Cloud-Sync kommt in einem zukÃ¼nftigen Update. Nutze bis dahin Export / Import.",
+      syncIntro:"Verbinde ein Konto, um Daten geräteübergreifend zu synchronisieren.",
+      syncSoon:"Cloud-Sync kommt in einem zukünftigen Update. Nutze bis dahin Export / Import.",
       syncGoogle:"Weiter mit Google", syncGithub:"Weiter mit GitHub", syncApple:"Weiter mit Apple", syncEmail:"Weiter mit E-Mail",
       achIntro:"Erreiche diese Stufen, um sie freizuschalten.", achLocked:"Gesperrt",
-      langIntro:"WÃ¤hle deine Sprache. Alles wechselt â€” jeder Bildschirm, jede Nachricht.",
-      soundLabel:"Ton", vibLabel:"Vibration", volLabel:"LautstÃ¤rke", close:"SchlieÃŸen",
-      bootMsg:"Sitzung gestartet â€” Acta v3.6.3", philMsg:"Philosophie: Erledigtes zÃ¤hlt, nicht Geplantes. Kein Zeitplan, nur Anerkennung.",
-      helpMsg:"Tippe /help fÃ¼r die Befehlsliste, oder schreib einfach, was du getan hast.", helpHeader:"BEFEHLSLISTE",
-      unknownCmd:"Unbekannter Befehl: \"{cmd}\". Tippe /help fÃ¼r die Liste.",
-      addUsage:"Verwendung: /add <Aufgabe>", addInvalid:"Dieser Aufgabenname ist ungÃ¼ltig.",
-      addExisting:"+1 AP â€” \"{task}\" (#{count})", addNew:"Neue Aufgabe registriert: \"{task}\" (+1 AP)",
+      langIntro:"Wähle deine Sprache. Alles wechselt — jeder Bildschirm, jede Nachricht.",
+      soundLabel:"Ton", vibLabel:"Vibration", volLabel:"Lautstärke", close:"Schließen",
+      bootMsg:"Sitzung gestartet — Acta v3.6.3", philMsg:"Philosophie: Erledigtes zählt, nicht Geplantes. Kein Zeitplan, nur Anerkennung.",
+      helpMsg:"Tippe /help für die Befehlsliste, oder schreib einfach, was du getan hast.", helpHeader:"BEFEHLSLISTE",
+      unknownCmd:"Unbekannter Befehl: \"{cmd}\". Tippe /help für die Liste.",
+      addUsage:"Verwendung: /add <Aufgabe>", addInvalid:"Dieser Aufgabenname ist ungültig.",
+      addExisting:"+1 AP — \"{task}\" (#{count})", addNew:"Neue Aufgabe registriert: \"{task}\" (+1 AP)",
       delUsage:"Verwendung: /del <Aufgabe>", delOk:"\"{task}\" wurde entfernt.", delNotFound:"\"{task}\" wurde nicht gefunden.",
       clearedMsg:"Bildschirm geleert. Deine Daten bleiben erhalten.", exportedMsg:"Backup-Datei heruntergeladen.",
-      importedMsg:"Daten aus \"{file}\" importiert.", importFailed:"Import fehlgeschlagen: ungÃ¼ltige JSON-Datei.", importReadFail:"Import fehlgeschlagen: Datei konnte nicht gelesen werden.",
-      undidMsg:"Letzte Aktion rÃ¼ckgÃ¤ngig gemacht.", redidMsg:"Letzte rÃ¼ckgÃ¤ngig gemachte Aktion wiederholt.",
-      todoDoneMsg:"\"{task}\" erledigt (+{ap} AP) Â· Aufgaben", levelUp:"Stufe {level}!", nicedBtn:"Super!", account:"Konto",
-      cmdAdd:"Erfasst eine Aktion. Bestehende Aufgabe: +AP und ZÃ¤hler +1; neue registriert sich automatisch.",
-      cmdDel:"Entfernt eine Aufgabe.", cmdList:"Ã–ffnet die Statistik.", cmdExport:"LÃ¤dt ein JSON-Backup deiner Daten herunter.",
-      cmdImport:"LÃ¤dt Daten aus einer JSON-Backup-Datei.", cmdUndo:"Macht die letzte Aktion rÃ¼ckgÃ¤ngig.", cmdRedo:"Stellt die letzte rÃ¼ckgÃ¤ngig gemachte Aktion wieder her.",
+      importedMsg:"Daten aus \"{file}\" importiert.", importFailed:"Import fehlgeschlagen: ungültige JSON-Datei.", importReadFail:"Import fehlgeschlagen: Datei konnte nicht gelesen werden.",
+      undidMsg:"Letzte Aktion rückgängig gemacht.", redidMsg:"Letzte rückgängig gemachte Aktion wiederholt.",
+      todoDoneMsg:"\"{task}\" erledigt (+{ap} AP) · Aufgaben", levelUp:"Stufe {level}!", nicedBtn:"Super!", account:"Konto",
+      cmdAdd:"Erfasst eine Aktion. Bestehende Aufgabe: +AP und Zähler +1; neue registriert sich automatisch.",
+      cmdDel:"Entfernt eine Aufgabe.", cmdList:"Öffnet die Statistik.", cmdExport:"Lädt ein JSON-Backup deiner Daten herunter.",
+      cmdImport:"Lädt Daten aus einer JSON-Backup-Datei.", cmdUndo:"Macht die letzte Aktion rückgängig.", cmdRedo:"Stellt die letzte rückgängig gemachte Aktion wieder her.",
       cmdTheme:"Wechselt zwischen hellem und dunklem Design.", cmdClear:"Leert den Bildschirm. Deine Daten bleiben erhalten.", cmdHelp:"Zeigt diese Liste erneut.",
-      dataLabel:"Daten", eraseData:"Alle Daten lÃ¶schen", eraseConfirmMsg:"Dadurch werden alle deine AP, Aufgaben, dein Verlauf und deine To-Dos dauerhaft gelÃ¶scht. Das kann nicht rÃ¼ckgÃ¤ngig gemacht werden.",
-      erasedMsg:"Alle Daten wurden gelÃ¶scht.", cancelBtn:"Abbrechen", confirmBtn:"LÃ¶schen", restoreHint:"Nutze Import, um aus einem Backup wiederherzustellen.",
-      apTooltip:"AP = Acta Point, erhalten durch abgeschlossene Aktionen. Die Stufe wird aus deinem gesamten AP nach einer RPG-artigen Kurve berechnet â€” erreiche Meilenstein-Stufen fÃ¼r eine kleine Feier.",
+      dataLabel:"Daten", eraseData:"Alle Daten löschen", eraseConfirmMsg:"Dadurch werden alle deine AP, Aufgaben, dein Verlauf und deine To-Dos dauerhaft gelöscht. Das kann nicht rückgängig gemacht werden.",
+      erasedMsg:"Alle Daten wurden gelöscht.", cancelBtn:"Abbrechen", confirmBtn:"Löschen", restoreHint:"Nutze Import, um aus einem Backup wiederherzustellen.",
+      apTooltip:"AP = Acta Point, erhalten durch abgeschlossene Aktionen. Die Stufe wird aus deinem gesamten AP nach einer RPG-artigen Kurve berechnet — erreiche Meilenstein-Stufen für eine kleine Feier.",
       syncedAs:"Angemeldet als {email}", signOut:"Abmelden", continueBtn:"Weiter", syncFillFields:"Bitte E-Mail und Passwort eingeben.",
-      syncActiveNote:"Deine Daten werden jetzt automatisch zwischen deinen GerÃ¤ten synchronisiert, solange du angemeldet bist.",
-      syncConflictMsg:"Dieses Konto hat bereits gespeicherte Daten von einem anderen GerÃ¤t. Welche mÃ¶chtest du behalten?",
-      syncKeepDevice:"Dieses GerÃ¤t behalten", syncUseCloud:"Cloud-Daten verwenden", syncUnavailable:"Synchronisierung ist gerade nicht verfÃ¼gbar â€” Ã¼berprÃ¼fe deine Verbindung.",
-      todayLabel:"heute erledigt", shortcutsHeader:"TASTENKÃœRZEL", scFocus:"Eingabe fokussieren", scEsc:"Dialoge schlieÃŸen", scUndo:"RÃ¼ckgÃ¤ngig", scRedo:"Wiederholen",
-      scExport:"Backup exportieren", scImport:"Backup importieren", scStats:"Statistik Ã¶ffnen", scTheme:"Design wechseln", monthlyTitle:"MONATLICHE HÃ„UFIGKEIT",
+      syncActiveNote:"Deine Daten werden jetzt automatisch zwischen deinen Geräten synchronisiert, solange du angemeldet bist.",
+      syncConflictMsg:"Dieses Konto hat bereits gespeicherte Daten von einem anderen Gerät. Welche möchtest du behalten?",
+      syncKeepDevice:"Dieses Gerät behalten", syncUseCloud:"Cloud-Daten verwenden", syncUnavailable:"Synchronisierung ist gerade nicht verfügbar — überprüfe deine Verbindung.",
+      todayLabel:"heute erledigt", shortcutsHeader:"TASTENKÜRZEL", scFocus:"Eingabe fokussieren", scEsc:"Dialoge schließen", scUndo:"Rückgängig", scRedo:"Wiederholen",
+      scExport:"Backup exportieren", scImport:"Backup importieren", scStats:"Statistik öffnen", scTheme:"Design wechseln", monthlyTitle:"MONATLICHE HÄUFIGKEIT",
       exportJsonLabel:"JSON exportieren", exportPdfLabel:"PDF exportieren", navActaCard:"Acta Card",
-      profileNameLabel:"Name", profileNamePlaceholder:"Dein Name", profileBioLabel:"Bio", profileBioPlaceholder:"ErzÃ¤hl uns von dirâ€¦",
-      profileCountryLabel:"Land", profileCountryPlaceholder:"Dein Land", changeAvatarLabel:"Tippen, um das Foto zu Ã¤ndern",
-      firstRunTitle:"Sichere deine Reise", firstRunMsg:"Melde dich an, um deine Aktionen, Serien und Fortschritte gerÃ¤teÃ¼bergreifend sicher zu halten.",
-      firstRunSignIn:"Anmelden", firstRunLater:"Vielleicht spÃ¤ter",
-      actaCardDownload:"Card herunterladen", actaCardTasksDone:"Erledigte Aufgaben", actaCardMaxStreak:"LÃ¤ngste Serie", actaCardLinkProfile:"Profil-Link",
+      profileNameLabel:"Name", profileNamePlaceholder:"Dein Name", profileBioLabel:"Bio", profileBioPlaceholder:"Erzähl uns von dir…",
+      profileCountryLabel:"Land", profileCountryPlaceholder:"Dein Land", changeAvatarLabel:"Tippen, um das Foto zu ändern",
+      firstRunTitle:"Sichere deine Reise", firstRunMsg:"Melde dich an, um deine Aktionen, Serien und Fortschritte geräteübergreifend sicher zu halten.",
+      firstRunSignIn:"Anmelden", firstRunLater:"Vielleicht später",
+      actaCardDownload:"Card herunterladen", actaCardTasksDone:"Erledigte Aufgaben", actaCardMaxStreak:"Längste Serie", actaCardLinkProfile:"Profil-Link",
       actaCardThankYou:"Danke", actaCardNeedSignIn:"Melde dich an, um deine Acta Card zu erstellen", actaCardVerified:"Verifiziert",
-      publicProfileNotFound:"Profil nicht gefunden", publicProfileTryActa:"Probier Acta selbst aus", publicProfileLoading:"Profil wird geladenâ€¦",
-      settingsTitle:"Einstellungen", pdfUnavailable:"Der PDF-Export benÃ¶tigt eine Internetverbindung â€” versuche es erneut, sobald du online bist." },
+      publicProfileNotFound:"Profil nicht gefunden", publicProfileTryActa:"Probier Acta selbst aus", publicProfileLoading:"Profil wird geladen…",
+      settingsTitle:"Einstellungen", pdfUnavailable:"Der PDF-Export benötigt eine Internetverbindung — versuche es erneut, sobald du online bist." },
 
-    pt:{ tagline:"coisas feitas â€” nÃ£o coisas planejadas", level:"NÃVEL", ap:"PA", streak:"dias seguidos",
-      stats:"EstatÃ­sticas", todo:"Tarefas", hint:"Sem pressÃ£o, sÃ³ progresso. O que vocÃª concluiu hoje?",
-      tabOverview:"VisÃ£o geral", tabHistory:"HistÃ³rico", tabDaily:"DiÃ¡rio", statsTitle:"ESTATÃSTICAS",
-      overviewEmpty:"O repositÃ³rio estÃ¡ vazio. Digite /add <tarefa> para comeÃ§ar.",
-      overviewSummary:"{count} tarefa(s) monitorada(s) Â· {ap} PA no total",
+    pt:{ tagline:"coisas feitas — não coisas planejadas", level:"NÍVEL", ap:"PA", streak:"dias seguidos",
+      stats:"Estatísticas", todo:"Tarefas", hint:"Sem pressão, só progresso. O que você concluiu hoje?",
+      tabOverview:"Visão geral", tabHistory:"Histórico", tabDaily:"Diário", statsTitle:"ESTATÍSTICAS",
+      overviewEmpty:"O repositório está vazio. Digite /add <tarefa> para começar.",
+      overviewSummary:"{count} tarefa(s) monitorada(s) · {ap} PA no total",
       colTask:"Tarefa", colCount:"Vezes", colTotalAp:"PA total", colDate:"Data", colTime:"Hora", colAp:"PA",
-      searchPlaceholder:"Buscar por nome da tarefaâ€¦", clearFilters:"Limpar filtros", noMatch:"Nenhum resultado encontrado.",
-      dailyEntries:"REGISTROS", dailyEmpty:"Nenhuma aÃ§Ã£o registrada neste dia.", freqTitle:"FREQUÃŠNCIA",
-      todoAddPlaceholder:"Adicionar uma tarefaâ€¦", todoEmpty:"Nada por aqui ainda. Adicione sua primeira tarefa acima.",
-      diffEasy:"FÃ¡cil", diffNormal:"Normal", diffHard:"DifÃ­cil",
+      searchPlaceholder:"Buscar por nome da tarefa…", clearFilters:"Limpar filtros", noMatch:"Nenhum resultado encontrado.",
+      dailyEntries:"REGISTROS", dailyEmpty:"Nenhuma ação registrada neste dia.", freqTitle:"FREQUÊNCIA",
+      todoAddPlaceholder:"Adicionar uma tarefa…", todoEmpty:"Nada por aqui ainda. Adicione sua primeira tarefa acima.",
+      diffEasy:"Fácil", diffNormal:"Normal", diffHard:"Difícil",
       tabSync:"Sincronizar", tabAchievements:"Conquistas", tabLanguage:"Idioma",
       syncIntro:"Conecte uma conta para sincronizar seus dados entre dispositivos.",
-      syncSoon:"A sincronizaÃ§Ã£o em nuvem chega em uma atualizaÃ§Ã£o futura. Por enquanto, use Exportar / Importar.",
+      syncSoon:"A sincronização em nuvem chega em uma atualização futura. Por enquanto, use Exportar / Importar.",
       syncGoogle:"Continuar com Google", syncGithub:"Continuar com GitHub", syncApple:"Continuar com Apple", syncEmail:"Continuar com Email",
-      achIntro:"Alcance esses nÃ­veis para desbloqueÃ¡-los.", achLocked:"Bloqueado",
-      langIntro:"Escolha seu idioma. Tudo muda â€” cada tela, cada mensagem.",
-      soundLabel:"Som", vibLabel:"VibraÃ§Ã£o", volLabel:"Volume", close:"Fechar",
-      bootMsg:"SessÃ£o iniciada â€” Acta v3.6.3", philMsg:"Filosofia: coisas feitas, nÃ£o coisas planejadas. Sem agenda, sÃ³ reconhecimento.",
-      helpMsg:"Digite /help para a lista de comandos, ou apenas digite o que vocÃª fez.", helpHeader:"LISTA DE COMANDOS",
+      achIntro:"Alcance esses níveis para desbloqueá-los.", achLocked:"Bloqueado",
+      langIntro:"Escolha seu idioma. Tudo muda — cada tela, cada mensagem.",
+      soundLabel:"Som", vibLabel:"Vibração", volLabel:"Volume", close:"Fechar",
+      bootMsg:"Sessão iniciada — Acta v3.6.3", philMsg:"Filosofia: coisas feitas, não coisas planejadas. Sem agenda, só reconhecimento.",
+      helpMsg:"Digite /help para a lista de comandos, ou apenas digite o que você fez.", helpHeader:"LISTA DE COMANDOS",
       unknownCmd:"Comando desconhecido: \"{cmd}\". Digite /help para a lista.",
-      addUsage:"Uso: /add <tarefa>", addInvalid:"Esse nome de tarefa nÃ£o Ã© vÃ¡lido.",
-      addExisting:"+1 PA â€” \"{task}\" (vez #{count})", addNew:"Nova tarefa registrada: \"{task}\" (+1 PA)",
-      delUsage:"Uso: /del <tarefa>", delOk:"\"{task}\" foi removida do repositÃ³rio.", delNotFound:"\"{task}\" nÃ£o foi encontrada no repositÃ³rio.",
-      clearedMsg:"Tela limpa. Seus dados estÃ£o intactos.", exportedMsg:"Arquivo de backup baixado.",
-      importedMsg:"Dados importados de \"{file}\".", importFailed:"Falha na importaÃ§Ã£o: arquivo JSON invÃ¡lido.", importReadFail:"Falha na importaÃ§Ã£o: nÃ£o foi possÃ­vel ler o arquivo.",
-      undidMsg:"Ãšltima aÃ§Ã£o desfeita.", redidMsg:"Ãšltima aÃ§Ã£o desfeita foi refeita.",
-      todoDoneMsg:"ConcluÃ­do \"{task}\" (+{ap} PA) Â· Tarefas", levelUp:"NÃ­vel {level}!", nicedBtn:"Ã“timo!", account:"Conta",
-      cmdAdd:"Registra uma aÃ§Ã£o. Tarefa existente: +PA e +1 na contagem; uma nova se registra sozinha.",
-      cmdDel:"Remove uma tarefa do repositÃ³rio.", cmdList:"Abre as EstatÃ­sticas.", cmdExport:"Baixa um backup dos seus dados em JSON.",
-      cmdImport:"Carrega dados de um arquivo de backup JSON.", cmdUndo:"Desfaz a Ãºltima aÃ§Ã£o.", cmdRedo:"Refaz a Ãºltima aÃ§Ã£o desfeita.",
-      cmdTheme:"Alterna entre tema claro e escuro.", cmdClear:"Limpa a tela. Seus dados sÃ£o mantidos.", cmdHelp:"Mostra esta lista novamente.",
-      dataLabel:"Dados", eraseData:"Apagar todos os dados", eraseConfirmMsg:"Isso vai apagar permanentemente todos os seus PA, tarefas, histÃ³rico e lista de tarefas. NÃ£o pode ser desfeito.",
+      addUsage:"Uso: /add <tarefa>", addInvalid:"Esse nome de tarefa não é válido.",
+      addExisting:"+1 PA — \"{task}\" (vez #{count})", addNew:"Nova tarefa registrada: \"{task}\" (+1 PA)",
+      delUsage:"Uso: /del <tarefa>", delOk:"\"{task}\" foi removida do repositório.", delNotFound:"\"{task}\" não foi encontrada no repositório.",
+      clearedMsg:"Tela limpa. Seus dados estão intactos.", exportedMsg:"Arquivo de backup baixado.",
+      importedMsg:"Dados importados de \"{file}\".", importFailed:"Falha na importação: arquivo JSON inválido.", importReadFail:"Falha na importação: não foi possível ler o arquivo.",
+      undidMsg:"Última ação desfeita.", redidMsg:"Última ação desfeita foi refeita.",
+      todoDoneMsg:"Concluído \"{task}\" (+{ap} PA) · Tarefas", levelUp:"Nível {level}!", nicedBtn:"Ótimo!", account:"Conta",
+      cmdAdd:"Registra uma ação. Tarefa existente: +PA e +1 na contagem; uma nova se registra sozinha.",
+      cmdDel:"Remove uma tarefa do repositório.", cmdList:"Abre as Estatísticas.", cmdExport:"Baixa um backup dos seus dados em JSON.",
+      cmdImport:"Carrega dados de um arquivo de backup JSON.", cmdUndo:"Desfaz a última ação.", cmdRedo:"Refaz a última ação desfeita.",
+      cmdTheme:"Alterna entre tema claro e escuro.", cmdClear:"Limpa a tela. Seus dados são mantidos.", cmdHelp:"Mostra esta lista novamente.",
+      dataLabel:"Dados", eraseData:"Apagar todos os dados", eraseConfirmMsg:"Isso vai apagar permanentemente todos os seus PA, tarefas, histórico e lista de tarefas. Não pode ser desfeito.",
       erasedMsg:"Todos os dados foram apagados.", cancelBtn:"Cancelar", confirmBtn:"Apagar", restoreHint:"Use Importar para restaurar a partir de um backup.",
-      apTooltip:"PA = Acta Point, obtido ao concluir aÃ§Ãµes. O nÃ­vel Ã© calculado a partir do total de PA numa curva estilo RPG â€” alcance nÃ­veis marco para uma pequena celebraÃ§Ã£o.",
-      syncedAs:"SessÃ£o iniciada como {email}", signOut:"Sair", continueBtn:"Continuar", syncFillFields:"Preencha o email e a senha.",
-      syncActiveNote:"Seus dados agora sincronizam automaticamente entre seus dispositivos enquanto vocÃª estiver conectado.",
-      syncConflictMsg:"Esta conta jÃ¡ tem dados salvos de outro dispositivo. Qual vocÃª quer manter?",
-      syncKeepDevice:"Manter este dispositivo", syncUseCloud:"Usar dados da nuvem", syncUnavailable:"A sincronizaÃ§Ã£o nÃ£o estÃ¡ disponÃ­vel agora â€” verifique sua conexÃ£o.",
-      todayLabel:"feitas hoje", shortcutsHeader:"ATALHOS DE TECLADO", scFocus:"Focar no campo de entrada", scEsc:"Fechar diÃ¡logos", scUndo:"Desfazer", scRedo:"Refazer",
-      scExport:"Exportar backup", scImport:"Importar backup", scStats:"Abrir EstatÃ­sticas", scTheme:"Alternar tema", monthlyTitle:"FREQUÃŠNCIA MENSAL",
+      apTooltip:"PA = Acta Point, obtido ao concluir ações. O nível é calculado a partir do total de PA numa curva estilo RPG — alcance níveis marco para uma pequena celebração.",
+      syncedAs:"Sessão iniciada como {email}", signOut:"Sair", continueBtn:"Continuar", syncFillFields:"Preencha o email e a senha.",
+      syncActiveNote:"Seus dados agora sincronizam automaticamente entre seus dispositivos enquanto você estiver conectado.",
+      syncConflictMsg:"Esta conta já tem dados salvos de outro dispositivo. Qual você quer manter?",
+      syncKeepDevice:"Manter este dispositivo", syncUseCloud:"Usar dados da nuvem", syncUnavailable:"A sincronização não está disponível agora — verifique sua conexão.",
+      todayLabel:"feitas hoje", shortcutsHeader:"ATALHOS DE TECLADO", scFocus:"Focar no campo de entrada", scEsc:"Fechar diálogos", scUndo:"Desfazer", scRedo:"Refazer",
+      scExport:"Exportar backup", scImport:"Importar backup", scStats:"Abrir Estatísticas", scTheme:"Alternar tema", monthlyTitle:"FREQUÊNCIA MENSAL",
       exportJsonLabel:"Exportar JSON", exportPdfLabel:"Exportar PDF", navActaCard:"Acta Card",
-      profileNameLabel:"Nome", profileNamePlaceholder:"Seu nome", profileBioLabel:"Bio", profileBioPlaceholder:"Conte-nos sobre vocÃªâ€¦",
-      profileCountryLabel:"PaÃ­s", profileCountryPlaceholder:"Seu paÃ­s", changeAvatarLabel:"Toque para trocar a foto",
-      firstRunTitle:"Salve sua jornada", firstRunMsg:"Entre para manter suas aÃ§Ãµes, sequÃªncias e progresso seguros em todos os dispositivos.",
+      profileNameLabel:"Nome", profileNamePlaceholder:"Seu nome", profileBioLabel:"Bio", profileBioPlaceholder:"Conte-nos sobre você…",
+      profileCountryLabel:"País", profileCountryPlaceholder:"Seu país", changeAvatarLabel:"Toque para trocar a foto",
+      firstRunTitle:"Salve sua jornada", firstRunMsg:"Entre para manter suas ações, sequências e progresso seguros em todos os dispositivos.",
       firstRunSignIn:"Entrar", firstRunLater:"Talvez depois",
-      actaCardDownload:"Baixar Card", actaCardTasksDone:"Tarefas feitas", actaCardMaxStreak:"SequÃªncia mÃ¡xima", actaCardLinkProfile:"Link do perfil",
+      actaCardDownload:"Baixar Card", actaCardTasksDone:"Tarefas feitas", actaCardMaxStreak:"Sequência máxima", actaCardLinkProfile:"Link do perfil",
       actaCardThankYou:"Obrigado", actaCardNeedSignIn:"Entre para gerar seu Acta Card", actaCardVerified:"Verificado",
-      publicProfileNotFound:"Perfil nÃ£o encontrado", publicProfileTryActa:"Experimente o Acta vocÃª mesmo", publicProfileLoading:"Carregando perfilâ€¦",
-      settingsTitle:"ConfiguraÃ§Ãµes", pdfUnavailable:"A exportaÃ§Ã£o em PDF precisa de conexÃ£o com a internet â€” tente novamente quando estiver online." },
+      publicProfileNotFound:"Perfil não encontrado", publicProfileTryActa:"Experimente o Acta você mesmo", publicProfileLoading:"Carregando perfil…",
+      settingsTitle:"Configurações", pdfUnavailable:"A exportação em PDF precisa de conexão com a internet — tente novamente quando estiver online." },
 
-    ja:{ tagline:"ã‚„ã£ãŸã“ã¨ â€• äºˆå®šã§ã¯ãªã", level:"ãƒ¬ãƒ™ãƒ«", ap:"AP", streak:"é€£ç¶šæ—¥æ•°",
-      stats:"çµ±è¨ˆ", todo:"To-Do", hint:"ãƒ—ãƒ¬ãƒƒã‚·ãƒ£ãƒ¼ã¯ã„ã‚‰ãªã„ã€å‰é€²ã‚ã‚‹ã®ã¿ã€‚ä»Šæ—¥ä½•ã‚’é”æˆã—ã¾ã—ãŸã‹ï¼Ÿ",
-      tabOverview:"æ¦‚è¦", tabHistory:"å±¥æ­´", tabDaily:"æ—¥åˆ¥", statsTitle:"çµ±è¨ˆ",
-      overviewEmpty:"ãƒªãƒã‚¸ãƒˆãƒªã¯ç©ºã§ã™ã€‚/add <ã‚¿ã‚¹ã‚¯> ã¨å…¥åŠ›ã—ã¦è¨˜éŒ²ã‚’å§‹ã‚ã¾ã—ã‚‡ã†ã€‚",
-      overviewSummary:"è¨˜éŒ²ä¸­ã®ã‚¿ã‚¹ã‚¯ {count} ä»¶ Â· åˆè¨ˆ {ap} AP",
-      colTask:"ã‚¿ã‚¹ã‚¯", colCount:"å›žæ•°", colTotalAp:"åˆè¨ˆAP", colDate:"æ—¥ä»˜", colTime:"æ™‚åˆ»", colAp:"AP",
-      searchPlaceholder:"ã‚¿ã‚¹ã‚¯åã§æ¤œç´¢â€¦", clearFilters:"ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’è§£é™¤", noMatch:"è©²å½“ã™ã‚‹è¨˜éŒ²ãŒã‚ã‚Šã¾ã›ã‚“ã€‚",
-      dailyEntries:"è¨˜éŒ²ä¸€è¦§", dailyEmpty:"ã“ã®æ—¥ã®è¨˜éŒ²ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚", freqTitle:"é »åº¦",
-      todoAddPlaceholder:"ã‚¿ã‚¹ã‚¯ã‚’è¿½åŠ â€¦", todoEmpty:"ã¾ã ä½•ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚ä¸Šã§æœ€åˆã®ã‚¿ã‚¹ã‚¯ã‚’è¿½åŠ ã—ã¾ã—ã‚‡ã†ã€‚",
-      diffEasy:"ç°¡å˜", diffNormal:"æ™®é€š", diffHard:"é›£ã—ã„",
-      tabSync:"åŒæœŸ", tabAchievements:"å®Ÿç¸¾", tabLanguage:"è¨€èªž",
-      syncIntro:"ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’æŽ¥ç¶šã—ã¦ãƒ‡ãƒã‚¤ã‚¹é–“ã§ãƒ‡ãƒ¼ã‚¿ã‚’åŒæœŸã—ã¾ã™ã€‚",
-      syncSoon:"ã‚¯ãƒ©ã‚¦ãƒ‰åŒæœŸã¯ä»Šå¾Œã®ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã§æä¾›äºˆå®šã§ã™ã€‚ãã‚Œã¾ã§ã¯ Export / Import ã‚’ã”åˆ©ç”¨ãã ã•ã„ã€‚",
-      syncGoogle:"Googleã§ç¶šã‘ã‚‹", syncGithub:"GitHubã§ç¶šã‘ã‚‹", syncApple:"Appleã§ç¶šã‘ã‚‹", syncEmail:"ãƒ¡ãƒ¼ãƒ«ã§ç¶šã‘ã‚‹",
-      achIntro:"ã“ã‚Œã‚‰ã®ãƒ¬ãƒ™ãƒ«ã«åˆ°é”ã™ã‚‹ã¨è§£æ”¾ã•ã‚Œã¾ã™ã€‚", achLocked:"ãƒ­ãƒƒã‚¯ä¸­",
-      langIntro:"è¨€èªžã‚’é¸æŠžã—ã¦ãã ã•ã„ã€‚ã™ã¹ã¦ã®ç”»é¢ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒåˆ‡ã‚Šæ›¿ã‚ã‚Šã¾ã™ã€‚",
-      soundLabel:"ã‚µã‚¦ãƒ³ãƒ‰", vibLabel:"ãƒã‚¤ãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³", volLabel:"éŸ³é‡", close:"é–‰ã˜ã‚‹",
-      bootMsg:"ã‚»ãƒƒã‚·ãƒ§ãƒ³é–‹å§‹ â€” Acta v3.6.3", philMsg:"ç†å¿µï¼šã‚„ã£ãŸã“ã¨ãŒã™ã¹ã¦ã€äºˆå®šã¯é–¢ä¿‚ãªã„ã€‚ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«ã§ã¯ãªãã€èªè­˜ã‚’ã€‚",
-      helpMsg:"/help ã§ã‚³ãƒžãƒ³ãƒ‰ä¸€è¦§ã‚’è¡¨ç¤ºã€ã¾ãŸã¯å®Ÿè¡Œã—ãŸã“ã¨ã‚’ãã®ã¾ã¾å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", helpHeader:"ã‚³ãƒžãƒ³ãƒ‰ä¸€è¦§",
-      unknownCmd:"ä¸æ˜Žãªã‚³ãƒžãƒ³ãƒ‰: \"{cmd}\"ã€‚/help ã§ä¸€è¦§ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚",
-      addUsage:"ä½¿ã„æ–¹: /add <ã‚¿ã‚¹ã‚¯>", addInvalid:"ãã®ã‚¿ã‚¹ã‚¯åã¯ä½¿ç”¨ã§ãã¾ã›ã‚“ã€‚",
-      addExisting:"+1 AP â€” ã€Œ{task}ã€ï¼ˆ{count}å›žç›®ï¼‰", addNew:"æ–°ã—ã„ã‚¿ã‚¹ã‚¯ã‚’ç™»éŒ²ã—ã¾ã—ãŸ: ã€Œ{task}ã€(+1 AP)",
-      delUsage:"ä½¿ã„æ–¹: /del <ã‚¿ã‚¹ã‚¯>", delOk:"ã€Œ{task}ã€ã‚’ãƒªãƒã‚¸ãƒˆãƒªã‹ã‚‰å‰Šé™¤ã—ã¾ã—ãŸã€‚", delNotFound:"ã€Œ{task}ã€ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚",
-      clearedMsg:"ç”»é¢ã‚’ã‚¯ãƒªã‚¢ã—ã¾ã—ãŸã€‚ãƒ‡ãƒ¼ã‚¿ã¯ãã®ã¾ã¾æ®‹ã£ã¦ã„ã¾ã™ã€‚", exportedMsg:"ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸã€‚",
-      importedMsg:"ã€Œ{file}ã€ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¾ã—ãŸã€‚", importFailed:"ã‚¤ãƒ³ãƒãƒ¼ãƒˆå¤±æ•—ï¼šç„¡åŠ¹ãªJSONãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ã€‚", importReadFail:"ã‚¤ãƒ³ãƒãƒ¼ãƒˆå¤±æ•—ï¼šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸã€‚",
-      undidMsg:"ç›´å‰ã®æ“ä½œã‚’å–ã‚Šæ¶ˆã—ã¾ã—ãŸã€‚", redidMsg:"å–ã‚Šæ¶ˆã—ãŸæ“ä½œã‚’ã‚„ã‚Šç›´ã—ã¾ã—ãŸã€‚",
-      todoDoneMsg:"ã€Œ{task}ã€ã‚’å®Œäº†ã—ã¾ã—ãŸ (+{ap} AP) Â· To-Do", levelUp:"ãƒ¬ãƒ™ãƒ« {level}ï¼", nicedBtn:"ã„ã„ã­ï¼", account:"ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ",
-      cmdAdd:"ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’è¨˜éŒ²ã—ã¾ã™ã€‚æ—¢å­˜ã‚¿ã‚¹ã‚¯ã¯APåŠ ç®—ï¼†å›žæ•°+1ã€æ–°è¦ã‚¿ã‚¹ã‚¯ã¯è‡ªå‹•ç™»éŒ²ã•ã‚Œã¾ã™ã€‚",
-      cmdDel:"ãƒªãƒã‚¸ãƒˆãƒªã‹ã‚‰ã‚¿ã‚¹ã‚¯ã‚’å‰Šé™¤ã—ã¾ã™ã€‚", cmdList:"çµ±è¨ˆã‚’é–‹ãã¾ã™ã€‚", cmdExport:"ãƒ‡ãƒ¼ã‚¿ã®JSONãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™ã€‚",
-      cmdImport:"JSONãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã¾ã™ã€‚", cmdUndo:"ç›´å‰ã®æ“ä½œã‚’å–ã‚Šæ¶ˆã—ã¾ã™ã€‚", cmdRedo:"å–ã‚Šæ¶ˆã—ãŸæ“ä½œã‚’ã‚„ã‚Šç›´ã—ã¾ã™ã€‚",
-      cmdTheme:"ãƒ©ã‚¤ãƒˆ/ãƒ€ãƒ¼ã‚¯ãƒ†ãƒ¼ãƒžã‚’åˆ‡ã‚Šæ›¿ãˆã¾ã™ã€‚", cmdClear:"ç”»é¢ã‚’ã‚¯ãƒªã‚¢ã—ã¾ã™ã€‚ãƒ‡ãƒ¼ã‚¿ã¯ä¿æŒã•ã‚Œã¾ã™ã€‚", cmdHelp:"ã“ã®ãƒªã‚¹ãƒˆã‚’å†è¡¨ç¤ºã—ã¾ã™ã€‚",
-      dataLabel:"ãƒ‡ãƒ¼ã‚¿", eraseData:"ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤", eraseConfirmMsg:"ã™ã¹ã¦ã®APã€ã‚¿ã‚¹ã‚¯ã€å±¥æ­´ã€To-DoãŒå®Œå…¨ã«å‰Šé™¤ã•ã‚Œã¾ã™ã€‚å…ƒã«æˆ»ã›ã¾ã›ã‚“ã€‚",
-      erasedMsg:"ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚", cancelBtn:"ã‚­ãƒ£ãƒ³ã‚»ãƒ«", confirmBtn:"å‰Šé™¤", restoreHint:"ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‹ã‚‰å¾©å…ƒã™ã‚‹ã«ã¯ Import ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚",
-      apTooltip:"APï¼Acta Pointã€‚ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’å®Œäº†ã™ã‚‹ã¨ç²å¾—ã§ãã¾ã™ã€‚ãƒ¬ãƒ™ãƒ«ã¯RPGé¢¨ã®ã‚«ãƒ¼ãƒ–ã§åˆè¨ˆAPã‹ã‚‰ç®—å‡ºã•ã‚Œã€ç¯€ç›®ã®ãƒ¬ãƒ™ãƒ«ã«åˆ°é”ã™ã‚‹ã¨å°ã•ãªãŠç¥ã„ãŒã‚ã‚Šã¾ã™ã€‚",
-      syncedAs:"{email} ã§ãƒ­ã‚°ã‚¤ãƒ³ä¸­", signOut:"ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ", continueBtn:"ç¶šã‘ã‚‹", syncFillFields:"ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®ä¸¡æ–¹ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚",
-      syncActiveNote:"ãƒ­ã‚°ã‚¤ãƒ³ä¸­ã¯ã€ãƒ‡ãƒã‚¤ã‚¹é–“ã§ãƒ‡ãƒ¼ã‚¿ãŒè‡ªå‹•çš„ã«åŒæœŸã•ã‚Œã¾ã™ã€‚",
-      syncConflictMsg:"ã“ã®ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ã¯åˆ¥ã®ãƒ‡ãƒã‚¤ã‚¹ã‹ã‚‰ä¿å­˜ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ãŒæ—¢ã«ã‚ã‚Šã¾ã™ã€‚ã©ã¡ã‚‰ã‚’ä½¿ç”¨ã—ã¾ã™ã‹ï¼Ÿ",
-      syncKeepDevice:"ã“ã®ç«¯æœ«ã‚’ä½¿ã†", syncUseCloud:"ã‚¯ãƒ©ã‚¦ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ã†", syncUnavailable:"ç¾åœ¨åŒæœŸã‚’åˆ©ç”¨ã§ãã¾ã›ã‚“ã€‚æŽ¥ç¶šã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚",
-      todayLabel:"æœ¬æ—¥å®Œäº†", shortcutsHeader:"ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆ", scFocus:"å…¥åŠ›æ¬„ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹", scEsc:"ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‰ã˜ã‚‹", scUndo:"å…ƒã«æˆ»ã™", scRedo:"ã‚„ã‚Šç›´ã™",
-      scExport:"ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’æ›¸ãå‡ºã™", scImport:"ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’èª­ã¿è¾¼ã‚€", scStats:"çµ±è¨ˆã‚’é–‹ã", scTheme:"ãƒ†ãƒ¼ãƒžåˆ‡æ›¿", monthlyTitle:"æœˆåˆ¥é »åº¦",
-      exportJsonLabel:"JSONã‚’æ›¸ãå‡ºã™", exportPdfLabel:"PDFã‚’æ›¸ãå‡ºã™", navActaCard:"Acta Card",
-      profileNameLabel:"åå‰", profileNamePlaceholder:"ã‚ãªãŸã®åå‰", profileBioLabel:"è‡ªå·±ç´¹ä»‹", profileBioPlaceholder:"è‡ªå·±ç´¹ä»‹ã‚’æ›¸ã„ã¦ãã ã•ã„â€¦",
-      profileCountryLabel:"å›½", profileCountryPlaceholder:"ã‚ãªãŸã®å›½", changeAvatarLabel:"ã‚¿ãƒƒãƒ—ã—ã¦å†™çœŸã‚’å¤‰æ›´",
-      firstRunTitle:"ã‚ãªãŸã®æ­©ã¿ã‚’ä¿å­˜", firstRunMsg:"ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã™ã‚‹ã¨ã€è¡Œå‹•ãƒ»é€£ç¶šè¨˜éŒ²ãƒ»é€²æ—ã‚’ã™ã¹ã¦ã®ãƒ‡ãƒã‚¤ã‚¹ã§å®‰å…¨ã«ä¿ã¦ã¾ã™ã€‚",
-      firstRunSignIn:"ã‚µã‚¤ãƒ³ã‚¤ãƒ³", firstRunLater:"å¾Œã§",
-      actaCardDownload:"ã‚«ãƒ¼ãƒ‰ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰", actaCardTasksDone:"å®Œäº†ã—ãŸã‚¿ã‚¹ã‚¯", actaCardMaxStreak:"æœ€é•·é€£ç¶šè¨˜éŒ²", actaCardLinkProfile:"ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ãƒªãƒ³ã‚¯",
-      actaCardThankYou:"ã‚ã‚ŠãŒã¨ã†", actaCardNeedSignIn:"Acta Cardã‚’ä½œæˆã™ã‚‹ã«ã¯ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã—ã¦ãã ã•ã„", actaCardVerified:"èªè¨¼æ¸ˆã¿",
-      publicProfileNotFound:"ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“", publicProfileTryActa:"ã‚ãªãŸã‚‚Actaã‚’è©¦ã—ã¦ã¿ã‚‹", publicProfileLoading:"ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã‚’èª­ã¿è¾¼ã¿ä¸­â€¦",
-      settingsTitle:"è¨­å®š", pdfUnavailable:"PDFã®æ›¸ãå‡ºã—ã«ã¯ã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒƒãƒˆæŽ¥ç¶šãŒå¿…è¦ã§ã™ã€‚ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã«ãªã£ã¦ã‹ã‚‰å†è©¦è¡Œã—ã¦ãã ã•ã„ã€‚" },
+    ja:{ tagline:"やったこと ― 予定ではなく", level:"レベル", ap:"AP", streak:"連続日数",
+      stats:"統計", todo:"To-Do", hint:"プレッシャーはいらない、前進あるのみ。今日何を達成しましたか？",
+      tabOverview:"概要", tabHistory:"履歴", tabDaily:"日別", statsTitle:"統計",
+      overviewEmpty:"リポジトリは空です。/add <タスク> と入力して記録を始めましょう。",
+      overviewSummary:"記録中のタスク {count} 件 · 合計 {ap} AP",
+      colTask:"タスク", colCount:"回数", colTotalAp:"合計AP", colDate:"日付", colTime:"時刻", colAp:"AP",
+      searchPlaceholder:"タスク名で検索…", clearFilters:"フィルターを解除", noMatch:"該当する記録がありません。",
+      dailyEntries:"記録一覧", dailyEmpty:"この日の記録はありません。", freqTitle:"頻度",
+      todoAddPlaceholder:"タスクを追加…", todoEmpty:"まだ何もありません。上で最初のタスクを追加しましょう。",
+      diffEasy:"簡単", diffNormal:"普通", diffHard:"難しい",
+      tabSync:"同期", tabAchievements:"実績", tabLanguage:"言語",
+      syncIntro:"アカウントを接続してデバイス間でデータを同期します。",
+      syncSoon:"クラウド同期は今後のアップデートで提供予定です。それまでは Export / Import をご利用ください。",
+      syncGoogle:"Googleで続ける", syncGithub:"GitHubで続ける", syncApple:"Appleで続ける", syncEmail:"メールで続ける",
+      achIntro:"これらのレベルに到達すると解放されます。", achLocked:"ロック中",
+      langIntro:"言語を選択してください。すべての画面・メッセージが切り替わります。",
+      soundLabel:"サウンド", vibLabel:"バイブレーション", volLabel:"音量", close:"閉じる",
+      bootMsg:"セッション開始 — Acta v3.6.3", philMsg:"理念：やったことがすべて、予定は関係ない。スケジュールではなく、認識を。",
+      helpMsg:"/help でコマンド一覧を表示、または実行したことをそのまま入力してください。", helpHeader:"コマンド一覧",
+      unknownCmd:"不明なコマンド: \"{cmd}\"。/help で一覧を確認してください。",
+      addUsage:"使い方: /add <タスク>", addInvalid:"そのタスク名は使用できません。",
+      addExisting:"+1 AP — 「{task}」（{count}回目）", addNew:"新しいタスクを登録しました: 「{task}」(+1 AP)",
+      delUsage:"使い方: /del <タスク>", delOk:"「{task}」をリポジトリから削除しました。", delNotFound:"「{task}」が見つかりません。",
+      clearedMsg:"画面をクリアしました。データはそのまま残っています。", exportedMsg:"バックアップファイルをダウンロードしました。",
+      importedMsg:"「{file}」からデータをインポートしました。", importFailed:"インポート失敗：無効なJSONファイルです。", importReadFail:"インポート失敗：ファイルを読み込めませんでした。",
+      undidMsg:"直前の操作を取り消しました。", redidMsg:"取り消した操作をやり直しました。",
+      todoDoneMsg:"「{task}」を完了しました (+{ap} AP) · To-Do", levelUp:"レベル {level}！", nicedBtn:"いいね！", account:"アカウント",
+      cmdAdd:"アクションを記録します。既存タスクはAP加算＆回数+1、新規タスクは自動登録されます。",
+      cmdDel:"リポジトリからタスクを削除します。", cmdList:"統計を開きます。", cmdExport:"データのJSONバックアップをダウンロードします。",
+      cmdImport:"JSONバックアップファイルからデータを読み込みます。", cmdUndo:"直前の操作を取り消します。", cmdRedo:"取り消した操作をやり直します。",
+      cmdTheme:"ライト/ダークテーマを切り替えます。", cmdClear:"画面をクリアします。データは保持されます。", cmdHelp:"このリストを再表示します。",
+      dataLabel:"データ", eraseData:"すべてのデータを削除", eraseConfirmMsg:"すべてのAP、タスク、履歴、To-Doが完全に削除されます。元に戻せません。",
+      erasedMsg:"すべてのデータを削除しました。", cancelBtn:"キャンセル", confirmBtn:"削除", restoreHint:"バックアップから復元するには Import を使用してください。",
+      apTooltip:"AP＝Acta Point。アクションを完了すると獲得できます。レベルはRPG風のカーブで合計APから算出され、節目のレベルに到達すると小さなお祝いがあります。",
+      syncedAs:"{email} でログイン中", signOut:"ログアウト", continueBtn:"続ける", syncFillFields:"メールアドレスとパスワードの両方を入力してください。",
+      syncActiveNote:"ログイン中は、デバイス間でデータが自動的に同期されます。",
+      syncConflictMsg:"このアカウントには別のデバイスから保存されたデータが既にあります。どちらを使用しますか？",
+      syncKeepDevice:"この端末を使う", syncUseCloud:"クラウドのデータを使う", syncUnavailable:"現在同期を利用できません。接続を確認してください。",
+      todayLabel:"本日完了", shortcutsHeader:"キーボードショートカット", scFocus:"入力欄にフォーカス", scEsc:"ダイアログを閉じる", scUndo:"元に戻す", scRedo:"やり直す",
+      scExport:"バックアップを書き出す", scImport:"バックアップを読み込む", scStats:"統計を開く", scTheme:"テーマ切替", monthlyTitle:"月別頻度",
+      exportJsonLabel:"JSONを書き出す", exportPdfLabel:"PDFを書き出す", navActaCard:"Acta Card",
+      profileNameLabel:"名前", profileNamePlaceholder:"あなたの名前", profileBioLabel:"自己紹介", profileBioPlaceholder:"自己紹介を書いてください…",
+      profileCountryLabel:"国", profileCountryPlaceholder:"あなたの国", changeAvatarLabel:"タップして写真を変更",
+      firstRunTitle:"あなたの歩みを保存", firstRunMsg:"サインインすると、行動・連続記録・進捗をすべてのデバイスで安全に保てます。",
+      firstRunSignIn:"サインイン", firstRunLater:"後で",
+      actaCardDownload:"カードをダウンロード", actaCardTasksDone:"完了したタスク", actaCardMaxStreak:"最長連続記録", actaCardLinkProfile:"プロフィールリンク",
+      actaCardThankYou:"ありがとう", actaCardNeedSignIn:"Acta Cardを作成するにはサインインしてください", actaCardVerified:"認証済み",
+      publicProfileNotFound:"プロフィールが見つかりません", publicProfileTryActa:"あなたもActaを試してみる", publicProfileLoading:"プロフィールを読み込み中…",
+      settingsTitle:"設定", pdfUnavailable:"PDFの書き出しにはインターネット接続が必要です。オンラインになってから再試行してください。" },
 
-    ko:{ tagline:"í•´ë‚¸ ì¼ â€” ê³„íší•œ ì¼ì´ ì•„ë‹ˆë¼", level:"ë ˆë²¨", ap:"AP", streak:"ì¼ ì—°ì†",
-      stats:"í†µê³„", todo:"í•  ì¼", hint:"ë¶€ë‹´ ê°–ì§€ ë§ˆì„¸ìš”, ê·¸ì € ë‚˜ì•„ê°€ë©´ ë©ë‹ˆë‹¤. ì˜¤ëŠ˜ ë¬´ì—‡ì„ í•´ëƒˆë‚˜ìš”?",
-      tabOverview:"ê°œìš”", tabHistory:"ê¸°ë¡", tabDaily:"ì¼ë³„", statsTitle:"í†µê³„",
-      overviewEmpty:"ì €ìž¥ì†Œê°€ ë¹„ì–´ ìžˆìŠµë‹ˆë‹¤. /add <ìž‘ì—…> ì„ ìž…ë ¥í•´ ê¸°ë¡ì„ ì‹œìž‘í•˜ì„¸ìš”.",
-      overviewSummary:"ì¶”ì  ì¤‘ì¸ ìž‘ì—… {count}ê°œ Â· ì´ {ap} AP",
-      colTask:"ìž‘ì—…", colCount:"íšŸìˆ˜", colTotalAp:"ì´ AP", colDate:"ë‚ ì§œ", colTime:"ì‹œê°„", colAp:"AP",
-      searchPlaceholder:"ìž‘ì—… ì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰â€¦", clearFilters:"í•„í„° ì§€ìš°ê¸°", noMatch:"ì¼ì¹˜í•˜ëŠ” í•­ëª©ì´ ì—†ìŠµë‹ˆë‹¤.",
-      dailyEntries:"ê¸°ë¡", dailyEmpty:"ì´ ë‚ ì—ëŠ” ê¸°ë¡ëœ ìž‘ì—…ì´ ì—†ìŠµë‹ˆë‹¤.", freqTitle:"ë¹ˆë„",
-      todoAddPlaceholder:"ìž‘ì—… ì¶”ê°€â€¦", todoEmpty:"ì•„ì§ ì•„ë¬´ê²ƒë„ ì—†ì–´ìš”. ìœ„ì—ì„œ ì²« ìž‘ì—…ì„ ì¶”ê°€í•´ë³´ì„¸ìš”.",
-      diffEasy:"ì‰¬ì›€", diffNormal:"ë³´í†µ", diffHard:"ì–´ë ¤ì›€",
-      tabSync:"ë™ê¸°í™”", tabAchievements:"ì—…ì ", tabLanguage:"ì–¸ì–´",
-      syncIntro:"ê³„ì •ì„ ì—°ê²°í•´ ì—¬ëŸ¬ ê¸°ê¸°ì—ì„œ ë°ì´í„°ë¥¼ ë™ê¸°í™”í•˜ì„¸ìš”.",
-      syncSoon:"í´ë¼ìš°ë“œ ë™ê¸°í™”ëŠ” ì¶”í›„ ì—…ë°ì´íŠ¸ì—ì„œ ì œê³µë©ë‹ˆë‹¤. ì§€ê¸ˆì€ Export / Importë¥¼ ì´ìš©í•´ì£¼ì„¸ìš”.",
-      syncGoogle:"Googleë¡œ ê³„ì†í•˜ê¸°", syncGithub:"GitHubë¡œ ê³„ì†í•˜ê¸°", syncApple:"Appleë¡œ ê³„ì†í•˜ê¸°", syncEmail:"ì´ë©”ì¼ë¡œ ê³„ì†í•˜ê¸°",
-      achIntro:"ì´ ë ˆë²¨ì— ë„ë‹¬í•˜ë©´ ìž ê¸ˆì´ í•´ì œë©ë‹ˆë‹¤.", achLocked:"ìž ê¹€",
-      langIntro:"ì–¸ì–´ë¥¼ ì„ íƒí•˜ì„¸ìš”. ëª¨ë“  í™”ë©´ê³¼ ë©”ì‹œì§€ê°€ ë°”ë€ë‹ˆë‹¤.",
-      soundLabel:"ì†Œë¦¬", vibLabel:"ì§„ë™", volLabel:"ìŒëŸ‰", close:"ë‹«ê¸°",
-      bootMsg:"ì„¸ì…˜ ì‹œìž‘ â€” Acta v3.6.3", philMsg:"ì² í•™: ê³„íšì´ ì•„ë‹ˆë¼ ì‹¤í–‰. ì¼ì • ëŒ€ì‹  ì¸ì •ì„.",
-      helpMsg:"/helpë¡œ ëª…ë ¹ì–´ ëª©ë¡ì„ ë³´ê±°ë‚˜, ë°©ê¸ˆ í•œ ì¼ì„ ê·¸ëŒ€ë¡œ ìž…ë ¥í•˜ì„¸ìš”.", helpHeader:"ëª…ë ¹ì–´ ëª©ë¡",
-      unknownCmd:"ì•Œ ìˆ˜ ì—†ëŠ” ëª…ë ¹ì–´: \"{cmd}\". /helpë¡œ ëª©ë¡ì„ í™•ì¸í•˜ì„¸ìš”.",
-      addUsage:"ì‚¬ìš©ë²•: /add <ìž‘ì—…>", addInvalid:"ìœ íš¨í•˜ì§€ ì•Šì€ ìž‘ì—… ì´ë¦„ìž…ë‹ˆë‹¤.",
-      addExisting:"+1 AP â€” \"{task}\" ({count}ë²ˆì§¸)", addNew:"ìƒˆ ìž‘ì—… ë“±ë¡ë¨: \"{task}\" (+1 AP)",
-      delUsage:"ì‚¬ìš©ë²•: /del <ìž‘ì—…>", delOk:"\"{task}\"ì„(ë¥¼) ì €ìž¥ì†Œì—ì„œ ì‚­ì œí–ˆìŠµë‹ˆë‹¤.", delNotFound:"\"{task}\"ì„(ë¥¼) ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
-      clearedMsg:"í™”ë©´ì„ ì§€ì› ìŠµë‹ˆë‹¤. ë°ì´í„°ëŠ” ê·¸ëŒ€ë¡œ ìœ ì§€ë©ë‹ˆë‹¤.", exportedMsg:"ë°±ì—… íŒŒì¼ì„ ë‹¤ìš´ë¡œë“œí–ˆìŠµë‹ˆë‹¤.",
-      importedMsg:"\"{file}\"ì—ì„œ ë°ì´í„°ë¥¼ ê°€ì ¸ì™”ìŠµë‹ˆë‹¤.", importFailed:"ê°€ì ¸ì˜¤ê¸° ì‹¤íŒ¨: ì˜¬ë°”ë¥¸ JSON íŒŒì¼ì´ ì•„ë‹™ë‹ˆë‹¤.", importReadFail:"ê°€ì ¸ì˜¤ê¸° ì‹¤íŒ¨: íŒŒì¼ì„ ì½ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
-      undidMsg:"ë§ˆì§€ë§‰ ìž‘ì—…ì„ ì·¨ì†Œí–ˆìŠµë‹ˆë‹¤.", redidMsg:"ì·¨ì†Œí•œ ìž‘ì—…ì„ ë‹¤ì‹œ ì‹¤í–‰í–ˆìŠµë‹ˆë‹¤.",
-      todoDoneMsg:"\"{task}\" ì™„ë£Œ (+{ap} AP) Â· í•  ì¼", levelUp:"ë ˆë²¨ {level}!", nicedBtn:"ì¢‹ì•„ìš”!", account:"ê³„ì •",
-      cmdAdd:"ìž‘ì—…ì„ ê¸°ë¡í•©ë‹ˆë‹¤. ê¸°ì¡´ ìž‘ì—…ì€ AP ì¶”ê°€ ë° íšŸìˆ˜ +1, ìƒˆ ìž‘ì—…ì€ ìžë™ ë“±ë¡ë©ë‹ˆë‹¤.",
-      cmdDel:"ì €ìž¥ì†Œì—ì„œ ìž‘ì—…ì„ ì‚­ì œí•©ë‹ˆë‹¤.", cmdList:"í†µê³„ë¥¼ ì—½ë‹ˆë‹¤.", cmdExport:"ë°ì´í„°ë¥¼ JSON ë°±ì—…ìœ¼ë¡œ ë‹¤ìš´ë¡œë“œí•©ë‹ˆë‹¤.",
-      cmdImport:"JSON ë°±ì—… íŒŒì¼ì—ì„œ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤.", cmdUndo:"ë§ˆì§€ë§‰ ìž‘ì—…ì„ ì·¨ì†Œí•©ë‹ˆë‹¤.", cmdRedo:"ì·¨ì†Œí•œ ìž‘ì—…ì„ ë‹¤ì‹œ ì‹¤í–‰í•©ë‹ˆë‹¤.",
-      cmdTheme:"ë¼ì´íŠ¸/ë‹¤í¬ í…Œë§ˆë¥¼ ì „í™˜í•©ë‹ˆë‹¤.", cmdClear:"í™”ë©´ì„ ì§€ì›ë‹ˆë‹¤. ë°ì´í„°ëŠ” ìœ ì§€ë©ë‹ˆë‹¤.", cmdHelp:"ì´ ëª©ë¡ì„ ë‹¤ì‹œ í‘œì‹œí•©ë‹ˆë‹¤.",
-      dataLabel:"ë°ì´í„°", eraseData:"ëª¨ë“  ë°ì´í„° ì‚­ì œ", eraseConfirmMsg:"ëª¨ë“  AP, ìž‘ì—…, ê¸°ë¡, í•  ì¼ì´ ì˜êµ¬ì ìœ¼ë¡œ ì‚­ì œë©ë‹ˆë‹¤. ë˜ëŒë¦´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
-      erasedMsg:"ëª¨ë“  ë°ì´í„°ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.", cancelBtn:"ì·¨ì†Œ", confirmBtn:"ì‚­ì œ", restoreHint:"ë°±ì—…ì—ì„œ ë³µì›í•˜ë ¤ë©´ Importë¥¼ ì‚¬ìš©í•˜ì„¸ìš”.",
-      apTooltip:"AP = Acta Point, í–‰ë™ì„ ì™„ë£Œí•˜ë©´ íšë“í•©ë‹ˆë‹¤. ë ˆë²¨ì€ ì´ APë¥¼ ê¸°ë°˜ìœ¼ë¡œ RPG ìŠ¤íƒ€ì¼ ê³¡ì„ ìœ¼ë¡œ ê³„ì‚°ë˜ë©°, ë§ˆì¼ìŠ¤í†¤ ë ˆë²¨ì— ë„ë‹¬í•˜ë©´ ìž‘ì€ ì¶•í•˜ê°€ ìžˆìŠµë‹ˆë‹¤.",
-      syncedAs:"{email}(ìœ¼)ë¡œ ë¡œê·¸ì¸ë¨", signOut:"ë¡œê·¸ì•„ì›ƒ", continueBtn:"ê³„ì†", syncFillFields:"ì´ë©”ì¼ê³¼ ë¹„ë°€ë²ˆí˜¸ë¥¼ ëª¨ë‘ ìž…ë ¥í•˜ì„¸ìš”.",
-      syncActiveNote:"ë¡œê·¸ì¸ ìƒíƒœì—ì„œëŠ” ê¸°ê¸° ê°„ ë°ì´í„°ê°€ ìžë™ìœ¼ë¡œ ë™ê¸°í™”ë©ë‹ˆë‹¤.",
-      syncConflictMsg:"ì´ ê³„ì •ì—ëŠ” ë‹¤ë¥¸ ê¸°ê¸°ì—ì„œ ì €ìž¥ëœ ë°ì´í„°ê°€ ì´ë¯¸ ìžˆìŠµë‹ˆë‹¤. ì–´ëŠ ìª½ì„ ìœ ì§€í•˜ì‹œê² ìŠµë‹ˆê¹Œ?",
-      syncKeepDevice:"ì´ ê¸°ê¸° ìœ ì§€", syncUseCloud:"í´ë¼ìš°ë“œ ë°ì´í„° ì‚¬ìš©", syncUnavailable:"ì§€ê¸ˆì€ ë™ê¸°í™”ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤ â€” ì—°ê²° ìƒíƒœë¥¼ í™•ì¸í•˜ì„¸ìš”.",
-      todayLabel:"ì˜¤ëŠ˜ ì™„ë£Œ", shortcutsHeader:"í‚¤ë³´ë“œ ë‹¨ì¶•í‚¤", scFocus:"ìž…ë ¥ì°½ í¬ì»¤ìŠ¤", scEsc:"ëŒ€í™”ìƒìž ë‹«ê¸°", scUndo:"ì‹¤í–‰ ì·¨ì†Œ", scRedo:"ë‹¤ì‹œ ì‹¤í–‰",
-      scExport:"ë°±ì—… ë‚´ë³´ë‚´ê¸°", scImport:"ë°±ì—… ê°€ì ¸ì˜¤ê¸°", scStats:"í†µê³„ ì—´ê¸°", scTheme:"í…Œë§ˆ ì „í™˜", monthlyTitle:"ì›”ë³„ ë¹ˆë„",
-      exportJsonLabel:"JSON ë‚´ë³´ë‚´ê¸°", exportPdfLabel:"PDF ë‚´ë³´ë‚´ê¸°", navActaCard:"Acta Card",
-      profileNameLabel:"ì´ë¦„", profileNamePlaceholder:"ë‹¹ì‹ ì˜ ì´ë¦„", profileBioLabel:"ì†Œê°œ", profileBioPlaceholder:"ìžì‹ ì„ ì†Œê°œí•´ ë³´ì„¸ìš”â€¦",
-      profileCountryLabel:"êµ­ê°€", profileCountryPlaceholder:"ë‹¹ì‹ ì˜ êµ­ê°€", changeAvatarLabel:"íƒ­í•˜ì—¬ ì‚¬ì§„ ë³€ê²½",
-      firstRunTitle:"ë‹¹ì‹ ì˜ ì—¬ì •ì„ ì €ìž¥í•˜ì„¸ìš”", firstRunMsg:"ë¡œê·¸ì¸í•˜ë©´ ëª¨ë“  ê¸°ê¸°ì—ì„œ í–‰ë™, ìŠ¤íŠ¸ë¦­, ì§„í–‰ ìƒí™©ì„ ì•ˆì „í•˜ê²Œ ì§€í‚¬ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.",
-      firstRunSignIn:"ë¡œê·¸ì¸", firstRunLater:"ë‚˜ì¤‘ì—",
-      actaCardDownload:"ì¹´ë“œ ë‹¤ìš´ë¡œë“œ", actaCardTasksDone:"ì™„ë£Œí•œ ìž‘ì—…", actaCardMaxStreak:"ìµœëŒ€ ìŠ¤íŠ¸ë¦­", actaCardLinkProfile:"í”„ë¡œí•„ ë§í¬",
-      actaCardThankYou:"ê°ì‚¬í•©ë‹ˆë‹¤", actaCardNeedSignIn:"Acta Cardë¥¼ ë§Œë“¤ë ¤ë©´ ë¡œê·¸ì¸í•˜ì„¸ìš”", actaCardVerified:"ì¸ì¦ë¨",
-      publicProfileNotFound:"í”„ë¡œí•„ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤", publicProfileTryActa:"ì§ì ‘ Acta ì‚¬ìš©í•´ë³´ê¸°", publicProfileLoading:"í”„ë¡œí•„ ë¶ˆëŸ¬ì˜¤ëŠ” ì¤‘â€¦",
-      settingsTitle:"ì„¤ì •", pdfUnavailable:"PDF ë‚´ë³´ë‚´ê¸°ì—ëŠ” ì¸í„°ë„· ì—°ê²°ì´ í•„ìš”í•©ë‹ˆë‹¤ â€” ì˜¨ë¼ì¸ ìƒíƒœì—ì„œ ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”." },
+    ko:{ tagline:"해낸 일 — 계획한 일이 아니라", level:"레벨", ap:"AP", streak:"일 연속",
+      stats:"통계", todo:"할 일", hint:"부담 갖지 마세요, 그저 나아가면 됩니다. 오늘 무엇을 해냈나요?",
+      tabOverview:"개요", tabHistory:"기록", tabDaily:"일별", statsTitle:"통계",
+      overviewEmpty:"저장소가 비어 있습니다. /add <작업> 을 입력해 기록을 시작하세요.",
+      overviewSummary:"추적 중인 작업 {count}개 · 총 {ap} AP",
+      colTask:"작업", colCount:"횟수", colTotalAp:"총 AP", colDate:"날짜", colTime:"시간", colAp:"AP",
+      searchPlaceholder:"작업 이름으로 검색…", clearFilters:"필터 지우기", noMatch:"일치하는 항목이 없습니다.",
+      dailyEntries:"기록", dailyEmpty:"이 날에는 기록된 작업이 없습니다.", freqTitle:"빈도",
+      todoAddPlaceholder:"작업 추가…", todoEmpty:"아직 아무것도 없어요. 위에서 첫 작업을 추가해보세요.",
+      diffEasy:"쉬움", diffNormal:"보통", diffHard:"어려움",
+      tabSync:"동기화", tabAchievements:"업적", tabLanguage:"언어",
+      syncIntro:"계정을 연결해 여러 기기에서 데이터를 동기화하세요.",
+      syncSoon:"클라우드 동기화는 추후 업데이트에서 제공됩니다. 지금은 Export / Import를 이용해주세요.",
+      syncGoogle:"Google로 계속하기", syncGithub:"GitHub로 계속하기", syncApple:"Apple로 계속하기", syncEmail:"이메일로 계속하기",
+      achIntro:"이 레벨에 도달하면 잠금이 해제됩니다.", achLocked:"잠김",
+      langIntro:"언어를 선택하세요. 모든 화면과 메시지가 바뀝니다.",
+      soundLabel:"소리", vibLabel:"진동", volLabel:"음량", close:"닫기",
+      bootMsg:"세션 시작 — Acta v3.6.3", philMsg:"철학: 계획이 아니라 실행. 일정 대신 인정을.",
+      helpMsg:"/help로 명령어 목록을 보거나, 방금 한 일을 그대로 입력하세요.", helpHeader:"명령어 목록",
+      unknownCmd:"알 수 없는 명령어: \"{cmd}\". /help로 목록을 확인하세요.",
+      addUsage:"사용법: /add <작업>", addInvalid:"유효하지 않은 작업 이름입니다.",
+      addExisting:"+1 AP — \"{task}\" ({count}번째)", addNew:"새 작업 등록됨: \"{task}\" (+1 AP)",
+      delUsage:"사용법: /del <작업>", delOk:"\"{task}\"을(를) 저장소에서 삭제했습니다.", delNotFound:"\"{task}\"을(를) 찾을 수 없습니다.",
+      clearedMsg:"화면을 지웠습니다. 데이터는 그대로 유지됩니다.", exportedMsg:"백업 파일을 다운로드했습니다.",
+      importedMsg:"\"{file}\"에서 데이터를 가져왔습니다.", importFailed:"가져오기 실패: 올바른 JSON 파일이 아닙니다.", importReadFail:"가져오기 실패: 파일을 읽을 수 없습니다.",
+      undidMsg:"마지막 작업을 취소했습니다.", redidMsg:"취소한 작업을 다시 실행했습니다.",
+      todoDoneMsg:"\"{task}\" 완료 (+{ap} AP) · 할 일", levelUp:"레벨 {level}!", nicedBtn:"좋아요!", account:"계정",
+      cmdAdd:"작업을 기록합니다. 기존 작업은 AP 추가 및 횟수 +1, 새 작업은 자동 등록됩니다.",
+      cmdDel:"저장소에서 작업을 삭제합니다.", cmdList:"통계를 엽니다.", cmdExport:"데이터를 JSON 백업으로 다운로드합니다.",
+      cmdImport:"JSON 백업 파일에서 데이터를 불러옵니다.", cmdUndo:"마지막 작업을 취소합니다.", cmdRedo:"취소한 작업을 다시 실행합니다.",
+      cmdTheme:"라이트/다크 테마를 전환합니다.", cmdClear:"화면을 지웁니다. 데이터는 유지됩니다.", cmdHelp:"이 목록을 다시 표시합니다.",
+      dataLabel:"데이터", eraseData:"모든 데이터 삭제", eraseConfirmMsg:"모든 AP, 작업, 기록, 할 일이 영구적으로 삭제됩니다. 되돌릴 수 없습니다.",
+      erasedMsg:"모든 데이터가 삭제되었습니다.", cancelBtn:"취소", confirmBtn:"삭제", restoreHint:"백업에서 복원하려면 Import를 사용하세요.",
+      apTooltip:"AP = Acta Point, 행동을 완료하면 획득합니다. 레벨은 총 AP를 기반으로 RPG 스타일 곡선으로 계산되며, 마일스톤 레벨에 도달하면 작은 축하가 있습니다.",
+      syncedAs:"{email}(으)로 로그인됨", signOut:"로그아웃", continueBtn:"계속", syncFillFields:"이메일과 비밀번호를 모두 입력하세요.",
+      syncActiveNote:"로그인 상태에서는 기기 간 데이터가 자동으로 동기화됩니다.",
+      syncConflictMsg:"이 계정에는 다른 기기에서 저장된 데이터가 이미 있습니다. 어느 쪽을 유지하시겠습니까?",
+      syncKeepDevice:"이 기기 유지", syncUseCloud:"클라우드 데이터 사용", syncUnavailable:"지금은 동기화를 사용할 수 없습니다 — 연결 상태를 확인하세요.",
+      todayLabel:"오늘 완료", shortcutsHeader:"키보드 단축키", scFocus:"입력창 포커스", scEsc:"대화상자 닫기", scUndo:"실행 취소", scRedo:"다시 실행",
+      scExport:"백업 내보내기", scImport:"백업 가져오기", scStats:"통계 열기", scTheme:"테마 전환", monthlyTitle:"월별 빈도",
+      exportJsonLabel:"JSON 내보내기", exportPdfLabel:"PDF 내보내기", navActaCard:"Acta Card",
+      profileNameLabel:"이름", profileNamePlaceholder:"당신의 이름", profileBioLabel:"소개", profileBioPlaceholder:"자신을 소개해 보세요…",
+      profileCountryLabel:"국가", profileCountryPlaceholder:"당신의 국가", changeAvatarLabel:"탭하여 사진 변경",
+      firstRunTitle:"당신의 여정을 저장하세요", firstRunMsg:"로그인하면 모든 기기에서 행동, 스트릭, 진행 상황을 안전하게 지킬 수 있습니다.",
+      firstRunSignIn:"로그인", firstRunLater:"나중에",
+      actaCardDownload:"카드 다운로드", actaCardTasksDone:"완료한 작업", actaCardMaxStreak:"최대 스트릭", actaCardLinkProfile:"프로필 링크",
+      actaCardThankYou:"감사합니다", actaCardNeedSignIn:"Acta Card를 만들려면 로그인하세요", actaCardVerified:"인증됨",
+      publicProfileNotFound:"프로필을 찾을 수 없습니다", publicProfileTryActa:"직접 Acta 사용해보기", publicProfileLoading:"프로필 불러오는 중…",
+      settingsTitle:"설정", pdfUnavailable:"PDF 내보내기에는 인터넷 연결이 필요합니다 — 온라인 상태에서 다시 시도하세요." },
 
-    zh:{ tagline:"å·²å®Œæˆçš„äº‹ â€” è€Œéžè®¡åˆ’ä¸­çš„äº‹", level:"ç­‰çº§", ap:"AP", streak:"å¤©è¿žç»­",
-      stats:"ç»Ÿè®¡", todo:"å¾…åŠž", hint:"ä¸å¿…æœ‰åŽ‹åŠ›ï¼Œåªç®¡å‰è¿›ã€‚ä½ ä»Šå¤©å®Œæˆäº†ä»€ä¹ˆï¼Ÿ",
-      tabOverview:"æ¦‚è§ˆ", tabHistory:"åŽ†å²è®°å½•", tabDaily:"æ¯æ—¥", statsTitle:"ç»Ÿè®¡",
-      overviewEmpty:"ä»“åº“æ˜¯ç©ºçš„ã€‚è¾“å…¥ /add <ä»»åŠ¡> å¼€å§‹è®°å½•ã€‚",
-      overviewSummary:"å·²è·Ÿè¸ª {count} ä¸ªä»»åŠ¡ Â· å…± {ap} AP",
-      colTask:"ä»»åŠ¡", colCount:"æ¬¡æ•°", colTotalAp:"æ€»AP", colDate:"æ—¥æœŸ", colTime:"æ—¶é—´", colAp:"AP",
-      searchPlaceholder:"æŒ‰ä»»åŠ¡åç§°æœç´¢â€¦", clearFilters:"æ¸…é™¤ç­›é€‰", noMatch:"æ²¡æœ‰åŒ¹é…çš„è®°å½•ã€‚",
-      dailyEntries:"è®°å½•", dailyEmpty:"è¿™ä¸€å¤©æ²¡æœ‰è®°å½•ä»»ä½•æ“ä½œã€‚", freqTitle:"é¢‘çŽ‡",
-      todoAddPlaceholder:"æ·»åŠ ä¸€é¡¹ä»»åŠ¡â€¦", todoEmpty:"è¿™é‡Œè¿˜æ²¡æœ‰å†…å®¹ï¼Œè¯·åœ¨ä¸Šæ–¹æ·»åŠ ç¬¬ä¸€é¡¹ä»»åŠ¡ã€‚",
-      diffEasy:"ç®€å•", diffNormal:"æ™®é€š", diffHard:"å›°éš¾",
-      tabSync:"åŒæ­¥", tabAchievements:"æˆå°±", tabLanguage:"è¯­è¨€",
-      syncIntro:"è¿žæŽ¥è´¦å·ä»¥åœ¨å¤šå°è®¾å¤‡é—´åŒæ­¥æ•°æ®ã€‚",
-      syncSoon:"äº‘åŒæ­¥å°†åœ¨æœªæ¥æ›´æ–°ä¸­æŽ¨å‡ºã€‚ç›®å‰è¯·ä½¿ç”¨ å¯¼å‡º/å¯¼å…¥ åœ¨è®¾å¤‡é—´è½¬ç§»æ•°æ®ã€‚",
-      syncGoogle:"ä½¿ç”¨ Google ç»§ç»­", syncGithub:"ä½¿ç”¨ GitHub ç»§ç»­", syncApple:"ä½¿ç”¨ Apple ç»§ç»­", syncEmail:"ä½¿ç”¨é‚®ç®±ç»§ç»­",
-      achIntro:"è¾¾åˆ°è¿™äº›ç­‰çº§å³å¯è§£é”ã€‚", achLocked:"æœªè§£é”",
-      langIntro:"é€‰æ‹©ä½ çš„è¯­è¨€ã€‚æ‰€æœ‰å†…å®¹éƒ½ä¼šåˆ‡æ¢â€”â€”æ¯ä¸ªç•Œé¢ã€æ¯æ¡æ¶ˆæ¯ã€‚",
-      soundLabel:"å£°éŸ³", vibLabel:"éœ‡åŠ¨", volLabel:"éŸ³é‡", close:"å…³é—­",
-      bootMsg:"ä¼šè¯å·²å¼€å§‹ â€” Acta v3.6.3", philMsg:"ç†å¿µï¼šé‡è¦çš„æ˜¯å·²å®Œæˆçš„äº‹ï¼Œè€Œéžè®¡åˆ’çš„äº‹ã€‚ä¸éœ€è¦æ—¥ç¨‹ï¼Œåªéœ€è¦è®¤å¯ã€‚",
-      helpMsg:"è¾“å…¥ /help æŸ¥çœ‹å‘½ä»¤åˆ—è¡¨ï¼Œæˆ–ç›´æŽ¥è¾“å…¥ä½ åšäº†ä»€ä¹ˆã€‚", helpHeader:"å‘½ä»¤åˆ—è¡¨",
-      unknownCmd:"æœªçŸ¥å‘½ä»¤ï¼šâ€œ{cmd}â€ã€‚è¾“å…¥ /help æŸ¥çœ‹åˆ—è¡¨ã€‚",
-      addUsage:"ç”¨æ³•ï¼š/add <ä»»åŠ¡>", addInvalid:"è¯¥ä»»åŠ¡åç§°æ— æ•ˆã€‚",
-      addExisting:"+1 AP â€” â€œ{task}â€ï¼ˆç¬¬{count}æ¬¡ï¼‰", addNew:"å·²æ³¨å†Œæ–°ä»»åŠ¡ï¼šâ€œ{task}â€ï¼ˆ+1 APï¼‰",
-      delUsage:"ç”¨æ³•ï¼š/del <ä»»åŠ¡>", delOk:"å·²ä»Žä»“åº“ä¸­åˆ é™¤â€œ{task}â€ã€‚", delNotFound:"åœ¨ä»“åº“ä¸­æœªæ‰¾åˆ°â€œ{task}â€ã€‚",
-      clearedMsg:"å±å¹•å·²æ¸…ç©ºï¼Œæ•°æ®æœªå—å½±å“ã€‚", exportedMsg:"å¤‡ä»½æ–‡ä»¶å·²ä¸‹è½½ã€‚",
-      importedMsg:"å·²ä»Žâ€œ{file}â€å¯¼å…¥æ•°æ®ã€‚", importFailed:"å¯¼å…¥å¤±è´¥ï¼šæ–‡ä»¶ä¸æ˜¯æœ‰æ•ˆçš„JSONã€‚", importReadFail:"å¯¼å…¥å¤±è´¥ï¼šæ— æ³•è¯»å–æ–‡ä»¶ã€‚",
-      undidMsg:"å·²æ’¤é”€ä¸Šä¸€æ­¥æ“ä½œã€‚", redidMsg:"å·²é‡åšè¢«æ’¤é”€çš„æ“ä½œã€‚",
-      todoDoneMsg:"å·²å®Œæˆâ€œ{task}â€ï¼ˆ+{ap} APï¼‰Â· å¾…åŠž", levelUp:"ç­‰çº§ {level}ï¼", nicedBtn:"å¤ªæ£’äº†ï¼", account:"è´¦æˆ·",
-      cmdAdd:"è®°å½•ä¸€æ¬¡è¡ŒåŠ¨ã€‚å·²æœ‰ä»»åŠ¡ï¼š+AP å¹¶è®¡æ•°+1ï¼›æ–°ä»»åŠ¡è‡ªåŠ¨æ³¨å†Œã€‚",
-      cmdDel:"ä»Žä»“åº“ä¸­åˆ é™¤ä¸€ä¸ªä»»åŠ¡ã€‚", cmdList:"æ‰“å¼€ç»Ÿè®¡ã€‚", cmdExport:"ä¸‹è½½æ•°æ®çš„JSONå¤‡ä»½ã€‚",
-      cmdImport:"ä»ŽJSONå¤‡ä»½æ–‡ä»¶åŠ è½½æ•°æ®ã€‚", cmdUndo:"æ’¤é”€ä¸Šä¸€æ­¥æ“ä½œã€‚", cmdRedo:"é‡åšè¢«æ’¤é”€çš„æ“ä½œã€‚",
-      cmdTheme:"åˆ‡æ¢æµ…è‰²/æ·±è‰²ä¸»é¢˜ã€‚", cmdClear:"æ¸…ç©ºå±å¹•ï¼Œæ•°æ®å°†è¢«ä¿ç•™ã€‚", cmdHelp:"é‡æ–°æ˜¾ç¤ºæ­¤åˆ—è¡¨ã€‚",
-      dataLabel:"æ•°æ®", eraseData:"æ¸…é™¤æ‰€æœ‰æ•°æ®", eraseConfirmMsg:"è¿™å°†æ°¸ä¹…åˆ é™¤ä½ æ‰€æœ‰çš„APã€ä»»åŠ¡ã€åŽ†å²è®°å½•å’Œå¾…åŠžäº‹é¡¹ï¼Œä¸”æ— æ³•æ’¤é”€ã€‚",
-      erasedMsg:"æ‰€æœ‰æ•°æ®å·²æ¸…é™¤ã€‚", cancelBtn:"å–æ¶ˆ", confirmBtn:"æ¸…é™¤", restoreHint:"ä½¿ç”¨å¯¼å…¥å¯ä»Žå¤‡ä»½æ¢å¤ã€‚",
-      apTooltip:"APï¼Acta Pointï¼Œå®Œæˆè¡ŒåŠ¨å³å¯èŽ·å¾—ã€‚ç­‰çº§æ ¹æ®æ€»APæŒ‰RPGé£Žæ ¼æ›²çº¿è®¡ç®—â€”â€”è¾¾åˆ°é‡Œç¨‹ç¢‘ç­‰çº§ä¼šæœ‰å°å°çš„åº†ç¥ã€‚",
-      syncedAs:"å·²ä»¥ {email} ç™»å½•", signOut:"é€€å‡ºç™»å½•", continueBtn:"ç»§ç»­", syncFillFields:"è¯·è¾“å…¥é‚®ç®±å’Œå¯†ç ã€‚",
-      syncActiveNote:"ç™»å½•åŽï¼Œä½ çš„æ•°æ®ä¼šåœ¨å„è®¾å¤‡é—´è‡ªåŠ¨åŒæ­¥ã€‚",
-      syncConflictMsg:"è¯¥è´¦æˆ·å·²åœ¨å…¶ä»–è®¾å¤‡ä¸Šä¿å­˜äº†æ•°æ®ã€‚ä½ æƒ³ä¿ç•™å“ªä¸€ä»½ï¼Ÿ",
-      syncKeepDevice:"ä¿ç•™æ­¤è®¾å¤‡", syncUseCloud:"ä½¿ç”¨äº‘ç«¯æ•°æ®", syncUnavailable:"ç›®å‰æ— æ³•åŒæ­¥â€”â€”è¯·æ£€æŸ¥ä½ çš„ç½‘ç»œè¿žæŽ¥ã€‚",
-      todayLabel:"ä»Šå¤©å®Œæˆ", shortcutsHeader:"é”®ç›˜å¿«æ·é”®", scFocus:"èšç„¦è¾“å…¥æ¡†", scEsc:"å…³é—­å¯¹è¯æ¡†", scUndo:"æ’¤é”€", scRedo:"é‡åš",
-      scExport:"å¯¼å‡ºå¤‡ä»½", scImport:"å¯¼å…¥å¤‡ä»½", scStats:"æ‰“å¼€ç»Ÿè®¡", scTheme:"åˆ‡æ¢ä¸»é¢˜", monthlyTitle:"æœˆåº¦é¢‘çŽ‡",
-      exportJsonLabel:"å¯¼å‡º JSON", exportPdfLabel:"å¯¼å‡º PDF", navActaCard:"Acta Card",
-      profileNameLabel:"å§“å", profileNamePlaceholder:"ä½ çš„åå­—", profileBioLabel:"ç®€ä»‹", profileBioPlaceholder:"ä»‹ç»ä¸€ä¸‹è‡ªå·±â€¦",
-      profileCountryLabel:"å›½å®¶", profileCountryPlaceholder:"ä½ çš„å›½å®¶", changeAvatarLabel:"ç‚¹å‡»æ›´æ¢å¤´åƒ",
-      firstRunTitle:"ä¿å­˜ä½ çš„æ—…ç¨‹", firstRunMsg:"ç™»å½•åŽï¼Œä½ çš„è¡ŒåŠ¨ã€è¿žç»­è®°å½•å’Œè¿›åº¦å°†åœ¨æ‰€æœ‰è®¾å¤‡ä¸Šå®‰å…¨ä¿å­˜ã€‚",
-      firstRunSignIn:"ç™»å½•", firstRunLater:"ä»¥åŽå†è¯´",
-      actaCardDownload:"ä¸‹è½½å¡ç‰‡", actaCardTasksDone:"å·²å®Œæˆä»»åŠ¡", actaCardMaxStreak:"æœ€é•¿è¿žç»­å¤©æ•°", actaCardLinkProfile:"ä¸ªäººä¸»é¡µé“¾æŽ¥",
-      actaCardThankYou:"è°¢è°¢", actaCardNeedSignIn:"ç™»å½•ä»¥ç”Ÿæˆä½ çš„ Acta Card", actaCardVerified:"å·²éªŒè¯",
-      publicProfileNotFound:"æœªæ‰¾åˆ°è¯¥èµ„æ–™", publicProfileTryActa:"äº²è‡ªè¯•è¯• Acta", publicProfileLoading:"æ­£åœ¨åŠ è½½èµ„æ–™â€¦",
-      settingsTitle:"è®¾ç½®", pdfUnavailable:"å¯¼å‡ºPDFéœ€è¦è”ç½‘â€”â€”è¯·åœ¨è”ç½‘åŽé‡è¯•ã€‚" },
+    zh:{ tagline:"已完成的事 — 而非计划中的事", level:"等级", ap:"AP", streak:"天连续",
+      stats:"统计", todo:"待办", hint:"不必有压力，只管前进。你今天完成了什么？",
+      tabOverview:"概览", tabHistory:"历史记录", tabDaily:"每日", statsTitle:"统计",
+      overviewEmpty:"仓库是空的。输入 /add <任务> 开始记录。",
+      overviewSummary:"已跟踪 {count} 个任务 · 共 {ap} AP",
+      colTask:"任务", colCount:"次数", colTotalAp:"总AP", colDate:"日期", colTime:"时间", colAp:"AP",
+      searchPlaceholder:"按任务名称搜索…", clearFilters:"清除筛选", noMatch:"没有匹配的记录。",
+      dailyEntries:"记录", dailyEmpty:"这一天没有记录任何操作。", freqTitle:"频率",
+      todoAddPlaceholder:"添加一项任务…", todoEmpty:"这里还没有内容，请在上方添加第一项任务。",
+      diffEasy:"简单", diffNormal:"普通", diffHard:"困难",
+      tabSync:"同步", tabAchievements:"成就", tabLanguage:"语言",
+      syncIntro:"连接账号以在多台设备间同步数据。",
+      syncSoon:"云同步将在未来更新中推出。目前请使用 导出/导入 在设备间转移数据。",
+      syncGoogle:"使用 Google 继续", syncGithub:"使用 GitHub 继续", syncApple:"使用 Apple 继续", syncEmail:"使用邮箱继续",
+      achIntro:"达到这些等级即可解锁。", achLocked:"未解锁",
+      langIntro:"选择你的语言。所有内容都会切换——每个界面、每条消息。",
+      soundLabel:"声音", vibLabel:"震动", volLabel:"音量", close:"关闭",
+      bootMsg:"会话已开始 — Acta v3.6.3", philMsg:"理念：重要的是已完成的事，而非计划的事。不需要日程，只需要认可。",
+      helpMsg:"输入 /help 查看命令列表，或直接输入你做了什么。", helpHeader:"命令列表",
+      unknownCmd:"未知命令：“{cmd}”。输入 /help 查看列表。",
+      addUsage:"用法：/add <任务>", addInvalid:"该任务名称无效。",
+      addExisting:"+1 AP — “{task}”（第{count}次）", addNew:"已注册新任务：“{task}”（+1 AP）",
+      delUsage:"用法：/del <任务>", delOk:"已从仓库中删除“{task}”。", delNotFound:"在仓库中未找到“{task}”。",
+      clearedMsg:"屏幕已清空，数据未受影响。", exportedMsg:"备份文件已下载。",
+      importedMsg:"已从“{file}”导入数据。", importFailed:"导入失败：文件不是有效的JSON。", importReadFail:"导入失败：无法读取文件。",
+      undidMsg:"已撤销上一步操作。", redidMsg:"已重做被撤销的操作。",
+      todoDoneMsg:"已完成“{task}”（+{ap} AP）· 待办", levelUp:"等级 {level}！", nicedBtn:"太棒了！", account:"账户",
+      cmdAdd:"记录一次行动。已有任务：+AP 并计数+1；新任务自动注册。",
+      cmdDel:"从仓库中删除一个任务。", cmdList:"打开统计。", cmdExport:"下载数据的JSON备份。",
+      cmdImport:"从JSON备份文件加载数据。", cmdUndo:"撤销上一步操作。", cmdRedo:"重做被撤销的操作。",
+      cmdTheme:"切换浅色/深色主题。", cmdClear:"清空屏幕，数据将被保留。", cmdHelp:"重新显示此列表。",
+      dataLabel:"数据", eraseData:"清除所有数据", eraseConfirmMsg:"这将永久删除你所有的AP、任务、历史记录和待办事项，且无法撤销。",
+      erasedMsg:"所有数据已清除。", cancelBtn:"取消", confirmBtn:"清除", restoreHint:"使用导入可从备份恢复。",
+      apTooltip:"AP＝Acta Point，完成行动即可获得。等级根据总AP按RPG风格曲线计算——达到里程碑等级会有小小的庆祝。",
+      syncedAs:"已以 {email} 登录", signOut:"退出登录", continueBtn:"继续", syncFillFields:"请输入邮箱和密码。",
+      syncActiveNote:"登录后，你的数据会在各设备间自动同步。",
+      syncConflictMsg:"该账户已在其他设备上保存了数据。你想保留哪一份？",
+      syncKeepDevice:"保留此设备", syncUseCloud:"使用云端数据", syncUnavailable:"目前无法同步——请检查你的网络连接。",
+      todayLabel:"今天完成", shortcutsHeader:"键盘快捷键", scFocus:"聚焦输入框", scEsc:"关闭对话框", scUndo:"撤销", scRedo:"重做",
+      scExport:"导出备份", scImport:"导入备份", scStats:"打开统计", scTheme:"切换主题", monthlyTitle:"月度频率",
+      exportJsonLabel:"导出 JSON", exportPdfLabel:"导出 PDF", navActaCard:"Acta Card",
+      profileNameLabel:"姓名", profileNamePlaceholder:"你的名字", profileBioLabel:"简介", profileBioPlaceholder:"介绍一下自己…",
+      profileCountryLabel:"国家", profileCountryPlaceholder:"你的国家", changeAvatarLabel:"点击更换头像",
+      firstRunTitle:"保存你的旅程", firstRunMsg:"登录后，你的行动、连续记录和进度将在所有设备上安全保存。",
+      firstRunSignIn:"登录", firstRunLater:"以后再说",
+      actaCardDownload:"下载卡片", actaCardTasksDone:"已完成任务", actaCardMaxStreak:"最长连续天数", actaCardLinkProfile:"个人主页链接",
+      actaCardThankYou:"谢谢", actaCardNeedSignIn:"登录以生成你的 Acta Card", actaCardVerified:"已验证",
+      publicProfileNotFound:"未找到该资料", publicProfileTryActa:"亲自试试 Acta", publicProfileLoading:"正在加载资料…",
+      settingsTitle:"设置", pdfUnavailable:"导出PDF需要联网——请在联网后重试。" },
 
-    ru:{ tagline:"ÑÐ´ÐµÐ»Ð°Ð½Ð½Ð¾Ðµ â€” Ð° Ð½Ðµ Ð·Ð°Ð¿Ð»Ð°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ", level:"Ð£Ð ÐžÐ’Ð•ÐÐ¬", ap:"AP", streak:"Ð´Ð½ÐµÐ¹ Ð¿Ð¾Ð´Ñ€ÑÐ´",
-      stats:"Ð¡Ñ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÐ°", todo:"Ð—Ð°Ð´Ð°Ñ‡Ð¸", hint:"ÐÐ¸ÐºÐ°ÐºÐ¾Ð³Ð¾ Ð´Ð°Ð²Ð»ÐµÐ½Ð¸Ñ, Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿Ñ€Ð¾Ð³Ñ€ÐµÑÑ. Ð§Ñ‚Ð¾ Ð²Ñ‹ ÑÐ´ÐµÐ»Ð°Ð»Ð¸ ÑÐµÐ³Ð¾Ð´Ð½Ñ?",
-      tabOverview:"ÐžÐ±Ð·Ð¾Ñ€", tabHistory:"Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ñ", tabDaily:"ÐŸÐ¾ Ð´Ð½ÑÐ¼", statsTitle:"Ð¡Ð¢ÐÐ¢Ð˜Ð¡Ð¢Ð˜ÐšÐ",
-      overviewEmpty:"Ð ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ð¹ Ð¿ÑƒÑÑ‚. Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ /add <Ð·Ð°Ð´Ð°Ñ‡Ð°>, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ.",
-      overviewSummary:"Ð—Ð°Ð´Ð°Ñ‡ Ð² ÑÐ¿Ð¸ÑÐºÐµ: {count} Â· Ð²ÑÐµÐ³Ð¾ {ap} AP",
-      colTask:"Ð—Ð°Ð´Ð°Ñ‡Ð°", colCount:"Ð Ð°Ð·", colTotalAp:"Ð’ÑÐµÐ³Ð¾ AP", colDate:"Ð”Ð°Ñ‚Ð°", colTime:"Ð’Ñ€ÐµÐ¼Ñ", colAp:"AP",
-      searchPlaceholder:"ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸ÑŽ Ð·Ð°Ð´Ð°Ñ‡Ð¸â€¦", clearFilters:"Ð¡Ð±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ñ‹", noMatch:"Ð¡Ð¾Ð²Ð¿Ð°Ð´ÐµÐ½Ð¸Ð¹ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾.",
-      dailyEntries:"Ð—ÐÐŸÐ˜Ð¡Ð˜", dailyEmpty:"Ð’ ÑÑ‚Ð¾Ñ‚ Ð´ÐµÐ½ÑŒ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ð¹ Ð½Ðµ Ð·Ð°Ñ„Ð¸ÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¾.", freqTitle:"Ð§ÐÐ¡Ð¢ÐžÐ¢Ð",
-      todoAddPlaceholder:"Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð·Ð°Ð´Ð°Ñ‡Ñƒâ€¦", todoEmpty:"ÐŸÐ¾ÐºÐ° Ð¿ÑƒÑÑ‚Ð¾. Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¿ÐµÑ€Ð²ÑƒÑŽ Ð·Ð°Ð´Ð°Ñ‡Ñƒ Ð²Ñ‹ÑˆÐµ.",
-      diffEasy:"Ð›ÐµÐ³ÐºÐ¾", diffNormal:"ÐžÐ±Ñ‹Ñ‡Ð½Ð¾", diffHard:"Ð¡Ð»Ð¾Ð¶Ð½Ð¾",
-      tabSync:"Ð¡Ð¸Ð½Ñ…Ñ€.", tabAchievements:"Ð”Ð¾ÑÑ‚Ð¸Ð¶ÐµÐ½Ð¸Ñ", tabLanguage:"Ð¯Ð·Ñ‹Ðº",
-      syncIntro:"ÐŸÐ¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Ð´Ð»Ñ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¼ÐµÐ¶Ð´Ñƒ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ð¼Ð¸.",
-      syncSoon:"ÐžÐ±Ð»Ð°Ñ‡Ð½Ð°Ñ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð¿Ð¾ÑÐ²Ð¸Ñ‚ÑÑ Ð² Ð±ÑƒÐ´ÑƒÑ‰ÐµÐ¼ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ð¸. ÐŸÐ¾ÐºÐ° Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ / Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚.",
-      syncGoogle:"ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ Ñ Google", syncGithub:"ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ Ñ GitHub", syncApple:"ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ Ñ Apple", syncEmail:"ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ Ñ Email",
-      achIntro:"Ð”Ð¾ÑÑ‚Ð¸Ð³Ð½Ð¸Ñ‚Ðµ ÑÑ‚Ð¸Ñ… ÑƒÑ€Ð¾Ð²Ð½ÐµÐ¹, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¸Ñ….", achLocked:"Ð—Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¾",
-      langIntro:"Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ·Ñ‹Ðº. Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑÑ Ð²ÑÑ‘ â€” ÐºÐ°Ð¶Ð´Ñ‹Ð¹ ÑÐºÑ€Ð°Ð½, ÐºÐ°Ð¶Ð´Ð¾Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ.",
-      soundLabel:"Ð—Ð²ÑƒÐº", vibLabel:"Ð’Ð¸Ð±Ñ€Ð°Ñ†Ð¸Ñ", volLabel:"Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ", close:"Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ",
-      bootMsg:"Ð¡ÐµÑÑÐ¸Ñ Ð½Ð°Ñ‡Ð°Ñ‚Ð° â€” Acta v3.6.3", philMsg:"Ð¤Ð¸Ð»Ð¾ÑÐ¾Ñ„Ð¸Ñ: Ð²Ð°Ð¶Ð½Ð¾ ÑÐ´ÐµÐ»Ð°Ð½Ð½Ð¾Ðµ, Ð° Ð½Ðµ Ð·Ð°Ð¿Ð»Ð°Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ. ÐÐ¸ÐºÐ°ÐºÐ¾Ð³Ð¾ Ñ€Ð°ÑÐ¿Ð¸ÑÐ°Ð½Ð¸Ñ â€” Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿Ñ€Ð¸Ð·Ð½Ð°Ð½Ð¸Ðµ.",
-      helpMsg:"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ /help Ð´Ð»Ñ ÑÐ¿Ð¸ÑÐºÐ° ÐºÐ¾Ð¼Ð°Ð½Ð´ Ð¸Ð»Ð¸ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¾Ð¿Ð¸ÑˆÐ¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾ Ð²Ñ‹ ÑÐ´ÐµÐ»Ð°Ð»Ð¸.", helpHeader:"Ð¡ÐŸÐ˜Ð¡ÐžÐš ÐšÐžÐœÐÐÐ”",
-      unknownCmd:"ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð°: Â«{cmd}Â». Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ /help Ð´Ð»Ñ ÑÐ¿Ð¸ÑÐºÐ°.",
-      addUsage:"Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ: /add <Ð·Ð°Ð´Ð°Ñ‡Ð°>", addInvalid:"ÐÐµÐ´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ð¾Ðµ Ð¸Ð¼Ñ Ð·Ð°Ð´Ð°Ñ‡Ð¸.",
-      addExisting:"+1 AP â€” Â«{task}Â» (Ñ€Ð°Ð· â„–{count})", addNew:"Ð—Ð°Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð° Ð½Ð¾Ð²Ð°Ñ Ð·Ð°Ð´Ð°Ñ‡Ð°: Â«{task}Â» (+1 AP)",
-      delUsage:"Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ: /del <Ð·Ð°Ð´Ð°Ñ‡Ð°>", delOk:"Â«{task}Â» ÑƒÐ´Ð°Ð»ÐµÐ½Ð° Ð¸Ð· Ñ€ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ñ.", delNotFound:"Â«{task}Â» Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð° Ð² Ñ€ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ð¸.",
-      clearedMsg:"Ð­ÐºÑ€Ð°Ð½ Ð¾Ñ‡Ð¸Ñ‰ÐµÐ½. Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð½Ðµ Ð·Ð°Ñ‚Ñ€Ð¾Ð½ÑƒÑ‚Ñ‹.", exportedMsg:"Ð¤Ð°Ð¹Ð» Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸ ÑÐºÐ°Ñ‡Ð°Ð½.",
-      importedMsg:"Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð¼Ð¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð¸Ð· Â«{file}Â».", importFailed:"ÐžÑˆÐ¸Ð±ÐºÐ° Ð¸Ð¼Ð¿Ð¾Ñ€Ñ‚Ð°: Ñ„Ð°Ð¹Ð» Ð½Ðµ ÑÐ²Ð»ÑÐµÑ‚ÑÑ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¼ JSON.", importReadFail:"ÐžÑˆÐ¸Ð±ÐºÐ° Ð¸Ð¼Ð¿Ð¾Ñ€Ñ‚Ð°: Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð».",
-      undidMsg:"ÐŸÐ¾ÑÐ»ÐµÐ´Ð½ÐµÐµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð¾Ñ‚Ð¼ÐµÐ½ÐµÐ½Ð¾.", redidMsg:"ÐžÑ‚Ð¼ÐµÐ½Ñ‘Ð½Ð½Ð¾Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€ÐµÐ½Ð¾.",
-      todoDoneMsg:"Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Â«{task}Â» (+{ap} AP) Â· Ð—Ð°Ð´Ð°Ñ‡Ð¸", levelUp:"Ð£Ñ€Ð¾Ð²ÐµÐ½ÑŒ {level}!", nicedBtn:"ÐžÑ‚Ð»Ð¸Ñ‡Ð½Ð¾!", account:"ÐÐºÐºÐ°ÑƒÐ½Ñ‚",
-      cmdAdd:"Ð—Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÑ‚ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ. Ð¡ÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð°Ñ Ð·Ð°Ð´Ð°Ñ‡Ð°: +AP Ð¸ ÑÑ‡Ñ‘Ñ‚Ñ‡Ð¸Ðº +1; Ð½Ð¾Ð²Ð°Ñ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€ÑƒÐµÑ‚ÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸.",
-      cmdDel:"Ð£Ð´Ð°Ð»ÑÐµÑ‚ Ð·Ð°Ð´Ð°Ñ‡Ñƒ Ð¸Ð· Ñ€ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ñ.", cmdList:"ÐžÑ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÑ‚ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ.", cmdExport:"Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°ÐµÑ‚ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð² JSON.",
-      cmdImport:"Ð—Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÑ‚ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð° Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸ JSON.", cmdUndo:"ÐžÑ‚Ð¼ÐµÐ½ÑÐµÑ‚ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ.", cmdRedo:"ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€ÑÐµÑ‚ Ð¾Ñ‚Ð¼ÐµÐ½Ñ‘Ð½Ð½Ð¾Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ.",
-      cmdTheme:"ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ ÑÐ²ÐµÑ‚Ð»ÑƒÑŽ/Ñ‚Ñ‘Ð¼Ð½ÑƒÑŽ Ñ‚ÐµÐ¼Ñƒ.", cmdClear:"ÐžÑ‡Ð¸Ñ‰Ð°ÐµÑ‚ ÑÐºÑ€Ð°Ð½. Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÑŽÑ‚ÑÑ.", cmdHelp:"ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ ÑÑ‚Ð¾Ñ‚ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ½Ð¾Ð²Ð°.",
-      dataLabel:"Ð”Ð°Ð½Ð½Ñ‹Ðµ", eraseData:"Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²ÑÐµ Ð´Ð°Ð½Ð½Ñ‹Ðµ", eraseConfirmMsg:"Ð­Ñ‚Ð¾ Ð½Ð°Ð²ÑÐµÐ³Ð´Ð° ÑƒÐ´Ð°Ð»Ð¸Ñ‚ Ð²ÑÐµ Ð²Ð°ÑˆÐ¸ AP, Ð·Ð°Ð´Ð°Ñ‡Ð¸, Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº Ð´ÐµÐ». ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð½ÐµÐ»ÑŒÐ·Ñ.",
-      erasedMsg:"Ð’ÑÐµ Ð´Ð°Ð½Ð½Ñ‹Ðµ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹.", cancelBtn:"ÐžÑ‚Ð¼ÐµÐ½Ð°", confirmBtn:"Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ", restoreHint:"Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¸Ð· Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸.",
-      apTooltip:"AP = Acta Point, Ð½Ð°Ñ‡Ð¸ÑÐ»ÑÐµÑ‚ÑÑ Ð·Ð° Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ñ‹Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ. Ð£Ñ€Ð¾Ð²ÐµÐ½ÑŒ Ñ€Ð°ÑÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð¿Ð¾ Ð¾Ð±Ñ‰ÐµÐ¼Ñƒ AP Ð¿Ð¾ RPG-ÐºÑ€Ð¸Ð²Ð¾Ð¹ â€” Ð´Ð¾ÑÑ‚Ð¸Ð³Ð°Ð¹Ñ‚Ðµ ÑƒÑ€Ð¾Ð²Ð½ÐµÐ¹-Ð²ÐµÑ… Ñ€Ð°Ð´Ð¸ Ð½ÐµÐ±Ð¾Ð»ÑŒÑˆÐ¾Ð³Ð¾ Ð¿Ñ€Ð°Ð·Ð´Ð½Ð¸ÐºÐ°.",
-      syncedAs:"Ð’Ñ‹ Ð²Ð¾ÑˆÐ»Ð¸ ÐºÐ°Ðº {email}", signOut:"Ð’Ñ‹Ð¹Ñ‚Ð¸", continueBtn:"ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ", syncFillFields:"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ email Ð¸ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ.",
-      syncActiveNote:"Ð¢ÐµÐ¿ÐµÑ€ÑŒ Ð²Ð°ÑˆÐ¸ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€ÑƒÑŽÑ‚ÑÑ Ð¼ÐµÐ¶Ð´Ñƒ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ð¼Ð¸, Ð¿Ð¾ÐºÐ° Ð²Ñ‹ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ.",
-      syncConflictMsg:"ÐÐ° ÑÑ‚Ð¾Ð¼ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚Ðµ ÑƒÐ¶Ðµ ÐµÑÑ‚ÑŒ ÑÐ¾Ñ…Ñ€Ð°Ð½Ñ‘Ð½Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ñ Ð´Ñ€ÑƒÐ³Ð¾Ð³Ð¾ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°. ÐšÐ°ÐºÐ¸Ðµ Ð¾ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ?",
-      syncKeepDevice:"ÐžÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾", syncUseCloud:"Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¾Ð±Ð»Ð°Ñ‡Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ", syncUnavailable:"Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸Ñ ÑÐµÐ¹Ñ‡Ð°Ñ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð° â€” Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ.",
-      todayLabel:"ÑÐ´ÐµÐ»Ð°Ð½Ð¾ ÑÐµÐ³Ð¾Ð´Ð½Ñ", shortcutsHeader:"Ð“ÐžÐ Ð¯Ð§Ð˜Ð• ÐšÐ›ÐÐ’Ð˜Ð¨Ð˜", scFocus:"Ð¤Ð¾ÐºÑƒÑ Ð½Ð° Ð¿Ð¾Ð»Ðµ Ð²Ð²Ð¾Ð´Ð°", scEsc:"Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð´Ð¸Ð°Ð»Ð¾Ð³Ð¸", scUndo:"ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ", scRedo:"ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚ÑŒ",
-      scExport:"Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸", scImport:"Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸", scStats:"ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ", scTheme:"Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ‚ÐµÐ¼Ñƒ", monthlyTitle:"Ð§ÐÐ¡Ð¢ÐžÐ¢Ð ÐŸÐž ÐœÐ•Ð¡Ð¯Ð¦ÐÐœ",
-      exportJsonLabel:"Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ JSON", exportPdfLabel:"Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ PDF", navActaCard:"Acta Card",
-      profileNameLabel:"Ð˜Ð¼Ñ", profileNamePlaceholder:"Ð’Ð°ÑˆÐµ Ð¸Ð¼Ñ", profileBioLabel:"Ðž ÑÐµÐ±Ðµ", profileBioPlaceholder:"Ð Ð°ÑÑÐºÐ°Ð¶Ð¸Ñ‚Ðµ Ð¾ ÑÐµÐ±Ðµâ€¦",
-      profileCountryLabel:"Ð¡Ñ‚Ñ€Ð°Ð½Ð°", profileCountryPlaceholder:"Ð’Ð°ÑˆÐ° ÑÑ‚Ñ€Ð°Ð½Ð°", changeAvatarLabel:"ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐ¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ„Ð¾Ñ‚Ð¾",
-      firstRunTitle:"Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚Ðµ ÑÐ²Ð¾Ð¹ Ð¿ÑƒÑ‚ÑŒ", firstRunMsg:"Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ, ÑÐµÑ€Ð¸Ð¸ Ð¸ Ð¿Ñ€Ð¾Ð³Ñ€ÐµÑÑ Ð½Ð° Ð²ÑÐµÑ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ñ….",
-      firstRunSignIn:"Ð’Ð¾Ð¹Ñ‚Ð¸", firstRunLater:"ÐœÐ¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð·Ð¶Ðµ",
-      actaCardDownload:"Ð¡ÐºÐ°Ñ‡Ð°Ñ‚ÑŒ ÐºÐ°Ñ€Ñ‚Ð¾Ñ‡ÐºÑƒ", actaCardTasksDone:"Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð·Ð°Ð´Ð°Ñ‡", actaCardMaxStreak:"ÐœÐ°ÐºÑ. ÑÐµÑ€Ð¸Ñ", actaCardLinkProfile:"Ð¡ÑÑ‹Ð»ÐºÐ° Ð¿Ñ€Ð¾Ñ„Ð¸Ð»Ñ",
-      actaCardThankYou:"Ð¡Ð¿Ð°ÑÐ¸Ð±Ð¾", actaCardNeedSignIn:"Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐ²Ð¾ÑŽ Acta Card", actaCardVerified:"ÐŸÑ€Ð¾Ð²ÐµÑ€ÐµÐ½Ð¾",
-      publicProfileNotFound:"ÐŸÑ€Ð¾Ñ„Ð¸Ð»ÑŒ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½", publicProfileTryActa:"ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Acta ÑÐ°Ð¼Ð¸", publicProfileLoading:"Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð¿Ñ€Ð¾Ñ„Ð¸Ð»Ñâ€¦",
-      settingsTitle:"ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸", pdfUnavailable:"Ð”Ð»Ñ ÑÐºÑÐ¿Ð¾Ñ€Ñ‚Ð° Ð² PDF Ð½ÑƒÐ¶Ð½Ð¾ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ðº Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ñƒ â€” Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°, ÐºÐ¾Ð³Ð´Ð° Ð±ÑƒÐ´ÐµÑ‚Ðµ Ð¾Ð½Ð»Ð°Ð¹Ð½." },
+    ru:{ tagline:"сделанное — а не запланированное", level:"УРОВЕНЬ", ap:"AP", streak:"дней подряд",
+      stats:"Статистика", todo:"Задачи", hint:"Никакого давления, только прогресс. Что вы сделали сегодня?",
+      tabOverview:"Обзор", tabHistory:"История", tabDaily:"По дням", statsTitle:"СТАТИСТИКА",
+      overviewEmpty:"Репозиторий пуст. Введите /add <задача>, чтобы начать.",
+      overviewSummary:"Задач в списке: {count} · всего {ap} AP",
+      colTask:"Задача", colCount:"Раз", colTotalAp:"Всего AP", colDate:"Дата", colTime:"Время", colAp:"AP",
+      searchPlaceholder:"Поиск по названию задачи…", clearFilters:"Сбросить фильтры", noMatch:"Совпадений не найдено.",
+      dailyEntries:"ЗАПИСИ", dailyEmpty:"В этот день действий не зафиксировано.", freqTitle:"ЧАСТОТА",
+      todoAddPlaceholder:"Добавить задачу…", todoEmpty:"Пока пусто. Добавьте первую задачу выше.",
+      diffEasy:"Легко", diffNormal:"Обычно", diffHard:"Сложно",
+      tabSync:"Синхр.", tabAchievements:"Достижения", tabLanguage:"Язык",
+      syncIntro:"Подключите аккаунт для синхронизации данных между устройствами.",
+      syncSoon:"Облачная синхронизация появится в будущем обновлении. Пока используйте Экспорт / Импорт.",
+      syncGoogle:"Продолжить с Google", syncGithub:"Продолжить с GitHub", syncApple:"Продолжить с Apple", syncEmail:"Продолжить с Email",
+      achIntro:"Достигните этих уровней, чтобы открыть их.", achLocked:"Заблокировано",
+      langIntro:"Выберите язык. Изменится всё — каждый экран, каждое сообщение.",
+      soundLabel:"Звук", vibLabel:"Вибрация", volLabel:"Громкость", close:"Закрыть",
+      bootMsg:"Сессия начата — Acta v3.6.3", philMsg:"Философия: важно сделанное, а не запланированное. Никакого расписания — только признание.",
+      helpMsg:"Введите /help для списка команд или просто опишите, что вы сделали.", helpHeader:"СПИСОК КОМАНД",
+      unknownCmd:"Неизвестная команда: «{cmd}». Введите /help для списка.",
+      addUsage:"Использование: /add <задача>", addInvalid:"Недопустимое имя задачи.",
+      addExisting:"+1 AP — «{task}» (раз №{count})", addNew:"Зарегистрирована новая задача: «{task}» (+1 AP)",
+      delUsage:"Использование: /del <задача>", delOk:"«{task}» удалена из репозитория.", delNotFound:"«{task}» не найдена в репозитории.",
+      clearedMsg:"Экран очищен. Данные не затронуты.", exportedMsg:"Файл резервной копии скачан.",
+      importedMsg:"Данные импортированы из «{file}».", importFailed:"Ошибка импорта: файл не является корректным JSON.", importReadFail:"Ошибка импорта: не удалось прочитать файл.",
+      undidMsg:"Последнее действие отменено.", redidMsg:"Отменённое действие повторено.",
+      todoDoneMsg:"Выполнено «{task}» (+{ap} AP) · Задачи", levelUp:"Уровень {level}!", nicedBtn:"Отлично!", account:"Аккаунт",
+      cmdAdd:"Записывает действие. Существующая задача: +AP и счётчик +1; новая регистрируется автоматически.",
+      cmdDel:"Удаляет задачу из репозитория.", cmdList:"Открывает статистику.", cmdExport:"Скачивает резервную копию данных в JSON.",
+      cmdImport:"Загружает данные из файла резервной копии JSON.", cmdUndo:"Отменяет последнее действие.", cmdRedo:"Повторяет отменённое действие.",
+      cmdTheme:"Переключает светлую/тёмную тему.", cmdClear:"Очищает экран. Данные сохраняются.", cmdHelp:"Показывает этот список снова.",
+      dataLabel:"Данные", eraseData:"Удалить все данные", eraseConfirmMsg:"Это навсегда удалит все ваши AP, задачи, историю и список дел. Отменить нельзя.",
+      erasedMsg:"Все данные удалены.", cancelBtn:"Отмена", confirmBtn:"Удалить", restoreHint:"Используйте Импорт, чтобы восстановить из резервной копии.",
+      apTooltip:"AP = Acta Point, начисляется за выполненные действия. Уровень рассчитывается по общему AP по RPG-кривой — достигайте уровней-вех ради небольшого праздника.",
+      syncedAs:"Вы вошли как {email}", signOut:"Выйти", continueBtn:"Продолжить", syncFillFields:"Введите email и пароль.",
+      syncActiveNote:"Теперь ваши данные автоматически синхронизируются между устройствами, пока вы в системе.",
+      syncConflictMsg:"На этом аккаунте уже есть сохранённые данные с другого устройства. Какие оставить?",
+      syncKeepDevice:"Оставить это устройство", syncUseCloud:"Использовать облачные данные", syncUnavailable:"Синхронизация сейчас недоступна — проверьте подключение.",
+      todayLabel:"сделано сегодня", shortcutsHeader:"ГОРЯЧИЕ КЛАВИШИ", scFocus:"Фокус на поле ввода", scEsc:"Закрыть диалоги", scUndo:"Отменить", scRedo:"Повторить",
+      scExport:"Экспорт резервной копии", scImport:"Импорт резервной копии", scStats:"Открыть статистику", scTheme:"Сменить тему", monthlyTitle:"ЧАСТОТА ПО МЕСЯЦАМ",
+      exportJsonLabel:"Экспорт JSON", exportPdfLabel:"Экспорт PDF", navActaCard:"Acta Card",
+      profileNameLabel:"Имя", profileNamePlaceholder:"Ваше имя", profileBioLabel:"О себе", profileBioPlaceholder:"Расскажите о себе…",
+      profileCountryLabel:"Страна", profileCountryPlaceholder:"Ваша страна", changeAvatarLabel:"Нажмите, чтобы сменить фото",
+      firstRunTitle:"Сохраните свой путь", firstRunMsg:"Войдите, чтобы сохранить действия, серии и прогресс на всех устройствах.",
+      firstRunSignIn:"Войти", firstRunLater:"Может быть позже",
+      actaCardDownload:"Скачать карточку", actaCardTasksDone:"Выполнено задач", actaCardMaxStreak:"Макс. серия", actaCardLinkProfile:"Ссылка профиля",
+      actaCardThankYou:"Спасибо", actaCardNeedSignIn:"Войдите, чтобы создать свою Acta Card", actaCardVerified:"Проверено",
+      publicProfileNotFound:"Профиль не найден", publicProfileTryActa:"Попробуйте Acta сами", publicProfileLoading:"Загрузка профиля…",
+      settingsTitle:"Настройки", pdfUnavailable:"Для экспорта в PDF нужно подключение к интернету — попробуйте снова, когда будете онлайн." },
 
-    hi:{ tagline:"à¤œà¥‹ à¤•à¤¿à¤¯à¤¾ â€” à¤œà¥‹ à¤¯à¥‹à¤œà¤¨à¤¾ à¤¬à¤¨à¤¾à¤ˆ à¤µà¥‹ à¤¨à¤¹à¥€à¤‚", level:"à¤¸à¥à¤¤à¤°", ap:"AP", streak:"à¤¦à¤¿à¤¨ à¤²à¤—à¤¾à¤¤à¤¾à¤°",
-      stats:"à¤†à¤à¤•à¤¡à¤¼à¥‡", todo:"à¤•à¤¾à¤°à¥à¤¯ à¤¸à¥‚à¤šà¥€", hint:"à¤•à¥‹à¤ˆ à¤¦à¤¬à¤¾à¤µ à¤¨à¤¹à¥€à¤‚, à¤¬à¤¸ à¤ªà¥à¤°à¤—à¤¤à¤¿à¥¤ à¤†à¤œ à¤†à¤ªà¤¨à¥‡ à¤•à¥à¤¯à¤¾ à¤ªà¥‚à¤°à¤¾ à¤•à¤¿à¤¯à¤¾?",
-      tabOverview:"à¤…à¤µà¤²à¥‹à¤•à¤¨", tabHistory:"à¤‡à¤¤à¤¿à¤¹à¤¾à¤¸", tabDaily:"à¤¦à¥ˆà¤¨à¤¿à¤•", statsTitle:"à¤†à¤à¤•à¤¡à¤¼à¥‡",
-      overviewEmpty:"à¤°à¤¿à¤ªà¥‰à¤œà¤¼à¤¿à¤Ÿà¤°à¥€ à¤–à¤¾à¤²à¥€ à¤¹à¥ˆà¥¤ à¤¶à¥à¤°à¥‚ à¤•à¤°à¤¨à¥‡ à¤•à¥‡ à¤²à¤¿à¤ /add <à¤•à¤¾à¤°à¥à¤¯> à¤Ÿà¤¾à¤‡à¤ª à¤•à¤°à¥‡à¤‚à¥¤",
-      overviewSummary:"{count} à¤•à¤¾à¤°à¥à¤¯ à¤Ÿà¥à¤°à¥ˆà¤• à¤¹à¥‹ à¤°à¤¹à¥‡ à¤¹à¥ˆà¤‚ Â· à¤•à¥à¤² {ap} AP",
-      colTask:"à¤•à¤¾à¤°à¥à¤¯", colCount:"à¤¬à¤¾à¤°", colTotalAp:"à¤•à¥à¤² AP", colDate:"à¤¤à¤¾à¤°à¥€à¤–", colTime:"à¤¸à¤®à¤¯", colAp:"AP",
-      searchPlaceholder:"à¤•à¤¾à¤°à¥à¤¯ à¤¨à¤¾à¤® à¤¸à¥‡ à¤–à¥‹à¤œà¥‡à¤‚â€¦", clearFilters:"à¤«à¤¼à¤¿à¤²à¥à¤Ÿà¤° à¤¹à¤Ÿà¤¾à¤à¤", noMatch:"à¤•à¥‹à¤ˆ à¤®à¥‡à¤² à¤¨à¤¹à¥€à¤‚ à¤®à¤¿à¤²à¤¾à¥¤",
-      dailyEntries:"à¤ªà¥à¤°à¤µà¤¿à¤·à¥à¤Ÿà¤¿à¤¯à¤¾à¤", dailyEmpty:"à¤‡à¤¸ à¤¦à¤¿à¤¨ à¤•à¥‹à¤ˆ à¤•à¤¾à¤°à¥à¤¯ à¤¦à¤°à¥à¤œ à¤¨à¤¹à¥€à¤‚ à¤¹à¥à¤†à¥¤", freqTitle:"à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿",
-      todoAddPlaceholder:"à¤•à¤¾à¤°à¥à¤¯ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚â€¦", todoEmpty:"à¤…à¤­à¥€ à¤¯à¤¹à¤¾à¤ à¤•à¥à¤› à¤¨à¤¹à¥€à¤‚ à¤¹à¥ˆà¥¤ à¤Šà¤ªà¤° à¤…à¤ªà¤¨à¤¾ à¤ªà¤¹à¤²à¤¾ à¤•à¤¾à¤°à¥à¤¯ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚à¥¤",
-      diffEasy:"à¤†à¤¸à¤¾à¤¨", diffNormal:"à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯", diffHard:"à¤•à¤ à¤¿à¤¨",
-      tabSync:"à¤¸à¤¿à¤‚à¤•", tabAchievements:"à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿à¤¯à¤¾à¤", tabLanguage:"à¤­à¤¾à¤·à¤¾",
-      syncIntro:"à¤¡à¤¿à¤µà¤¾à¤‡à¤¸ à¤•à¥‡ à¤¬à¥€à¤š à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¤¿à¤‚à¤• à¤•à¤°à¤¨à¥‡ à¤•à¥‡ à¤²à¤¿à¤ à¤–à¤¾à¤¤à¤¾ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚à¥¤",
-      syncSoon:"à¤•à¥à¤²à¤¾à¤‰à¤¡ à¤¸à¤¿à¤‚à¤• à¤­à¤µà¤¿à¤·à¥à¤¯ à¤•à¥‡ à¤…à¤ªà¤¡à¥‡à¤Ÿ à¤®à¥‡à¤‚ à¤†à¤à¤—à¤¾à¥¤ à¤…à¤­à¥€ à¤•à¥‡ à¤²à¤¿à¤ Export / Import à¤•à¤¾ à¤‰à¤ªà¤¯à¥‹à¤— à¤•à¤°à¥‡à¤‚à¥¤",
-      syncGoogle:"Google à¤¸à¥‡ à¤œà¤¾à¤°à¥€ à¤°à¤–à¥‡à¤‚", syncGithub:"GitHub à¤¸à¥‡ à¤œà¤¾à¤°à¥€ à¤°à¤–à¥‡à¤‚", syncApple:"Apple à¤¸à¥‡ à¤œà¤¾à¤°à¥€ à¤°à¤–à¥‡à¤‚", syncEmail:"à¤ˆà¤®à¥‡à¤² à¤¸à¥‡ à¤œà¤¾à¤°à¥€ à¤°à¤–à¥‡à¤‚",
-      achIntro:"à¤‡à¤¨ à¤¸à¥à¤¤à¤°à¥‹à¤‚ à¤¤à¤• à¤ªà¤¹à¥à¤à¤šà¤•à¤° à¤‡à¤¨à¥à¤¹à¥‡à¤‚ à¤…à¤¨à¤²à¥‰à¤• à¤•à¤°à¥‡à¤‚à¥¤", achLocked:"à¤²à¥‰à¤•à¥à¤¡",
-      langIntro:"à¤…à¤ªà¤¨à¥€ à¤­à¤¾à¤·à¤¾ à¤šà¥à¤¨à¥‡à¤‚à¥¤ à¤¸à¤¬ à¤•à¥à¤› à¤¬à¤¦à¤² à¤œà¤¾à¤à¤—à¤¾ â€” à¤¹à¤° à¤¸à¥à¤•à¥à¤°à¥€à¤¨, à¤¹à¤° à¤¸à¤‚à¤¦à¥‡à¤¶à¥¤",
-      soundLabel:"à¤§à¥à¤µà¤¨à¤¿", vibLabel:"à¤•à¤‚à¤ªà¤¨", volLabel:"à¤†à¤µà¤¾à¤œà¤¼", close:"à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚",
-      bootMsg:"à¤¸à¤¤à¥à¤° à¤¶à¥à¤°à¥‚ à¤¹à¥à¤† â€” Acta v3.6.3", philMsg:"à¤¦à¤°à¥à¤¶à¤¨: à¤œà¥‹ à¤•à¤¿à¤¯à¤¾ à¤µà¤¹ à¤®à¤¾à¤¯à¤¨à¥‡ à¤°à¤–à¤¤à¤¾ à¤¹à¥ˆ, à¤œà¥‹ à¤¯à¥‹à¤œà¤¨à¤¾ à¤¬à¤¨à¤¾à¤ˆ à¤µà¤¹ à¤¨à¤¹à¥€à¤‚à¥¤ à¤•à¥‹à¤ˆ à¤¶à¥‡à¤¡à¥à¤¯à¥‚à¤² à¤¨à¤¹à¥€à¤‚, à¤¸à¤¿à¤°à¥à¤«à¤¼ à¤ªà¤¹à¤šà¤¾à¤¨à¥¤",
-      helpMsg:"à¤•à¤®à¤¾à¤‚à¤¡ à¤¸à¥‚à¤šà¥€ à¤•à¥‡ à¤²à¤¿à¤ /help à¤Ÿà¤¾à¤‡à¤ª à¤•à¤°à¥‡à¤‚, à¤¯à¤¾ à¤¬à¤¸ à¤¬à¤¤à¤¾à¤à¤‚ à¤•à¤¿ à¤†à¤ªà¤¨à¥‡ à¤•à¥à¤¯à¤¾ à¤•à¤¿à¤¯à¤¾à¥¤", helpHeader:"à¤•à¤®à¤¾à¤‚à¤¡ à¤¸à¥‚à¤šà¥€",
-      unknownCmd:"à¤…à¤œà¥à¤žà¤¾à¤¤ à¤•à¤®à¤¾à¤‚à¤¡: \"{cmd}\"à¥¤ à¤¸à¥‚à¤šà¥€ à¤•à¥‡ à¤²à¤¿à¤ /help à¤Ÿà¤¾à¤‡à¤ª à¤•à¤°à¥‡à¤‚à¥¤",
-      addUsage:"à¤‰à¤ªà¤¯à¥‹à¤—: /add <à¤•à¤¾à¤°à¥à¤¯>", addInvalid:"à¤¯à¤¹ à¤•à¤¾à¤°à¥à¤¯ à¤¨à¤¾à¤® à¤®à¤¾à¤¨à¥à¤¯ à¤¨à¤¹à¥€à¤‚ à¤¹à¥ˆà¥¤",
-      addExisting:"+1 AP â€” \"{task}\" (#{count})", addNew:"à¤¨à¤¯à¤¾ à¤•à¤¾à¤°à¥à¤¯ à¤¦à¤°à¥à¤œ à¤¹à¥à¤†: \"{task}\" (+1 AP)",
-      delUsage:"à¤‰à¤ªà¤¯à¥‹à¤—: /del <à¤•à¤¾à¤°à¥à¤¯>", delOk:"\"{task}\" à¤¹à¤Ÿà¤¾ à¤¦à¤¿à¤¯à¤¾ à¤—à¤¯à¤¾à¥¤", delNotFound:"\"{task}\" à¤¨à¤¹à¥€à¤‚ à¤®à¤¿à¤²à¤¾à¥¤",
-      clearedMsg:"à¤¸à¥à¤•à¥à¤°à¥€à¤¨ à¤¸à¤¾à¤«à¤¼ à¤¹à¥‹ à¤—à¤ˆà¥¤ à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤ à¤¹à¥ˆà¥¤", exportedMsg:"à¤¬à¥ˆà¤•à¤…à¤ª à¤«à¤¼à¤¾à¤‡à¤² à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ à¤¹à¥à¤ˆà¥¤",
-      importedMsg:"\"{file}\" à¤¸à¥‡ à¤¡à¥‡à¤Ÿà¤¾ à¤†à¤¯à¤¾à¤¤ à¤¹à¥à¤†à¥¤", importFailed:"à¤†à¤¯à¤¾à¤¤ à¤µà¤¿à¤«à¤²: à¤«à¤¼à¤¾à¤‡à¤² à¤®à¤¾à¤¨à¥à¤¯ JSON à¤¨à¤¹à¥€à¤‚ à¤¹à¥ˆà¥¤", importReadFail:"à¤†à¤¯à¤¾à¤¤ à¤µà¤¿à¤«à¤²: à¤«à¤¼à¤¾à¤‡à¤² à¤ªà¤¢à¤¼à¥€ à¤¨à¤¹à¥€à¤‚ à¤œà¤¾ à¤¸à¤•à¥€à¥¤",
-      undidMsg:"à¤ªà¤¿à¤›à¤²à¥€ à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤ªà¥‚à¤°à¥à¤µà¤µà¤¤ à¤•à¥€ à¤—à¤ˆà¥¤", redidMsg:"à¤ªà¥‚à¤°à¥à¤µà¤µà¤¤ à¤•à¥€ à¤—à¤ˆ à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤«à¤¿à¤° à¤¸à¥‡ à¤•à¥€ à¤—à¤ˆà¥¤",
-      todoDoneMsg:"\"{task}\" à¤ªà¥‚à¤°à¤¾ à¤¹à¥à¤† (+{ap} AP) Â· à¤•à¤¾à¤°à¥à¤¯ à¤¸à¥‚à¤šà¥€", levelUp:"à¤¸à¥à¤¤à¤° {level}!", nicedBtn:"à¤¬à¤¢à¤¼à¤¿à¤¯à¤¾!", account:"à¤–à¤¾à¤¤à¤¾",
-      cmdAdd:"à¤à¤• à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤¦à¤°à¥à¤œ à¤•à¤°à¥‡à¤‚à¥¤ à¤®à¥Œà¤œà¥‚à¤¦à¤¾ à¤•à¤¾à¤°à¥à¤¯: +AP à¤”à¤° à¤—à¤¿à¤¨à¤¤à¥€ +1; à¤¨à¤¯à¤¾ à¤•à¤¾à¤°à¥à¤¯ à¤¸à¥à¤µà¤¤à¤ƒ à¤¦à¤°à¥à¤œ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆà¥¤",
-      cmdDel:"à¤°à¤¿à¤ªà¥‰à¤œà¤¼à¤¿à¤Ÿà¤°à¥€ à¤¸à¥‡ à¤•à¤¾à¤°à¥à¤¯ à¤¹à¤Ÿà¤¾à¤à¤à¥¤", cmdList:"à¤†à¤à¤•à¤¡à¤¼à¥‡ à¤–à¥‹à¤²à¥‡à¤‚à¥¤", cmdExport:"à¤¡à¥‡à¤Ÿà¤¾ à¤•à¤¾ JSON à¤¬à¥ˆà¤•à¤…à¤ª à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ à¤•à¤°à¥‡à¤‚à¥¤",
-      cmdImport:"JSON à¤¬à¥ˆà¤•à¤…à¤ª à¤«à¤¼à¤¾à¤‡à¤² à¤¸à¥‡ à¤¡à¥‡à¤Ÿà¤¾ à¤²à¥‹à¤¡ à¤•à¤°à¥‡à¤‚à¥¤", cmdUndo:"à¤ªà¤¿à¤›à¤²à¥€ à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤ªà¥‚à¤°à¥à¤µà¤µà¤¤ à¤•à¤°à¥‡à¤‚à¥¤", cmdRedo:"à¤ªà¥‚à¤°à¥à¤µà¤µà¤¤ à¤•à¥€ à¤—à¤ˆ à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤«à¤¿à¤° à¤¸à¥‡ à¤•à¤°à¥‡à¤‚à¥¤",
-      cmdTheme:"à¤²à¤¾à¤‡à¤Ÿ/à¤¡à¤¾à¤°à¥à¤• à¤¥à¥€à¤® à¤¬à¤¦à¤²à¥‡à¤‚à¥¤", cmdClear:"à¤¸à¥à¤•à¥à¤°à¥€à¤¨ à¤¸à¤¾à¤«à¤¼ à¤•à¤°à¥‡à¤‚à¥¤ à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤ à¤°à¤¹à¥‡à¤—à¤¾à¥¤", cmdHelp:"à¤¯à¤¹ à¤¸à¥‚à¤šà¥€ à¤«à¤¿à¤° à¤¸à¥‡ à¤¦à¤¿à¤–à¤¾à¤à¤à¥¤",
-      dataLabel:"à¤¡à¥‡à¤Ÿà¤¾", eraseData:"à¤¸à¤­à¥€ à¤¡à¥‡à¤Ÿà¤¾ à¤®à¤¿à¤Ÿà¤¾à¤à¤", eraseConfirmMsg:"à¤‡à¤¸à¤¸à¥‡ à¤†à¤ªà¤•à¤¾ à¤¸à¤¾à¤°à¤¾ AP, à¤•à¤¾à¤°à¥à¤¯, à¤‡à¤¤à¤¿à¤¹à¤¾à¤¸ à¤”à¤° à¤•à¤¾à¤°à¥à¤¯ à¤¸à¥‚à¤šà¥€ à¤¸à¥à¤¥à¤¾à¤¯à¥€ à¤°à¥‚à¤ª à¤¸à¥‡ à¤®à¤¿à¤Ÿ à¤œà¤¾à¤à¤—à¥€à¥¤ à¤‡à¤¸à¥‡ à¤ªà¥‚à¤°à¥à¤µà¤µà¤¤ à¤¨à¤¹à¥€à¤‚ à¤•à¤¿à¤¯à¤¾ à¤œà¤¾ à¤¸à¤•à¤¤à¤¾à¥¤",
-      erasedMsg:"à¤¸à¤¾à¤°à¤¾ à¤¡à¥‡à¤Ÿà¤¾ à¤®à¤¿à¤Ÿà¤¾ à¤¦à¤¿à¤¯à¤¾ à¤—à¤¯à¤¾à¥¤", cancelBtn:"à¤°à¤¦à¥à¤¦ à¤•à¤°à¥‡à¤‚", confirmBtn:"à¤®à¤¿à¤Ÿà¤¾à¤à¤", restoreHint:"à¤¬à¥ˆà¤•à¤…à¤ª à¤¸à¥‡ à¤ªà¥à¤¨à¤°à¥à¤¸à¥à¤¥à¤¾à¤ªà¤¿à¤¤ à¤•à¤°à¤¨à¥‡ à¤•à¥‡ à¤²à¤¿à¤ Import à¤•à¤¾ à¤‰à¤ªà¤¯à¥‹à¤— à¤•à¤°à¥‡à¤‚à¥¤",
-      apTooltip:"AP = Acta Point, à¤•à¤¾à¤°à¥à¤¯ à¤ªà¥‚à¤°à¤¾ à¤•à¤°à¤¨à¥‡ à¤ªà¤° à¤®à¤¿à¤²à¤¤à¤¾ à¤¹à¥ˆà¥¤ à¤¸à¥à¤¤à¤° à¤•à¥à¤² AP à¤¸à¥‡ RPG-à¤¶à¥ˆà¤²à¥€ à¤µà¤•à¥à¤° à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤—à¤£à¤¨à¤¾ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆ â€” à¤®à¥€à¤² à¤•à¥‡ à¤ªà¤¤à¥à¤¥à¤° à¤¸à¥à¤¤à¤°à¥‹à¤‚ à¤ªà¤° à¤ªà¤¹à¥à¤à¤šà¤•à¤° à¤à¤• à¤›à¥‹à¤Ÿà¤¾ à¤‰à¤¤à¥à¤¸à¤µ à¤®à¤¨à¤¾à¤à¤‚à¥¤",
-      syncedAs:"{email} à¤•à¥‡ à¤°à¥‚à¤ª à¤®à¥‡à¤‚ à¤¸à¤¾à¤‡à¤¨ à¤‡à¤¨ à¤•à¤¿à¤¯à¤¾ à¤—à¤¯à¤¾", signOut:"à¤¸à¤¾à¤‡à¤¨ à¤†à¤‰à¤Ÿ à¤•à¤°à¥‡à¤‚", continueBtn:"à¤œà¤¾à¤°à¥€ à¤°à¤–à¥‡à¤‚", syncFillFields:"à¤•à¥ƒà¤ªà¤¯à¤¾ à¤ˆà¤®à¥‡à¤² à¤”à¤° à¤ªà¤¾à¤¸à¤µà¤°à¥à¤¡ à¤¦à¥‹à¤¨à¥‹à¤‚ à¤¦à¤°à¥à¤œ à¤•à¤°à¥‡à¤‚à¥¤",
-      syncActiveNote:"à¤¸à¤¾à¤‡à¤¨ à¤‡à¤¨ à¤°à¤¹à¤¤à¥‡ à¤¹à¥à¤ à¤…à¤¬ à¤†à¤ªà¤•à¤¾ à¤¡à¥‡à¤Ÿà¤¾ à¤†à¤ªà¤•à¥‡ à¤¡à¤¿à¤µà¤¾à¤‡à¤¸ à¤•à¥‡ à¤¬à¥€à¤š à¤…à¤ªà¤¨à¥‡ à¤†à¤ª à¤¸à¤¿à¤‚à¤• à¤¹à¥‹à¤—à¤¾à¥¤",
-      syncConflictMsg:"à¤‡à¤¸ à¤–à¤¾à¤¤à¥‡ à¤®à¥‡à¤‚ à¤ªà¤¹à¤²à¥‡ à¤¸à¥‡ à¤¹à¥€ à¤•à¤¿à¤¸à¥€ à¤…à¤¨à¥à¤¯ à¤¡à¤¿à¤µà¤¾à¤‡à¤¸ à¤•à¤¾ à¤¸à¥‡à¤µ à¤•à¤¿à¤¯à¤¾ à¤¹à¥à¤† à¤¡à¥‡à¤Ÿà¤¾ à¤¹à¥ˆà¥¤ à¤†à¤ª à¤•à¥Œà¤¨ à¤¸à¤¾ à¤°à¤–à¤¨à¤¾ à¤šà¤¾à¤¹à¥‡à¤‚à¤—à¥‡?",
-      syncKeepDevice:"à¤¯à¤¹ à¤¡à¤¿à¤µà¤¾à¤‡à¤¸ à¤°à¤–à¥‡à¤‚", syncUseCloud:"à¤•à¥à¤²à¤¾à¤‰à¤¡ à¤¡à¥‡à¤Ÿà¤¾ à¤‰à¤ªà¤¯à¥‹à¤— à¤•à¤°à¥‡à¤‚", syncUnavailable:"à¤…à¤­à¥€ à¤¸à¤¿à¤‚à¤• à¤‰à¤ªà¤²à¤¬à¥à¤§ à¤¨à¤¹à¥€à¤‚ à¤¹à¥ˆ â€” à¤…à¤ªà¤¨à¤¾ à¤•à¤¨à¥‡à¤•à¥à¤¶à¤¨ à¤œà¤¾à¤à¤šà¥‡à¤‚à¥¤",
-      todayLabel:"à¤†à¤œ à¤•à¤¿à¤ à¤—à¤", shortcutsHeader:"à¤•à¥€à¤¬à¥‹à¤°à¥à¤¡ à¤¶à¥‰à¤°à¥à¤Ÿà¤•à¤Ÿ", scFocus:"à¤‡à¤¨à¤ªà¥à¤Ÿ à¤ªà¤° à¤«à¤¼à¥‹à¤•à¤¸ à¤•à¤°à¥‡à¤‚", scEsc:"à¤¡à¤¾à¤¯à¤²à¥‰à¤— à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚", scUndo:"à¤ªà¥‚à¤°à¥à¤µà¤µà¤¤ à¤•à¤°à¥‡à¤‚", scRedo:"à¤«à¤¿à¤° à¤¸à¥‡ à¤•à¤°à¥‡à¤‚",
-      scExport:"à¤¬à¥ˆà¤•à¤…à¤ª à¤à¤•à¥à¤¸à¤ªà¥‹à¤°à¥à¤Ÿ à¤•à¤°à¥‡à¤‚", scImport:"à¤¬à¥ˆà¤•à¤…à¤ª à¤‡à¤®à¥à¤ªà¥‹à¤°à¥à¤Ÿ à¤•à¤°à¥‡à¤‚", scStats:"à¤†à¤à¤•à¤¡à¤¼à¥‡ à¤–à¥‹à¤²à¥‡à¤‚", scTheme:"à¤¥à¥€à¤® à¤¬à¤¦à¤²à¥‡à¤‚", monthlyTitle:"à¤®à¤¾à¤¸à¤¿à¤• à¤†à¤µà¥ƒà¤¤à¥à¤¤à¤¿",
-      exportJsonLabel:"JSON à¤à¤•à¥à¤¸à¤ªà¥‹à¤°à¥à¤Ÿ à¤•à¤°à¥‡à¤‚", exportPdfLabel:"PDF à¤à¤•à¥à¤¸à¤ªà¥‹à¤°à¥à¤Ÿ à¤•à¤°à¥‡à¤‚", navActaCard:"Acta Card",
-      profileNameLabel:"à¤¨à¤¾à¤®", profileNamePlaceholder:"à¤†à¤ªà¤•à¤¾ à¤¨à¤¾à¤®", profileBioLabel:"à¤¬à¤¾à¤¯à¥‹", profileBioPlaceholder:"à¤…à¤ªà¤¨à¥‡ à¤¬à¤¾à¤°à¥‡ à¤®à¥‡à¤‚ à¤¬à¤¤à¤¾à¤à¤‚â€¦",
-      profileCountryLabel:"à¤¦à¥‡à¤¶", profileCountryPlaceholder:"à¤†à¤ªà¤•à¤¾ à¤¦à¥‡à¤¶", changeAvatarLabel:"à¤«à¤¼à¥‹à¤Ÿà¥‹ à¤¬à¤¦à¤²à¤¨à¥‡ à¤•à¥‡ à¤²à¤¿à¤ à¤Ÿà¥ˆà¤ª à¤•à¤°à¥‡à¤‚",
-      firstRunTitle:"à¤…à¤ªà¤¨à¥€ à¤¯à¤¾à¤¤à¥à¤°à¤¾ à¤¸à¤¹à¥‡à¤œà¥‡à¤‚", firstRunMsg:"à¤¸à¤¾à¤‡à¤¨ à¤‡à¤¨ à¤•à¤°à¥‡à¤‚ à¤¤à¤¾à¤•à¤¿ à¤†à¤ªà¤•à¥‡ à¤•à¤¾à¤°à¥à¤¯, à¤¸à¥à¤Ÿà¥à¤°à¥€à¤• à¤”à¤° à¤ªà¥à¤°à¤—à¤¤à¤¿ à¤¹à¤° à¤¡à¤¿à¤µà¤¾à¤‡à¤¸ à¤ªà¤° à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤ à¤°à¤¹à¥‡à¤‚à¥¤",
-      firstRunSignIn:"à¤¸à¤¾à¤‡à¤¨ à¤‡à¤¨ à¤•à¤°à¥‡à¤‚", firstRunLater:"à¤¬à¤¾à¤¦ à¤®à¥‡à¤‚",
-      actaCardDownload:"à¤•à¤¾à¤°à¥à¤¡ à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ à¤•à¤°à¥‡à¤‚", actaCardTasksDone:"à¤ªà¥‚à¤°à¥‡ à¤•à¤¿à¤ à¤—à¤ à¤•à¤¾à¤°à¥à¤¯", actaCardMaxStreak:"à¤…à¤§à¤¿à¤•à¤¤à¤® à¤¸à¥à¤Ÿà¥à¤°à¥€à¤•", actaCardLinkProfile:"à¤ªà¥à¤°à¥‹à¤«à¤¼à¤¾à¤‡à¤² à¤²à¤¿à¤‚à¤•",
-      actaCardThankYou:"à¤§à¤¨à¥à¤¯à¤µà¤¾à¤¦", actaCardNeedSignIn:"à¤…à¤ªà¤¨à¤¾ Acta Card à¤¬à¤¨à¤¾à¤¨à¥‡ à¤•à¥‡ à¤²à¤¿à¤ à¤¸à¤¾à¤‡à¤¨ à¤‡à¤¨ à¤•à¤°à¥‡à¤‚", actaCardVerified:"à¤¸à¤¤à¥à¤¯à¤¾à¤ªà¤¿à¤¤",
-      publicProfileNotFound:"à¤ªà¥à¤°à¥‹à¤«à¤¼à¤¾à¤‡à¤² à¤¨à¤¹à¥€à¤‚ à¤®à¤¿à¤²à¥€", publicProfileTryActa:"à¤–à¥à¤¦ Acta à¤†à¤œà¤¼à¤®à¤¾à¤à¤‚", publicProfileLoading:"à¤ªà¥à¤°à¥‹à¤«à¤¼à¤¾à¤‡à¤² à¤²à¥‹à¤¡ à¤¹à¥‹ à¤°à¤¹à¥€ à¤¹à¥ˆâ€¦",
-      settingsTitle:"à¤¸à¥‡à¤Ÿà¤¿à¤‚à¤—à¥à¤¸", pdfUnavailable:"PDF à¤à¤•à¥à¤¸à¤ªà¥‹à¤°à¥à¤Ÿ à¤•à¥‡ à¤²à¤¿à¤ à¤‡à¤‚à¤Ÿà¤°à¤¨à¥‡à¤Ÿ à¤•à¤¨à¥‡à¤•à¥à¤¶à¤¨ à¤šà¤¾à¤¹à¤¿à¤ â€” à¤‘à¤¨à¤²à¤¾à¤‡à¤¨ à¤¹à¥‹à¤¨à¥‡ à¤ªà¤° à¤«à¤¿à¤° à¤¸à¥‡ à¤•à¥‹à¤¶à¤¿à¤¶ à¤•à¤°à¥‡à¤‚à¥¤" },
+    hi:{ tagline:"जो किया — जो योजना बनाई वो नहीं", level:"स्तर", ap:"AP", streak:"दिन लगातार",
+      stats:"आँकड़े", todo:"कार्य सूची", hint:"कोई दबाव नहीं, बस प्रगति। आज आपने क्या पूरा किया?",
+      tabOverview:"अवलोकन", tabHistory:"इतिहास", tabDaily:"दैनिक", statsTitle:"आँकड़े",
+      overviewEmpty:"रिपॉज़िटरी खाली है। शुरू करने के लिए /add <कार्य> टाइप करें।",
+      overviewSummary:"{count} कार्य ट्रैक हो रहे हैं · कुल {ap} AP",
+      colTask:"कार्य", colCount:"बार", colTotalAp:"कुल AP", colDate:"तारीख", colTime:"समय", colAp:"AP",
+      searchPlaceholder:"कार्य नाम से खोजें…", clearFilters:"फ़िल्टर हटाएँ", noMatch:"कोई मेल नहीं मिला।",
+      dailyEntries:"प्रविष्टियाँ", dailyEmpty:"इस दिन कोई कार्य दर्ज नहीं हुआ।", freqTitle:"आवृत्ति",
+      todoAddPlaceholder:"कार्य जोड़ें…", todoEmpty:"अभी यहाँ कुछ नहीं है। ऊपर अपना पहला कार्य जोड़ें।",
+      diffEasy:"आसान", diffNormal:"सामान्य", diffHard:"कठिन",
+      tabSync:"सिंक", tabAchievements:"उपलब्धियाँ", tabLanguage:"भाषा",
+      syncIntro:"डिवाइस के बीच डेटा सिंक करने के लिए खाता जोड़ें।",
+      syncSoon:"क्लाउड सिंक भविष्य के अपडेट में आएगा। अभी के लिए Export / Import का उपयोग करें।",
+      syncGoogle:"Google से जारी रखें", syncGithub:"GitHub से जारी रखें", syncApple:"Apple से जारी रखें", syncEmail:"ईमेल से जारी रखें",
+      achIntro:"इन स्तरों तक पहुँचकर इन्हें अनलॉक करें।", achLocked:"लॉक्ड",
+      langIntro:"अपनी भाषा चुनें। सब कुछ बदल जाएगा — हर स्क्रीन, हर संदेश।",
+      soundLabel:"ध्वनि", vibLabel:"कंपन", volLabel:"आवाज़", close:"बंद करें",
+      bootMsg:"सत्र शुरू हुआ — Acta v3.6.3", philMsg:"दर्शन: जो किया वह मायने रखता है, जो योजना बनाई वह नहीं। कोई शेड्यूल नहीं, सिर्फ़ पहचान।",
+      helpMsg:"कमांड सूची के लिए /help टाइप करें, या बस बताएं कि आपने क्या किया।", helpHeader:"कमांड सूची",
+      unknownCmd:"अज्ञात कमांड: \"{cmd}\"। सूची के लिए /help टाइप करें।",
+      addUsage:"उपयोग: /add <कार्य>", addInvalid:"यह कार्य नाम मान्य नहीं है।",
+      addExisting:"+1 AP — \"{task}\" (#{count})", addNew:"नया कार्य दर्ज हुआ: \"{task}\" (+1 AP)",
+      delUsage:"उपयोग: /del <कार्य>", delOk:"\"{task}\" हटा दिया गया।", delNotFound:"\"{task}\" नहीं मिला।",
+      clearedMsg:"स्क्रीन साफ़ हो गई। डेटा सुरक्षित है।", exportedMsg:"बैकअप फ़ाइल डाउनलोड हुई।",
+      importedMsg:"\"{file}\" से डेटा आयात हुआ।", importFailed:"आयात विफल: फ़ाइल मान्य JSON नहीं है।", importReadFail:"आयात विफल: फ़ाइल पढ़ी नहीं जा सकी।",
+      undidMsg:"पिछली कार्रवाई पूर्ववत की गई।", redidMsg:"पूर्ववत की गई कार्रवाई फिर से की गई।",
+      todoDoneMsg:"\"{task}\" पूरा हुआ (+{ap} AP) · कार्य सूची", levelUp:"स्तर {level}!", nicedBtn:"बढ़िया!", account:"खाता",
+      cmdAdd:"एक कार्रवाई दर्ज करें। मौजूदा कार्य: +AP और गिनती +1; नया कार्य स्वतः दर्ज होता है।",
+      cmdDel:"रिपॉज़िटरी से कार्य हटाएँ।", cmdList:"आँकड़े खोलें।", cmdExport:"डेटा का JSON बैकअप डाउनलोड करें।",
+      cmdImport:"JSON बैकअप फ़ाइल से डेटा लोड करें।", cmdUndo:"पिछली कार्रवाई पूर्ववत करें।", cmdRedo:"पूर्ववत की गई कार्रवाई फिर से करें।",
+      cmdTheme:"लाइट/डार्क थीम बदलें।", cmdClear:"स्क्रीन साफ़ करें। डेटा सुरक्षित रहेगा।", cmdHelp:"यह सूची फिर से दिखाएँ।",
+      dataLabel:"डेटा", eraseData:"सभी डेटा मिटाएँ", eraseConfirmMsg:"इससे आपका सारा AP, कार्य, इतिहास और कार्य सूची स्थायी रूप से मिट जाएगी। इसे पूर्ववत नहीं किया जा सकता।",
+      erasedMsg:"सारा डेटा मिटा दिया गया।", cancelBtn:"रद्द करें", confirmBtn:"मिटाएँ", restoreHint:"बैकअप से पुनर्स्थापित करने के लिए Import का उपयोग करें।",
+      apTooltip:"AP = Acta Point, कार्य पूरा करने पर मिलता है। स्तर कुल AP से RPG-शैली वक्र द्वारा गणना होता है — मील के पत्थर स्तरों पर पहुँचकर एक छोटा उत्सव मनाएं।",
+      syncedAs:"{email} के रूप में साइन इन किया गया", signOut:"साइन आउट करें", continueBtn:"जारी रखें", syncFillFields:"कृपया ईमेल और पासवर्ड दोनों दर्ज करें।",
+      syncActiveNote:"साइन इन रहते हुए अब आपका डेटा आपके डिवाइस के बीच अपने आप सिंक होगा।",
+      syncConflictMsg:"इस खाते में पहले से ही किसी अन्य डिवाइस का सेव किया हुआ डेटा है। आप कौन सा रखना चाहेंगे?",
+      syncKeepDevice:"यह डिवाइस रखें", syncUseCloud:"क्लाउड डेटा उपयोग करें", syncUnavailable:"अभी सिंक उपलब्ध नहीं है — अपना कनेक्शन जाँचें।",
+      todayLabel:"आज किए गए", shortcutsHeader:"कीबोर्ड शॉर्टकट", scFocus:"इनपुट पर फ़ोकस करें", scEsc:"डायलॉग बंद करें", scUndo:"पूर्ववत करें", scRedo:"फिर से करें",
+      scExport:"बैकअप एक्सपोर्ट करें", scImport:"बैकअप इम्पोर्ट करें", scStats:"आँकड़े खोलें", scTheme:"थीम बदलें", monthlyTitle:"मासिक आवृत्ति",
+      exportJsonLabel:"JSON एक्सपोर्ट करें", exportPdfLabel:"PDF एक्सपोर्ट करें", navActaCard:"Acta Card",
+      profileNameLabel:"नाम", profileNamePlaceholder:"आपका नाम", profileBioLabel:"बायो", profileBioPlaceholder:"अपने बारे में बताएं…",
+      profileCountryLabel:"देश", profileCountryPlaceholder:"आपका देश", changeAvatarLabel:"फ़ोटो बदलने के लिए टैप करें",
+      firstRunTitle:"अपनी यात्रा सहेजें", firstRunMsg:"साइन इन करें ताकि आपके कार्य, स्ट्रीक और प्रगति हर डिवाइस पर सुरक्षित रहें।",
+      firstRunSignIn:"साइन इन करें", firstRunLater:"बाद में",
+      actaCardDownload:"कार्ड डाउनलोड करें", actaCardTasksDone:"पूरे किए गए कार्य", actaCardMaxStreak:"अधिकतम स्ट्रीक", actaCardLinkProfile:"प्रोफ़ाइल लिंक",
+      actaCardThankYou:"धन्यवाद", actaCardNeedSignIn:"अपना Acta Card बनाने के लिए साइन इन करें", actaCardVerified:"सत्यापित",
+      publicProfileNotFound:"प्रोफ़ाइल नहीं मिली", publicProfileTryActa:"खुद Acta आज़माएं", publicProfileLoading:"प्रोफ़ाइल लोड हो रही है…",
+      settingsTitle:"सेटिंग्स", pdfUnavailable:"PDF एक्सपोर्ट के लिए इंटरनेट कनेक्शन चाहिए — ऑनलाइन होने पर फिर से कोशिश करें।" },
 
-    id:{ tagline:"hal yang dilakukan â€” bukan yang direncanakan", level:"LEVEL", ap:"AP", streak:"hari beruntun",
+    id:{ tagline:"hal yang dilakukan — bukan yang direncanakan", level:"LEVEL", ap:"AP", streak:"hari beruntun",
       stats:"Statistik", todo:"To-Do", hint:"Tanpa tekanan, hanya kemajuan. Apa yang kamu selesaikan hari ini?",
       tabOverview:"Ringkasan", tabHistory:"Riwayat", tabDaily:"Harian", statsTitle:"STATISTIK",
       overviewEmpty:"Repositori kosong. Ketik /add <tugas> untuk mulai mencatat.",
-      overviewSummary:"{count} tugas terlacak Â· total {ap} AP",
+      overviewSummary:"{count} tugas terlacak · total {ap} AP",
       colTask:"Tugas", colCount:"Jumlah", colTotalAp:"Total AP", colDate:"Tanggal", colTime:"Waktu", colAp:"AP",
-      searchPlaceholder:"Cari berdasarkan nama tugasâ€¦", clearFilters:"Hapus filter", noMatch:"Tidak ada hasil yang cocok.",
+      searchPlaceholder:"Cari berdasarkan nama tugas…", clearFilters:"Hapus filter", noMatch:"Tidak ada hasil yang cocok.",
       dailyEntries:"CATATAN", dailyEmpty:"Tidak ada aktivitas tercatat di hari ini.", freqTitle:"FREKUENSI",
-      todoAddPlaceholder:"Tambah tugasâ€¦", todoEmpty:"Belum ada apa-apa di sini. Tambahkan tugas pertamamu di atas.",
+      todoAddPlaceholder:"Tambah tugas…", todoEmpty:"Belum ada apa-apa di sini. Tambahkan tugas pertamamu di atas.",
       diffEasy:"Mudah", diffNormal:"Normal", diffHard:"Sulit",
       tabSync:"Sinkron", tabAchievements:"Pencapaian", tabLanguage:"Bahasa",
       syncIntro:"Hubungkan akun untuk menyinkronkan data di berbagai perangkat.",
       syncSoon:"Sinkronisasi cloud akan hadir di pembaruan mendatang. Untuk saat ini, gunakan Export / Import.",
       syncGoogle:"Lanjutkan dengan Google", syncGithub:"Lanjutkan dengan GitHub", syncApple:"Lanjutkan dengan Apple", syncEmail:"Lanjutkan dengan Email",
       achIntro:"Capai level ini untuk membukanya.", achLocked:"Terkunci",
-      langIntro:"Pilih bahasamu. Semuanya akan berubah â€” setiap layar, setiap pesan.",
+      langIntro:"Pilih bahasamu. Semuanya akan berubah — setiap layar, setiap pesan.",
       soundLabel:"Suara", vibLabel:"Getaran", volLabel:"Volume", close:"Tutup",
-      bootMsg:"Sesi dimulai â€” Acta v3.6.3", philMsg:"Filosofi: yang dikerjakan, bukan yang direncanakan. Tanpa jadwal, hanya pengakuan.",
+      bootMsg:"Sesi dimulai — Acta v3.6.3", philMsg:"Filosofi: yang dikerjakan, bukan yang direncanakan. Tanpa jadwal, hanya pengakuan.",
       helpMsg:"Ketik /help untuk daftar perintah, atau langsung ketik apa yang kamu lakukan.", helpHeader:"DAFTAR PERINTAH",
       unknownCmd:"Perintah tidak dikenal: \"{cmd}\". Ketik /help untuk daftar.",
       addUsage:"Penggunaan: /add <tugas>", addInvalid:"Nama tugas itu tidak valid.",
-      addExisting:"+1 AP â€” \"{task}\" (ke-{count})", addNew:"Tugas baru terdaftar: \"{task}\" (+1 AP)",
+      addExisting:"+1 AP — \"{task}\" (ke-{count})", addNew:"Tugas baru terdaftar: \"{task}\" (+1 AP)",
       delUsage:"Penggunaan: /del <tugas>", delOk:"\"{task}\" telah dihapus dari repositori.", delNotFound:"\"{task}\" tidak ditemukan.",
       clearedMsg:"Layar dibersihkan. Data kamu tetap aman.", exportedMsg:"File cadangan telah diunduh.",
       importedMsg:"Data diimpor dari \"{file}\".", importFailed:"Impor gagal: file bukan JSON yang valid.", importReadFail:"Impor gagal: file tidak dapat dibaca.",
       undidMsg:"Tindakan terakhir dibatalkan.", redidMsg:"Tindakan yang dibatalkan diulang kembali.",
-      todoDoneMsg:"Selesai \"{task}\" (+{ap} AP) Â· To-Do", levelUp:"Level {level}!", nicedBtn:"Mantap!", account:"Akun",
+      todoDoneMsg:"Selesai \"{task}\" (+{ap} AP) · To-Do", levelUp:"Level {level}!", nicedBtn:"Mantap!", account:"Akun",
       cmdAdd:"Mencatat sebuah tindakan. Tugas yang ada: +AP dan hitungan +1; tugas baru terdaftar otomatis.",
       cmdDel:"Menghapus tugas dari repositori.", cmdList:"Membuka Statistik.", cmdExport:"Mengunduh cadangan data dalam JSON.",
       cmdImport:"Memuat data dari file cadangan JSON.", cmdUndo:"Membatalkan tindakan terakhir.", cmdRedo:"Mengulang tindakan yang dibatalkan.",
       cmdTheme:"Beralih tema terang/gelap.", cmdClear:"Membersihkan layar. Data tetap disimpan.", cmdHelp:"Menampilkan daftar ini lagi.",
       dataLabel:"Data", eraseData:"Hapus semua data", eraseConfirmMsg:"Ini akan menghapus semua AP, tugas, riwayat, dan to-do kamu secara permanen. Tidak bisa dibatalkan.",
       erasedMsg:"Semua data telah dihapus.", cancelBtn:"Batal", confirmBtn:"Hapus", restoreHint:"Gunakan Import untuk memulihkan dari cadangan.",
-      apTooltip:"AP = Acta Point, didapat dengan menyelesaikan tindakan. Level dihitung dari total AP dengan kurva gaya RPG â€” capai level tonggak untuk perayaan kecil.",
+      apTooltip:"AP = Acta Point, didapat dengan menyelesaikan tindakan. Level dihitung dari total AP dengan kurva gaya RPG — capai level tonggak untuk perayaan kecil.",
       syncedAs:"Masuk sebagai {email}", signOut:"Keluar", continueBtn:"Lanjutkan", syncFillFields:"Isi email dan kata sandi.",
       syncActiveNote:"Data kamu sekarang otomatis tersinkron di seluruh perangkat selama kamu masuk.",
       syncConflictMsg:"Akun ini sudah punya data tersimpan dari perangkat lain. Mana yang ingin kamu simpan?",
-      syncKeepDevice:"Simpan perangkat ini", syncUseCloud:"Gunakan data cloud", syncUnavailable:"Sinkronisasi tidak tersedia sekarang â€” periksa koneksi kamu.",
+      syncKeepDevice:"Simpan perangkat ini", syncUseCloud:"Gunakan data cloud", syncUnavailable:"Sinkronisasi tidak tersedia sekarang — periksa koneksi kamu.",
       todayLabel:"selesai hari ini", shortcutsHeader:"PINTASAN KEYBOARD", scFocus:"Fokus ke input", scEsc:"Tutup dialog", scUndo:"Urungkan", scRedo:"Ulangi",
       scExport:"Ekspor cadangan", scImport:"Impor cadangan", scStats:"Buka Statistik", scTheme:"Ganti tema", monthlyTitle:"FREKUENSI BULANAN",
       exportJsonLabel:"Ekspor JSON", exportPdfLabel:"Ekspor PDF", navActaCard:"Acta Card",
-      profileNameLabel:"Nama", profileNamePlaceholder:"Nama kamu", profileBioLabel:"Bio", profileBioPlaceholder:"Ceritakan tentang dirimuâ€¦",
+      profileNameLabel:"Nama", profileNamePlaceholder:"Nama kamu", profileBioLabel:"Bio", profileBioPlaceholder:"Ceritakan tentang dirimu…",
       profileCountryLabel:"Negara", profileCountryPlaceholder:"Negara kamu", changeAvatarLabel:"Ketuk untuk ganti foto",
       firstRunTitle:"Simpan perjalananmu", firstRunMsg:"Masuk untuk menjaga tindakan, streak, dan progres kamu tetap aman di semua perangkat.",
       firstRunSignIn:"Masuk", firstRunLater:"Nanti saja",
       actaCardDownload:"Unduh Card", actaCardTasksDone:"Tugas selesai", actaCardMaxStreak:"Streak maksimum", actaCardLinkProfile:"Tautan profil",
       actaCardThankYou:"Terima kasih", actaCardNeedSignIn:"Masuk untuk membuat Acta Card kamu", actaCardVerified:"Terverifikasi",
-      publicProfileNotFound:"Profil tidak ditemukan", publicProfileTryActa:"Coba Acta sendiri", publicProfileLoading:"Memuat profilâ€¦",
-      settingsTitle:"Pengaturan", pdfUnavailable:"Ekspor PDF butuh koneksi internet â€” coba lagi saat kamu online." }
+      publicProfileNotFound:"Profil tidak ditemukan", publicProfileTryActa:"Coba Acta sendiri", publicProfileLoading:"Memuat profil…",
+      settingsTitle:"Pengaturan", pdfUnavailable:"Ekspor PDF butuh koneksi internet — coba lagi saat kamu online." }
   };
 
   var SLOGANS = {
@@ -619,76 +618,76 @@
         50:"Master of Action! Overcoming procrastination is now your default state.",
         100:"Legendary Status! 100 levels of pure dedication and discipline.",
         200:"Ultimate Apex! You've conquered yourself and mastered the art of doing. Absolutely legendary!"},
-    vi:{0:"Má»i hÃ nh trÃ¬nh Ä‘á»u báº¯t Ä‘áº§u tá»« má»™t bÆ°á»›c chÃ¢n. HÃ£y báº¯t Ä‘áº§u hÃ nh Ä‘á»™ng Ä‘áº§u tiÃªn ngay hÃ´m nay!",
-        5:"ÄÃ  Ä‘Ã£ cÃ³! Báº¡n Ä‘ang biáº¿n nhá»¯ng hÃ nh Ä‘á»™ng nhá» thÃ nh sá»©c máº¡nh má»—i ngÃ y.",
-        10:"ÄÃ£ má»Ÿ khÃ³a sá»± bá»n bá»‰! HÃ nh Ä‘á»™ng Ä‘ang dáº§n trá»Ÿ thÃ nh báº£n nÄƒng cá»§a báº¡n.",
-        25:"Sá»©c máº¡nh khÃ´ng thá»ƒ ngÄƒn cáº£n! Báº¡n Ä‘Ã£ xÃ¢y má»™t phÃ¡o Ä‘Ã i thÃ nh tá»±u vá»¯ng cháº¯c.",
-        50:"Báº­c tháº§y hÃ nh Ä‘á»™ng! VÆ°á»£t qua trÃ¬ hoÃ£n giá» lÃ  tráº¡ng thÃ¡i máº·c Ä‘á»‹nh cá»§a báº¡n.",
-        100:"Vá»‹ tháº¿ huyá»n thoáº¡i! 100 cáº¥p Ä‘á»™ cá»§a sá»± táº­n tÃ¢m vÃ  ká»· luáº­t thuáº§n tÃºy.",
-        200:"Äá»‰nh cao tuyá»‡t Ä‘á»‘i! Báº¡n Ä‘Ã£ chinh phá»¥c chÃ­nh mÃ¬nh vÃ  lÃ m chá»§ nghá»‡ thuáº­t hÃ nh Ä‘á»™ng. Thá»±c sá»± huyá»n thoáº¡i!"},
-    es:{0:"Todo viaje comienza con un solo paso. Â¡Empieza tu primera acciÃ³n hoy!",
-        5:"Â¡Impulso conseguido! EstÃ¡s convirtiendo pequeÃ±as acciones en poder diario.",
-        10:"Â¡Constancia desbloqueada! La acciÃ³n se estÃ¡ volviendo tu segunda naturaleza.",
-        25:"Â¡Fuerza imparable! Has construido una sÃ³lida fortaleza de logros.",
-        50:"Â¡Maestro de la AcciÃ³n! Superar la procrastinaciÃ³n ya es tu estado natural.",
-        100:"Â¡Estatus Legendario! 100 niveles de pura dedicaciÃ³n y disciplina.",
-        200:"Â¡Apex Definitivo! Te has conquistado a ti mismo y dominado el arte de hacer. Â¡Absolutamente legendario!"},
-    fr:{0:"Tout voyage commence par un premier pas. Lancez votre premiÃ¨re action aujourd'hui !",
-        5:"Ã‰lan crÃ©Ã© ! Vous transformez de petites actions en puissance quotidienne.",
-        10:"RÃ©gularitÃ© dÃ©bloquÃ©e ! L'action devient votre seconde nature.",
-        25:"Force inarrÃªtable ! Vous avez bÃ¢ti une solide forteresse de rÃ©ussites.",
-        50:"MaÃ®tre de l'Action ! Vaincre la procrastination est dÃ©sormais votre Ã©tat par dÃ©faut.",
-        100:"Statut LÃ©gendaire ! 100 niveaux de pure discipline et de dÃ©vouement.",
-        200:"ApogÃ©e Absolu ! Vous vous Ãªtes surpassÃ© et avez maÃ®trisÃ© l'art de faire. Absolument lÃ©gendaire !"},
+    vi:{0:"Mọi hành trình đều bắt đầu từ một bước chân. Hãy bắt đầu hành động đầu tiên ngay hôm nay!",
+        5:"Đà đã có! Bạn đang biến những hành động nhỏ thành sức mạnh mỗi ngày.",
+        10:"Đã mở khóa sự bền bỉ! Hành động đang dần trở thành bản năng của bạn.",
+        25:"Sức mạnh không thể ngăn cản! Bạn đã xây một pháo đài thành tựu vững chắc.",
+        50:"Bậc thầy hành động! Vượt qua trì hoãn giờ là trạng thái mặc định của bạn.",
+        100:"Vị thế huyền thoại! 100 cấp độ của sự tận tâm và kỷ luật thuần túy.",
+        200:"Đỉnh cao tuyệt đối! Bạn đã chinh phục chính mình và làm chủ nghệ thuật hành động. Thực sự huyền thoại!"},
+    es:{0:"Todo viaje comienza con un solo paso. ¡Empieza tu primera acción hoy!",
+        5:"¡Impulso conseguido! Estás convirtiendo pequeñas acciones en poder diario.",
+        10:"¡Constancia desbloqueada! La acción se está volviendo tu segunda naturaleza.",
+        25:"¡Fuerza imparable! Has construido una sólida fortaleza de logros.",
+        50:"¡Maestro de la Acción! Superar la procrastinación ya es tu estado natural.",
+        100:"¡Estatus Legendario! 100 niveles de pura dedicación y disciplina.",
+        200:"¡Apex Definitivo! Te has conquistado a ti mismo y dominado el arte de hacer. ¡Absolutamente legendario!"},
+    fr:{0:"Tout voyage commence par un premier pas. Lancez votre première action aujourd'hui !",
+        5:"Élan créé ! Vous transformez de petites actions en puissance quotidienne.",
+        10:"Régularité débloquée ! L'action devient votre seconde nature.",
+        25:"Force inarrêtable ! Vous avez bâti une solide forteresse de réussites.",
+        50:"Maître de l'Action ! Vaincre la procrastination est désormais votre état par défaut.",
+        100:"Statut Légendaire ! 100 niveaux de pure discipline et de dévouement.",
+        200:"Apogée Absolu ! Vous vous êtes surpassé et avez maîtrisé l'art de faire. Absolument légendaire !"},
     de:{0:"Jede Reise beginnt mit einem ersten Schritt. Starte noch heute deine erste Aktion!",
-        5:"Schwung aufgebaut! Du verwandelst kleine Aktionen in tÃ¤gliche Kraft.",
-        10:"BestÃ¤ndigkeit freigeschaltet! Handeln wird zu deiner zweiten Natur.",
+        5:"Schwung aufgebaut! Du verwandelst kleine Aktionen in tägliche Kraft.",
+        10:"Beständigkeit freigeschaltet! Handeln wird zu deiner zweiten Natur.",
         25:"Unaufhaltsame Kraft! Du hast eine solide Festung aus Erfolgen errichtet.",
-        50:"Meister der Tat! Prokrastination zu Ã¼berwinden ist jetzt dein Normalzustand.",
-        100:"LegendÃ¤rer Status! 100 Stufen puren Einsatzes und Disziplin.",
-        200:"Absoluter Gipfel! Du hast dich selbst Ã¼berwunden und die Kunst des Tuns gemeistert. Absolut legendÃ¤r!"},
-    pt:{0:"Toda jornada comeÃ§a com um Ãºnico passo. Comece sua primeira aÃ§Ã£o hoje!",
-        5:"Impulso criado! VocÃª estÃ¡ transformando pequenas aÃ§Ãµes em poder diÃ¡rio.",
-        10:"ConsistÃªncia desbloqueada! A aÃ§Ã£o estÃ¡ se tornando sua segunda natureza.",
-        25:"ForÃ§a imparÃ¡vel! VocÃª construiu uma sÃ³lida fortaleza de conquistas.",
-        50:"Mestre da AÃ§Ã£o! Superar a procrastinaÃ§Ã£o agora Ã© seu estado padrÃ£o.",
-        100:"Status LendÃ¡rio! 100 nÃ­veis de pura dedicaÃ§Ã£o e disciplina.",
-        200:"Ãpice Absoluto! VocÃª conquistou a si mesmo e dominou a arte de fazer. Absolutamente lendÃ¡rio!"},
-    ja:{0:"ã™ã¹ã¦ã®æ—…ã¯ä¸€æ­©ã‹ã‚‰å§‹ã¾ã‚‹ã€‚ä»Šæ—¥ã€æœ€åˆã®è¡Œå‹•ã‚’å§‹ã‚ã‚ˆã†ï¼",
-        5:"å‹¢ã„ãŒã¤ã„ãŸï¼å°ã•ãªè¡Œå‹•ãŒæ¯Žæ—¥ã®åŠ›ã«å¤‰ã‚ã£ã¦ã„ã‚‹ã€‚",
-        10:"ç¶™ç¶šã‚’è§£æ”¾ï¼è¡Œå‹•ãŒç¬¬äºŒã®æ€§æ ¼ã«ãªã‚Šã¤ã¤ã‚ã‚‹ã€‚",
-        25:"æ­¢ã¾ã‚‰ãªã„åŠ›ï¼achievements ã®å …å›ºãªç ¦ã‚’ç¯‰ã„ãŸã€‚",
-        50:"è¡Œå‹•ã®é”äººï¼å…ˆå»¶ã°ã—ã‚’å…‹æœã™ã‚‹ã“ã¨ãŒå½“ãŸã‚Šå‰ã«ãªã£ãŸã€‚",
-        100:"ä¼èª¬ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼100ãƒ¬ãƒ™ãƒ«åˆ†ã®ç´”ç²‹ãªçŒ®èº«ã¨è¦å¾‹ã€‚",
-        200:"ç©¶æ¥µã®é ‚ç‚¹ï¼è‡ªåˆ†è‡ªèº«ã«æ‰“ã¡å‹ã¡ã€å®Ÿè¡Œã®æŠ€ã‚’æ¥µã‚ãŸã€‚ã¾ã•ã«ä¼èª¬ï¼"},
-    ko:{0:"ëª¨ë“  ì—¬ì •ì€ í•œ ê±¸ìŒë¶€í„° ì‹œìž‘ë©ë‹ˆë‹¤. ì˜¤ëŠ˜ ì²« í–‰ë™ì„ ì‹œìž‘í•˜ì„¸ìš”!",
-        5:"íƒ„ë ¥ì´ ë¶™ì—ˆì–´ìš”! ìž‘ì€ í–‰ë™ë“¤ì´ ë§¤ì¼ì˜ íž˜ìœ¼ë¡œ ë°”ë€Œê³  ìžˆìŠµë‹ˆë‹¤.",
-        10:"ê¾¸ì¤€í•¨ í•´ì œ! í–‰ë™ì´ ë‹¹ì‹ ì˜ ì œ2ì˜ ë³¸ì„±ì´ ë˜ì–´ê°€ê³  ìžˆìŠµë‹ˆë‹¤.",
-        25:"ë©ˆì¶œ ìˆ˜ ì—†ëŠ” íž˜! íƒ„íƒ„í•œ ì„±ì·¨ì˜ ìš”ìƒˆë¥¼ ìŒ“ì•˜ìŠµë‹ˆë‹¤.",
-        50:"í–‰ë™ì˜ ë‹¬ì¸! ë¯¸ë£¨ëŠ” ìŠµê´€ì„ ì´ê¸°ëŠ” ê²ƒì´ ì´ì œ ê¸°ë³¸ê°’ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.",
-        100:"ì „ì„¤ì ì¸ ì§€ìœ„! 100ë‹¨ê³„ì˜ ìˆœìˆ˜í•œ í—Œì‹ ê³¼ ê·œìœ¨.",
-        200:"ê¶ê·¹ì˜ ì •ì ! ìžì‹ ì„ ê·¹ë³µí•˜ê³  ì‹¤í–‰ì˜ ê¸°ìˆ ì„ ì™„ì„±í–ˆìŠµë‹ˆë‹¤. ê·¸ì•¼ë§ë¡œ ì „ì„¤ìž…ë‹ˆë‹¤!"},
-    zh:{0:"æ¯æ®µæ—…ç¨‹éƒ½å§‹äºŽç¬¬ä¸€æ­¥ã€‚ä»Šå¤©å°±å¼€å§‹ä½ çš„ç¬¬ä¸€ä¸ªè¡ŒåŠ¨å§ï¼",
-        5:"åŠ¿å¤´å·²èµ·ï¼ä½ æ­£åœ¨æŠŠå°å°çš„è¡ŒåŠ¨å˜æˆæ—¥å¸¸çš„åŠ›é‡ã€‚",
-        10:"åšæŒå·²è§£é”ï¼è¡ŒåŠ¨æ­£åœ¨æˆä¸ºä½ çš„ç¬¬äºŒå¤©æ€§ã€‚",
-        25:"åŠ¿ä¸å¯æŒ¡ï¼ä½ å·²å»ºèµ·ä¸€åº§åšå®žçš„æˆå°±å ¡åž’ã€‚",
-        50:"è¡ŒåŠ¨å¤§å¸ˆï¼æˆ˜èƒœæ‹–å»¶å¦‚ä»Šå·²æ˜¯ä½ çš„å¸¸æ€ã€‚",
-        100:"ä¼ å¥‡åœ°ä½ï¼100ä¸ªç­‰çº§ï¼Œçº¯ç²¹çš„ä¸“æ³¨ä¸Žè‡ªå¾‹ã€‚",
-        200:"ç»ˆæžå·…å³°ï¼ä½ å·²å¾æœè‡ªå·±ï¼ŒæŽŒæ¡äº†è¡ŒåŠ¨çš„è‰ºæœ¯ã€‚ç»å¯¹ä¼ å¥‡ï¼"},
-    ru:{0:"Ð›ÑŽÐ±Ð¾Ð¹ Ð¿ÑƒÑ‚ÑŒ Ð½Ð°Ñ‡Ð¸Ð½Ð°ÐµÑ‚ÑÑ Ñ Ð¾Ð´Ð½Ð¾Ð³Ð¾ ÑˆÐ°Ð³Ð°. ÐÐ°Ñ‡Ð½Ð¸Ñ‚Ðµ ÑÐ²Ð¾Ñ‘ Ð¿ÐµÑ€Ð²Ð¾Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ ÑÐµÐ³Ð¾Ð´Ð½Ñ!",
-        5:"Ð˜Ð¼Ð¿ÑƒÐ»ÑŒÑ Ð½Ð°Ð±Ñ€Ð°Ð½! ÐœÐ°Ð»ÐµÐ½ÑŒÐºÐ¸Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð¿Ñ€ÐµÐ²Ñ€Ð°Ñ‰Ð°ÑŽÑ‚ÑÑ Ð² ÐµÐ¶ÐµÐ´Ð½ÐµÐ²Ð½ÑƒÑŽ ÑÐ¸Ð»Ñƒ.",
-        10:"ÐŸÐ¾ÑÑ‚Ð¾ÑÐ½ÑÑ‚Ð²Ð¾ Ñ€Ð°Ð·Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¾! Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑÑ Ð²Ð°ÑˆÐµÐ¹ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð½Ð°Ñ‚ÑƒÑ€Ð¾Ð¹.",
-        25:"ÐÐµÑƒÐ´ÐµÑ€Ð¶Ð¸Ð¼Ð°Ñ ÑÐ¸Ð»Ð°! Ð’Ñ‹ Ð¿Ð¾ÑÑ‚Ñ€Ð¾Ð¸Ð»Ð¸ ÐºÑ€ÐµÐ¿ÐºÑƒÑŽ ÐºÑ€ÐµÐ¿Ð¾ÑÑ‚ÑŒ Ð´Ð¾ÑÑ‚Ð¸Ð¶ÐµÐ½Ð¸Ð¹.",
-        50:"ÐœÐ°ÑÑ‚ÐµÑ€ Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ! ÐŸÐ¾Ð±ÐµÐ¶Ð´Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾ÐºÑ€Ð°ÑÑ‚Ð¸Ð½Ð°Ñ†Ð¸ÑŽ â€” Ñ‚ÐµÐ¿ÐµÑ€ÑŒ Ð²Ð°ÑˆÐµ Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾Ðµ ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ðµ.",
-        100:"Ð›ÐµÐ³ÐµÐ½Ð´Ð°Ñ€Ð½Ñ‹Ð¹ ÑÑ‚Ð°Ñ‚ÑƒÑ! 100 ÑƒÑ€Ð¾Ð²Ð½ÐµÐ¹ Ñ‡Ð¸ÑÑ‚Ð¾Ð¹ ÑÐ°Ð¼Ð¾Ð¾Ñ‚Ð´Ð°Ñ‡Ð¸ Ð¸ Ð´Ð¸ÑÑ†Ð¸Ð¿Ð»Ð¸Ð½Ñ‹.",
-        200:"ÐÐ±ÑÐ¾Ð»ÑŽÑ‚Ð½Ñ‹Ð¹ Ð¿Ð¸Ðº! Ð’Ñ‹ Ð¿Ð¾Ð±ÐµÐ´Ð¸Ð»Ð¸ ÑÐµÐ±Ñ Ð¸ Ð¾Ð²Ð»Ð°Ð´ÐµÐ»Ð¸ Ð¸ÑÐºÑƒÑÑÑ‚Ð²Ð¾Ð¼ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ. ÐŸÐ¾Ð¸ÑÑ‚Ð¸Ð½Ðµ Ð»ÐµÐ³ÐµÐ½Ð´Ð°Ñ€Ð½Ð¾!"},
-    hi:{0:"à¤¹à¤° à¤¸à¤«à¤¼à¤° à¤à¤• à¤•à¤¦à¤® à¤¸à¥‡ à¤¶à¥à¤°à¥‚ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆà¥¤ à¤†à¤œ à¤¹à¥€ à¤…à¤ªà¤¨à¥€ à¤ªà¤¹à¤²à¥€ à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤¶à¥à¤°à¥‚ à¤•à¤°à¥‡à¤‚!",
-        5:"à¤—à¤¤à¤¿ à¤¬à¤¨ à¤—à¤ˆ! à¤†à¤ª à¤›à¥‹à¤Ÿà¥€ à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤‡à¤¯à¥‹à¤‚ à¤•à¥‹ à¤°à¥‹à¤œà¤¼à¤¾à¤¨à¤¾ à¤•à¥€ à¤¤à¤¾à¤•à¤¤ à¤®à¥‡à¤‚ à¤¬à¤¦à¤² à¤°à¤¹à¥‡ à¤¹à¥ˆà¤‚à¥¤",
-        10:"à¤¨à¤¿à¤°à¤‚à¤¤à¤°à¤¤à¤¾ à¤…à¤¨à¤²à¥‰à¤•! à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤…à¤¬ à¤†à¤ªà¤•à¥€ à¤¦à¥‚à¤¸à¤°à¥€ à¤ªà¥à¤°à¤•à¥ƒà¤¤à¤¿ à¤¬à¤¨à¤¤à¥€ à¤œà¤¾ à¤°à¤¹à¥€ à¤¹à¥ˆà¥¤",
-        25:"à¤…à¤œà¥‡à¤¯ à¤¶à¤•à¥à¤¤à¤¿! à¤†à¤ªà¤¨à¥‡ à¤‰à¤ªà¤²à¤¬à¥à¤§à¤¿à¤¯à¥‹à¤‚ à¤•à¤¾ à¤à¤• à¤®à¤œà¤¼à¤¬à¥‚à¤¤ à¤•à¤¿à¤²à¤¾ à¤¬à¤¨à¤¾ à¤²à¤¿à¤¯à¤¾ à¤¹à¥ˆà¥¤",
-        50:"à¤•à¤¾à¤°à¥à¤°à¤µà¤¾à¤ˆ à¤•à¥‡ à¤‰à¤¸à¥à¤¤à¤¾à¤¦! à¤Ÿà¤¾à¤²à¤®à¤Ÿà¥‹à¤² à¤ªà¤° à¤•à¤¾à¤¬à¥‚ à¤ªà¤¾à¤¨à¤¾ à¤…à¤¬ à¤†à¤ªà¤•à¥€ à¤†à¤¦à¤¤ à¤¬à¤¨ à¤—à¤ˆ à¤¹à¥ˆà¥¤",
-        100:"à¤ªà¥Œà¤°à¤¾à¤£à¤¿à¤• à¤¦à¤°à¥à¤œà¤¾! à¤¶à¥à¤¦à¥à¤§ à¤¸à¤®à¤°à¥à¤ªà¤£ à¤”à¤° à¤…à¤¨à¥à¤¶à¤¾à¤¸à¤¨ à¤•à¥‡ 100 à¤¸à¥à¤¤à¤°à¥¤",
-        200:"à¤ªà¤°à¤® à¤¶à¤¿à¤–à¤°! à¤†à¤ªà¤¨à¥‡ à¤–à¥à¤¦ à¤ªà¤° à¤µà¤¿à¤œà¤¯ à¤ªà¤¾à¤ˆ à¤”à¤° à¤•à¤°à¤¨à¥‡ à¤•à¥€ à¤•à¤²à¤¾ à¤®à¥‡à¤‚ à¤®à¤¹à¤¾à¤°à¤¤ à¤¹à¤¾à¤¸à¤¿à¤² à¤•à¥€à¥¤ à¤ªà¥‚à¤°à¥€ à¤¤à¤°à¤¹ à¤¸à¥‡ à¤ªà¥Œà¤°à¤¾à¤£à¤¿à¤•!"},
+        50:"Meister der Tat! Prokrastination zu überwinden ist jetzt dein Normalzustand.",
+        100:"Legendärer Status! 100 Stufen puren Einsatzes und Disziplin.",
+        200:"Absoluter Gipfel! Du hast dich selbst überwunden und die Kunst des Tuns gemeistert. Absolut legendär!"},
+    pt:{0:"Toda jornada começa com um único passo. Comece sua primeira ação hoje!",
+        5:"Impulso criado! Você está transformando pequenas ações em poder diário.",
+        10:"Consistência desbloqueada! A ação está se tornando sua segunda natureza.",
+        25:"Força imparável! Você construiu uma sólida fortaleza de conquistas.",
+        50:"Mestre da Ação! Superar a procrastinação agora é seu estado padrão.",
+        100:"Status Lendário! 100 níveis de pura dedicação e disciplina.",
+        200:"Ápice Absoluto! Você conquistou a si mesmo e dominou a arte de fazer. Absolutamente lendário!"},
+    ja:{0:"すべての旅は一歩から始まる。今日、最初の行動を始めよう！",
+        5:"勢いがついた！小さな行動が毎日の力に変わっている。",
+        10:"継続を解放！行動が第二の性格になりつつある。",
+        25:"止まらない力！achievements の堅固な砦を築いた。",
+        50:"行動の達人！先延ばしを克服することが当たり前になった。",
+        100:"伝説のステータス！100レベル分の純粋な献身と規律。",
+        200:"究極の頂点！自分自身に打ち勝ち、実行の技を極めた。まさに伝説！"},
+    ko:{0:"모든 여정은 한 걸음부터 시작됩니다. 오늘 첫 행동을 시작하세요!",
+        5:"탄력이 붙었어요! 작은 행동들이 매일의 힘으로 바뀌고 있습니다.",
+        10:"꾸준함 해제! 행동이 당신의 제2의 본성이 되어가고 있습니다.",
+        25:"멈출 수 없는 힘! 탄탄한 성취의 요새를 쌓았습니다.",
+        50:"행동의 달인! 미루는 습관을 이기는 것이 이제 기본값이 되었습니다.",
+        100:"전설적인 지위! 100단계의 순수한 헌신과 규율.",
+        200:"궁극의 정점! 자신을 극복하고 실행의 기술을 완성했습니다. 그야말로 전설입니다!"},
+    zh:{0:"每段旅程都始于第一步。今天就开始你的第一个行动吧！",
+        5:"势头已起！你正在把小小的行动变成日常的力量。",
+        10:"坚持已解锁！行动正在成为你的第二天性。",
+        25:"势不可挡！你已建起一座坚实的成就堡垒。",
+        50:"行动大师！战胜拖延如今已是你的常态。",
+        100:"传奇地位！100个等级，纯粹的专注与自律。",
+        200:"终极巅峰！你已征服自己，掌握了行动的艺术。绝对传奇！"},
+    ru:{0:"Любой путь начинается с одного шага. Начните своё первое действие сегодня!",
+        5:"Импульс набран! Маленькие действия превращаются в ежедневную силу.",
+        10:"Постоянство разблокировано! Действие становится вашей второй натурой.",
+        25:"Неудержимая сила! Вы построили крепкую крепость достижений.",
+        50:"Мастер Действия! Побеждать прокрастинацию — теперь ваше обычное состояние.",
+        100:"Легендарный статус! 100 уровней чистой самоотдачи и дисциплины.",
+        200:"Абсолютный пик! Вы победили себя и овладели искусством действия. Поистине легендарно!"},
+    hi:{0:"हर सफ़र एक कदम से शुरू होता है। आज ही अपनी पहली कार्रवाई शुरू करें!",
+        5:"गति बन गई! आप छोटी कार्रवाइयों को रोज़ाना की ताकत में बदल रहे हैं।",
+        10:"निरंतरता अनलॉक! कार्रवाई अब आपकी दूसरी प्रकृति बनती जा रही है।",
+        25:"अजेय शक्ति! आपने उपलब्धियों का एक मज़बूत किला बना लिया है।",
+        50:"कार्रवाई के उस्ताद! टालमटोल पर काबू पाना अब आपकी आदत बन गई है।",
+        100:"पौराणिक दर्जा! शुद्ध समर्पण और अनुशासन के 100 स्तर।",
+        200:"परम शिखर! आपने खुद पर विजय पाई और करने की कला में महारत हासिल की। पूरी तरह से पौराणिक!"},
     id:{0:"Setiap perjalanan dimulai dengan satu langkah. Mulai tindakan pertamamu hari ini!",
         5:"Momentum terbangun! Kamu mengubah tindakan kecil menjadi kekuatan harian.",
         10:"Konsistensi terbuka! Tindakan mulai menjadi kebiasaan keduamu.",
@@ -728,7 +727,7 @@
   var MILESTONES     = [0,5,10,25,50,100,200];
 
   /* =========================================================
-     Firebase (cloud sync) â€” degrades gracefully if unavailable
+     Firebase (cloud sync) — degrades gracefully if unavailable
   ========================================================= */
 
   var FIREBASE_CONFIG = {
@@ -794,7 +793,7 @@
   function saveState(){
     if(fbUser) return; // signed in: cloud is the active store, guest/local bucket stays untouched
     try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-    catch(e){ pushEntry("Could not save data (localStorage error).", "âœ•"); }
+    catch(e){ pushEntry("Could not save data (localStorage error).", "✕"); }
   }
 
   function loadSettings(){
@@ -1037,7 +1036,7 @@
   function pushEntry(text, sym, dim){
     var row = document.createElement("div");
     row.className = "entry" + (dim ? " dim" : "");
-    var s = document.createElement("span"); s.className = "sym"; s.textContent = sym || "Â·";
+    var s = document.createElement("span"); s.className = "sym"; s.textContent = sym || "·";
     var tx = document.createElement("span"); tx.className = "txt"; tx.innerHTML = escapeHtml(text);
     var meta = document.createElement("span"); meta.className = "meta"; meta.textContent = timeKey(Date.now());
     row.appendChild(s); row.appendChild(tx); row.appendChild(meta);
@@ -1047,7 +1046,7 @@
   function pushEcho(raw){
     var row = document.createElement("div");
     row.className = "entry dim";
-    var s = document.createElement("span"); s.className="sym"; s.textContent="â€º";
+    var s = document.createElement("span"); s.className="sym"; s.textContent="›";
     var tx = document.createElement("span"); tx.className="txt"; tx.textContent = raw;
     row.appendChild(s); row.appendChild(tx);
     feedEl.appendChild(row);
@@ -1124,7 +1123,7 @@
     var tier = flameTierFor(info.streak);
     var lit = info.todayActive && info.streak > 0;
     var html = "";
-    for(var i=0;i<tier;i++){ html += "<span class='flame"+(lit?" lit":"")+"' data-i='"+i+"'>ðŸ”¥</span>"; }
+    for(var i=0;i<tier;i++){ html += "<span class='flame"+(lit?" lit":"")+"' data-i='"+i+"'>🔥</span>"; }
     flameIconsEl.innerHTML = html;
     if(prevStreak >= 0 && info.streak > prevStreak){
       var flames = flameIconsEl.querySelectorAll(".flame");
@@ -1239,62 +1238,62 @@
   ========================================================= */
 
   function cmdAdd(args){
-    if(args.length === 0){ pushEntry(t("addUsage"), "âœ•"); SFX.error(); return; }
+    if(args.length === 0){ pushEntry(t("addUsage"), "✕"); SFX.error(); return; }
     var taskName = normalizeTaskName(args.join(" "));
-    if(!taskName){ pushEntry(t("addInvalid"), "âœ•"); SFX.error(); return; }
+    if(!taskName){ pushEntry(t("addInvalid"), "✕"); SFX.error(); return; }
     pushUndo();
     var isNew = logAction(taskName, 1);
     afterMutation();
     if(isNew){
-      pushEntry(t("addNew", { task:taskName }), "â˜…");
+      pushEntry(t("addNew", { task:taskName }), "★");
       SFX.newTask();
     }else{
-      pushEntry(t("addExisting", { task:taskName, count:state.tasks[taskName].count }), "âœ“");
+      pushEntry(t("addExisting", { task:taskName, count:state.tasks[taskName].count }), "✓");
       SFX.success();
     }
   }
 
   function cmdDel(args){
-    if(args.length === 0){ pushEntry(t("delUsage"), "âœ•"); SFX.error(); return; }
+    if(args.length === 0){ pushEntry(t("delUsage"), "✕"); SFX.error(); return; }
     var taskName = normalizeTaskName(args.join(" "));
     if(state.tasks[taskName]){
       pushUndo();
       delete state.tasks[taskName];
       afterMutation();
-      pushEntry(t("delOk", { task:taskName }), "â€“", true);
+      pushEntry(t("delOk", { task:taskName }), "–", true);
       SFX.remove();
     }else{
-      pushEntry(t("delNotFound", { task:taskName }), "âœ•");
+      pushEntry(t("delNotFound", { task:taskName }), "✕");
       SFX.error();
     }
   }
 
   function cmdClear(){
     feedEl.innerHTML = "";
-    pushEntry(t("clearedMsg"), "Â·", true);
+    pushEntry(t("clearedMsg"), "·", true);
     SFX.click();
   }
 
   var SHORTCUTS = [
-    { keys:"Ctrl/âŒ˜ + K or /", labelKey:"scFocus" },
+    { keys:"Ctrl/⌘ + K or /", labelKey:"scFocus" },
     { keys:"Esc", labelKey:"scEsc" },
-    { keys:"Ctrl/âŒ˜ + Z", labelKey:"scUndo" },
-    { keys:"Ctrl/âŒ˜ + Y", labelKey:"scRedo" },
-    { keys:"Ctrl/âŒ˜ + E", labelKey:"scExport" },
-    { keys:"Ctrl/âŒ˜ + O", labelKey:"scImport" },
-    { keys:"Ctrl/âŒ˜ + Shift + S", labelKey:"scStats" },
-    { keys:"Ctrl/âŒ˜ + Shift + L", labelKey:"scTheme" }
+    { keys:"Ctrl/⌘ + Z", labelKey:"scUndo" },
+    { keys:"Ctrl/⌘ + Y", labelKey:"scRedo" },
+    { keys:"Ctrl/⌘ + E", labelKey:"scExport" },
+    { keys:"Ctrl/⌘ + O", labelKey:"scImport" },
+    { keys:"Ctrl/⌘ + Shift + S", labelKey:"scStats" },
+    { keys:"Ctrl/⌘ + Shift + L", labelKey:"scTheme" }
   ];
 
   function cmdHelp(){
-    pushEntry(t("helpHeader"), "Â·", true);
+    pushEntry(t("helpHeader"), "·", true);
     CMD_LIST.forEach(function(key){
       var line = CMD_SLASH[key] + (CMD_ARGS[key] ? " "+CMD_ARGS[key] : "") + "  " + t("cmd"+key.charAt(0).toUpperCase()+key.slice(1));
-      pushEntry(line, "Â·", true);
+      pushEntry(line, "·", true);
     });
-    pushEntry(t("shortcutsHeader"), "Â·", true);
+    pushEntry(t("shortcutsHeader"), "·", true);
     SHORTCUTS.forEach(function(s){
-      pushEntry(s.keys + "  " + t(s.labelKey), "Â·", true);
+      pushEntry(s.keys + "  " + t(s.labelKey), "·", true);
     });
   }
 
@@ -1306,13 +1305,13 @@
     a.href = url; a.download = "acta-backup.json";
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    pushEntry(t("exportedMsg"), "Â·", true);
+    pushEntry(t("exportedMsg"), "·", true);
     SFX.click();
   }
 
   function doExportPdf(){
     if(typeof window.jspdf === "undefined"){
-      pushEntry(t("pdfUnavailable"), "âœ•");
+      pushEntry(t("pdfUnavailable"), "✕");
       SFX.error();
       return;
     }
@@ -1328,9 +1327,9 @@
     var info = levelProgress(state.total_ap);
 
     doc.setFont("helvetica","bold"); doc.setFontSize(20); doc.setTextColor(20,20,20);
-    doc.text("ACTA â€” Export Report", margin, y); y += 20;
+    doc.text("ACTA — Export Report", margin, y); y += 20;
     doc.setFont("helvetica","normal"); doc.setFontSize(10); doc.setTextColor(120,120,120);
-    doc.text(who + "   Â·   " + now.toLocaleDateString() + " " + now.toLocaleTimeString(), margin, y); y += 22;
+    doc.text(who + "   ·   " + now.toLocaleDateString() + " " + now.toLocaleTimeString(), margin, y); y += 22;
 
     doc.setDrawColor(225,225,225); doc.line(margin, y, pageW-margin, y); y += 26;
 
@@ -1372,7 +1371,7 @@
       if(y > pageH-50){ doc.addPage(); y = 56; }
       doc.setFontSize(10); doc.setTextColor(40,40,40);
       doc.text(String(i+1), col1, y);
-      var label = n.length>68 ? n.slice(0,68)+"â€¦" : n;
+      var label = n.length>68 ? n.slice(0,68)+"…" : n;
       doc.text(label, col2, y);
       doc.text(String(byName[n]), col3, y);
       y += 20;
@@ -1384,7 +1383,7 @@
     }
 
     doc.save("acta-report.pdf");
-    pushEntry(t("exportedMsg"), "Â·", true);
+    pushEntry(t("exportedMsg"), "·", true);
     SFX.click();
   }
 
@@ -1396,14 +1395,14 @@
         pushUndo();
         mergeData(data);
         afterMutation();
-        pushEntry(t("importedMsg", { file:file.name }), "Â·", true);
+        pushEntry(t("importedMsg", { file:file.name }), "·", true);
         SFX.newTask();
       }catch(e){
-        pushEntry(t("importFailed"), "âœ•");
+        pushEntry(t("importFailed"), "✕");
         SFX.error();
       }
     };
-    reader.onerror = function(){ pushEntry(t("importReadFail"), "âœ•"); SFX.error(); };
+    reader.onerror = function(){ pushEntry(t("importReadFail"), "✕"); SFX.error(); };
     reader.readAsText(file);
   }
 
@@ -1414,7 +1413,7 @@
     undoSnapshot = null;
     applyData(prev);
     afterMutation();
-    pushEntry(t("undidMsg"), "â†º", true);
+    pushEntry(t("undidMsg"), "↺", true);
     SFX.undo();
   }
   function doRedo(){
@@ -1424,7 +1423,7 @@
     redoSnapshot = null;
     applyData(next);
     afterMutation();
-    pushEntry(t("redidMsg"), "â†»", true);
+    pushEntry(t("redidMsg"), "↻", true);
     SFX.redo();
   }
 
@@ -1463,7 +1462,7 @@
     refreshAllUI();
     lastKnownLevel = 0;
     feedEl.innerHTML = "";
-    pushEntry(t("erasedMsg"), "Â·", true);
+    pushEntry(t("erasedMsg"), "·", true);
     closeDrawer(userDrawer);
     SFX.remove();
   }
@@ -1570,7 +1569,7 @@
       case "/clear":  cmdClear(); break;
       case "/help":   cmdHelp(); break;
       default:
-        if(cmd.charAt(0) === "/"){ pushEntry(t("unknownCmd", { cmd:cmd }), "âœ•"); SFX.error(); }
+        if(cmd.charAt(0) === "/"){ pushEntry(t("unknownCmd", { cmd:cmd }), "✕"); SFX.error(); }
         else { cmdAdd(tokens); }
     }
   }
@@ -1766,7 +1765,7 @@
       taskNames.forEach(function(n,i){
         var pct = totalDay>0 ? Math.round((bySp[n]/totalDay)*100) : 0;
         var li = document.createElement("div"); li.className = "li";
-        li.innerHTML = "<span class='sw' style='background:"+shadeFor(i,taskNames.length,n)+"'></span>"+escapeHtml(n)+" â€” "+bySp[n]+" "+t("ap")+" ("+pct+"%)";
+        li.innerHTML = "<span class='sw' style='background:"+shadeFor(i,taskNames.length,n)+"'></span>"+escapeHtml(n)+" — "+bySp[n]+" "+t("ap")+" ("+pct+"%)";
         legend.appendChild(li);
       });
     }
@@ -1813,7 +1812,7 @@
 
       var check = document.createElement("div");
       check.className = "todo-check" + (item.done ? " done" : "");
-      check.textContent = item.done ? "âœ“" : "";
+      check.textContent = item.done ? "✓" : "";
       check.addEventListener("click", function(){ toggleTodoDone(item.id); });
 
       var txtWrap = document.createElement("div");
@@ -1823,7 +1822,7 @@
       txtWrap.appendChild(line);
 
       var del = document.createElement("button");
-      del.className = "todo-del"; del.textContent = "âœ•"; del.type = "button";
+      del.className = "todo-del"; del.textContent = "✕"; del.type = "button";
       del.addEventListener("click", function(){ deleteTodo(item.id); });
 
       row.appendChild(check); row.appendChild(txtWrap); row.appendChild(del);
@@ -1864,7 +1863,7 @@
     var taskName = normalizeTaskName(parseTodoTask(item.text));
     logAction(taskName, 1, true, item.key);
     afterMutation();
-    pushEntry(t("todoDoneMsg", { task:taskName, ap:1 }), "âœ“");
+    pushEntry(t("todoDoneMsg", { task:taskName, ap:1 }), "✓");
     SFX.todoEasy();
 
     var rect = todoListEl.getBoundingClientRect();
@@ -1952,7 +1951,7 @@
         "<button class='sync-btn' id='syncEmailToggleBtn'>"+t("syncEmail")+"</button>"+
         "<div id='emailForm' style='display:none; margin-top:6px;'>"+
           "<input type='email' id='syncEmailInput' placeholder='email@example.com' style='width:100%; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); color:var(--ink); border-radius:10px; padding:9px 12px; font-size:12.5px; font-family:var(--font);'>"+
-          "<input type='password' id='syncPassInput' placeholder='â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢' style='width:100%; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); color:var(--ink); border-radius:10px; padding:9px 12px; font-size:12.5px; font-family:var(--font);'>"+
+          "<input type='password' id='syncPassInput' placeholder='••••••••' style='width:100%; margin-bottom:8px; background:var(--bg); border:1px solid var(--line); color:var(--ink); border-radius:10px; padding:9px 12px; font-size:12.5px; font-family:var(--font);'>"+
           "<button class='sync-btn' id='syncEmailSubmitBtn' style='justify-content:center;'>"+t("continueBtn")+"</button>"+
         "</div>"+
         "<div class='sync-note' id='syncNote'></div>";
@@ -2015,7 +2014,7 @@
     LANGS.forEach(function(code){
       var btn = document.createElement("button");
       btn.className = "lang-btn" + (code === currentLang ? " sel" : "");
-      btn.innerHTML = "<span>"+LANG_NAMES[code]+"</span>" + (code===currentLang ? "<span>âœ“</span>" : "");
+      btn.innerHTML = "<span>"+LANG_NAMES[code]+"</span>" + (code===currentLang ? "<span>✓</span>" : "");
       btn.addEventListener("click", function(){
         setLanguage(code);
       });
@@ -2148,7 +2147,7 @@
     ctx.fillStyle = "#ffffff";
     ctx.font = "800 32px "+FONT;
     var nameStr = cardData.name || "Guest";
-    if(nameStr.length>18) nameStr = nameStr.slice(0,18)+"â€¦";
+    if(nameStr.length>18) nameStr = nameStr.slice(0,18)+"…";
     ctx.fillText(nameStr, nameX, avY+52);
 
     ctx.fillStyle = "#00e5ff";
@@ -2197,7 +2196,7 @@
       var by = barY + i*46;
       ctx.fillStyle = "rgba(255,255,255,0.55)";
       ctx.font = "600 12px "+FONT;
-      ctx.fillText(item.name.length>24 ? item.name.slice(0,24)+"â€¦" : item.name, barX, by-6);
+      ctx.fillText(item.name.length>24 ? item.name.slice(0,24)+"…" : item.name, barX, by-6);
       ctx.fillStyle = "rgba(255,255,255,0.08)";
       roundRectPath(ctx, barX, by, barW, 8, 4); ctx.fill();
       ctx.fillStyle = CHART_COLORS[i % CHART_COLORS.length];
@@ -2218,7 +2217,7 @@
     var hash = simpleHash(cardData.verifiedKey||"guest", cardData.level, cardData.total_ap, dateKey(now.getTime()));
     ctx.fillStyle = "rgba(255,255,255,0.4)";
     ctx.font = "700 15px "+FONT;
-    ctx.fillText("Verified Â· "+hash, W-margin, H-28);
+    ctx.fillText("Verified · "+hash, W-margin, H-28);
     ctx.textAlign = "left";
   }
 
@@ -2587,9 +2586,9 @@
   refreshTodoBadge();
   lastKnownLevel = levelProgress(state.total_ap).level;
 
-  pushEntry(t("bootMsg"), "Â·", true);
-  pushEntry(t("philMsg"), "Â·", true);
-  pushEntry(t("helpMsg"), "Â·", true);
+  pushEntry(t("bootMsg"), "·", true);
+  pushEntry(t("philMsg"), "·", true);
+  pushEntry(t("helpMsg"), "·", true);
   renderStreak();
 
   if(state.history.length === 0) maybeShowLevelZero();
@@ -2598,4 +2597,3 @@
   maybeShowFirstRunPopup();
 
 })();
-
