@@ -1,257 +1,262 @@
-# ACTA Architecture
+# Architecture
 
-Overview
+## Overview
 
 ACTA is an action-first productivity platform built around a simple belief:
 
-People make progress through actions, not plans.
+> People make progress through actions, not plans.
 
-Most productivity applications focus on planning future work through schedules, deadlines, and predefined workflows. ACTA takes a different approach.
+Traditional productivity tools often prioritize schedules, deadlines, priorities, and predefined workflows. ACTA takes a different approach. Instead of focusing on what users intend to do, it focuses on what they actually accomplish.
 
-Life is rarely predictable. Priorities shift, routines change, and many meaningful accomplishments happen without being planned in advance. Instead of forcing users to adapt to rigid systems, ACTA is designed to adapt to the natural rhythm of human productivity.
+Life is rarely predictable. Priorities change, routines shift, and many meaningful actions happen without planning. ACTA is designed to adapt to that reality rather than forcing users into rigid systems.
 
-Rather than asking:
+Every completed action becomes part of a long-term record of progress. This philosophy influences every architectural decision throughout the platform.
 
-What will you do tomorrow?
+---
 
-ACTA asks:
+## Architectural Philosophy
 
-What did you accomplish today?
+The architecture of ACTA is guided by several fundamental principles.
 
-Every completed action becomes part of a long-term record of growth. This philosophy influences every architectural and product decision throughout the platform.
+### Action First
 
-## 1. Design Philosophy
-Why ACTA Exists
+Actions are the primary unit of information throughout the system.
 
-Traditional productivity tools are built around planning.
+Rather than building the platform around tasks, schedules, or projects, ACTA records completed actions and derives higher-level insights from them.
 
-A typical workflow looks like this:
+### Low Friction
 
-Create tasks
-Assign deadlines
-Follow schedules
-Measure success by completion rate
+Recording progress should require minimal effort.
 
-For many people, this model works.
+Every unnecessary click, dialog, or workflow interruption reduces the likelihood of long-term consistency.
 
-For others—students, creators, self-learners, researchers, freelancers, and anyone with dynamic routines—it often creates unnecessary pressure.
+### Local Ownership
 
-Real productivity is not always planned.
+Users should be able to use ACTA immediately without creating an account.
 
-Some days involve deep work on a single activity.
-Some days involve dozens of unrelated actions.
-Many valuable accomplishments happen spontaneously.
+Cloud services enhance the experience but are never required to begin.
 
-ACTA was created to capture reality rather than enforce prediction.
+### Modularity
 
-The platform values execution over intention.
+Each system within ACTA is responsible for a clearly defined area of functionality.
 
-Planning is optional.
+This separation allows the platform to evolve without introducing unnecessary coupling between features.
 
-Action is the foundation.
+### Long-Term Growth
 
-Core Principles
-Action First
+The platform is designed around accumulated progress rather than isolated productivity sessions.
 
-Every completed action has value.
+A single action matters, but long-term consistency matters more.
 
-The system rewards execution rather than preparation.
+---
 
-Low Friction
-
-Recording progress should require as little effort as possible.
-
-Every unnecessary step reduces long-term consistency.
-
-Flexibility
-
-Users should never feel forced into predefined workflows.
-
-ACTA adapts to different lifestyles instead of expecting users to adapt to the software.
-
-Long-Term Growth
-
-Individual actions are temporary.
-
-Meaningful progress emerges from thousands of accumulated actions over time.
-
-Human-Centered Design
-
-Technology should reduce cognitive load rather than increase it.
-
-The platform should remain understandable, forgiving, and enjoyable as it evolves.
-
-## 2. High-Level Architecture
+## High-Level Architecture
 
 ACTA follows a modular, event-driven architecture.
 
 Every interaction passes through a unified processing pipeline.
 
+```text
 User
   │
   ▼
-Capture
+Capture Layer
   │
   ▼
-Parser
+Parser Layer
   │
   ▼
-Core System
+Core Processing
   │
-  ├── Progress
+  ├── Tasks
   ├── History
-  ├── Todo
+  ├── Progress
   ├── Statistics
   ├── Achievements
   │
   ▼
-Storage
+Storage Layer
   │
   ▼
-User Interface
+Presentation Layer
+```
 
-Rather than allowing individual features to manipulate data independently, all interactions follow the same lifecycle.
+Rather than allowing individual features to modify data independently, all user interactions flow through a predictable lifecycle.
 
-This ensures consistency across the application while making future expansion significantly easier.
+This approach improves consistency, maintainability, and scalability.
 
-## 3. Functional Domains
+---
 
-ACTA is organized around functional domains rather than individual pages.
+## Core Domains
 
-Each domain has a clear responsibility while remaining loosely coupled with the rest of the platform.
+ACTA is organized around functional domains rather than application pages.
 
-Capture Domain
+Each domain owns a specific responsibility while remaining loosely coupled from the rest of the system.
 
-Responsible for recording user actions.
+### Capture Domain
+
+Responsible for collecting user input.
 
 Includes:
 
-Quick Add
-Task Input
-Command Input
-Keyboard Shortcuts
-Mobile Interaction
-Toolbar Actions
+- Quick Add
+- Action Input
+- Command Input
+- Keyboard Shortcuts
+- Mobile Interactions
+- Toolbar Actions
 
-Goal:
+Primary goal:
 
-Capture actions with minimal friction.
+> Capture actions with the lowest possible friction.
 
-Interpretation Domain
+---
+
+### Interpretation Domain
 
 Responsible for understanding user intent.
 
-The parser determines whether user input represents:
+The parser determines whether an input represents:
 
-A completed action
-A command
-A system request
-Future extension commands
+- A completed action
+- A command
+- A system request
+- Future extensible operations
 
-Separating interpretation from execution makes the platform highly extensible.
+Separating interpretation from execution allows the platform to remain flexible and extensible.
 
-Task Management Domain
+---
 
-Responsible for managing actionable content.
+### Task Domain
 
-Includes:
-
-Todo
-Completion
-Undo
-Redo
-Repeat Actions
-Daily Records
-Task Lifecycle
-
-This domain manages the relationship between active tasks and completed actions.
-
-Progress Domain
-
-Transforms completed actions into meaningful progression.
+Responsible for temporary actionable items.
 
 Includes:
 
-AP (Acta Points)
-Levels
-Achievements
-Milestones
-Streaks
-Motivational Feedback
+- Todo Management
+- Task Completion
+- Task Removal
+- Task Synchronization
+- Task Lifecycle
+- Undo / Redo Integration
 
-Rather than simply counting completed tasks, ACTA encourages sustainable long-term growth.
+Tasks are considered temporary planning tools rather than permanent records.
 
-Analytics Domain
+---
 
-Responsible for turning activity into insight.
+### History Domain
+
+Responsible for preserving completed actions.
 
 Includes:
 
-History
-Search
-Daily Summary
-Charts
-Monthly Statistics
-Heatmaps
-Contribution Graphs
-Trend Analysis
+- Action Records
+- Daily Logs
+- Historical Search
+- Timeline Tracking
+- Historical Queries
 
-Analytics help users understand how they actually spend their time.
+History is designed to remain permanent and immutable whenever possible.
 
-Persistence Domain
+It serves as the foundation for most other systems within ACTA.
+
+---
+
+### Progress Domain
+
+Responsible for long-term progression.
+
+Includes:
+
+- Action Points (AP)
+- Levels
+- Streaks
+- Milestones
+- Achievements
+- Motivational Systems
+
+Progress is designed to reward consistency rather than complexity.
+
+---
+
+### Analytics Domain
+
+Responsible for transforming historical data into insights.
+
+Includes:
+
+- Statistics
+- Daily Summaries
+- Search
+- Charts
+- Monthly Activity Graphs
+- Heatmaps
+- Contribution Visualizations
+- Trend Analysis
+
+Analytics help users understand how their actions accumulate over time.
+
+---
+
+### Persistence Domain
 
 Responsible for data durability.
 
-Supports:
+Includes:
 
-Local Storage
-Import
-Export
-Backup
-Restore
+- Local Storage
+- Import
+- Export
+- Backup
+- Restore
 
-ACTA remains fully usable without cloud connectivity.
+The application remains functional even without cloud connectivity.
 
-Synchronization Domain
+---
 
-Responsible for connecting user identity with persistent cloud data.
+### Synchronization Domain
 
-Future responsibilities include:
+Responsible for user identity and cloud persistence.
 
-Authentication
-Cloud Backup
-Multi-Device Sync
-Profile Management
+Includes:
 
-ACTA follows a local-first philosophy.
+- Authentication
+- Cloud Storage
+- Cross-Device Synchronization
+- Profile Management
 
-Cloud services enhance the experience but are never required to begin using the platform.
+Cloud functionality extends the platform without replacing local ownership principles.
 
-Sharing Domain
+---
+
+### Sharing Domain
 
 Responsible for presenting progress outside the application.
 
-Examples include:
+Includes:
 
-ACTA Card
-Public Profiles
-Statistics Sharing
-Export Reports
-Printable Summaries
+- ACTA Card
+- Public Profiles
+- Progress Sharing
+- Statistics Export
+- PDF Reports
 
 Sharing focuses on accomplishments rather than social engagement.
 
-## 4. Data Flow
+---
 
-Every interaction follows the same processing pipeline.
+## Data Flow
 
+Every interaction inside ACTA follows the same lifecycle.
+
+```text
 User Action
       │
       ▼
 Capture
       │
       ▼
-Parser
+Interpretation
       │
       ▼
 Core Processing
@@ -260,134 +265,151 @@ Core Processing
 Storage
       │
       ├── History
+      ├── Tasks
       ├── Progress
       ├── Statistics
-      ├── Todo
       └── Achievements
       │
       ▼
 UI Update
+```
 
-This predictable lifecycle simplifies:
+A unified data flow reduces complexity and ensures that all systems remain synchronized.
 
-Development
-Testing
-Debugging
-Maintenance
-Future expansion
+New features integrate into existing flows instead of creating independent execution paths.
 
-New features integrate into the existing flow rather than introducing independent execution paths.
+---
 
-## 5. Key Architectural Decisions
-Why Not Schedule-Centered?
+## Source of Truth
 
-Traditional planners assume users can accurately predict future work.
+History serves as the primary source of truth throughout ACTA.
 
-ACTA recognizes that productivity often emerges organically.
+Most systems derive their information from recorded actions.
 
-The platform records reality instead of enforcing predictions.
+Examples include:
 
-Why Action Points (AP)?
+```text
+History
+├── Statistics
+├── AP
+├── Levels
+├── Achievements
+├── Streaks
+├── Reports
+└── ACTA Cards
+```
 
-A single progression system is easier to understand than multiple scoring mechanisms.
+If necessary, many higher-level systems can be reconstructed entirely from historical records.
 
-Users focus on meaningful action rather than optimizing reward formulas.
+This approach improves transparency, consistency, and long-term data integrity.
 
-Why Local-First?
+---
 
-Users should own their data from the very first interaction.
+## Storage Strategy
 
-No account is required to start using ACTA.
+ACTA supports two distinct storage modes.
 
-Cloud synchronization exists as an enhancement, not a dependency.
+### Guest Mode
 
-Why Command-Oriented Interaction?
+Guest users operate entirely through local storage.
 
-Typing is often faster than navigating multiple menus.
+Characteristics:
 
-Commands reduce interaction cost while providing a scalable foundation for future functionality.
+- No account required
+- Immediate access
+- Fully offline capable
+- Local import and export support
 
-Why Event-Driven Architecture?
+Guest mode prioritizes simplicity and accessibility.
 
-Every feature reacts to the same sequence of events.
+---
 
-This minimizes coupling and allows new systems to integrate without rewriting existing logic.
+### Account Mode
 
-Why Modular Domains?
+Authenticated users operate through cloud-backed storage.
 
-Each domain has a clearly defined responsibility.
+Characteristics:
 
-This separation improves:
+- Persistent cloud data
+- Cross-device synchronization
+- Profile support
+- Future multi-device continuity
 
-Maintainability
-Scalability
-Testing
-Future development
+Cloud services exist to enhance portability rather than create dependency.
 
-As ACTA evolves, new capabilities can be added without redesigning the entire system.
+---
 
-## 6. Scalability
+## Scalability Strategy
 
 ACTA is designed as a platform rather than a fixed application.
 
-Its architecture intentionally separates responsibilities so future systems can be integrated incrementally.
+The architecture intentionally separates responsibilities so future systems can integrate naturally without requiring major redesigns.
 
 Potential future expansions include:
 
-AI-assisted action recognition
-Personalized recommendations
-Advanced productivity analytics
-Cross-device synchronization
-Team collaboration
-Community challenges
-Plugin architecture
-Public Developer API
-Wearable integration
-Native desktop clients
-Native mobile applications
+- Advanced analytics
+- AI-assisted insights
+- Recommendation systems
+- Cross-device continuity
+- Public profile enhancements
+- Community features
+- Plugin architecture
+- Developer APIs
+- Wearable integrations
+- Native desktop and mobile clients
 
-Because each feature operates within a defined domain, future growth can remain evolutionary rather than disruptive.
+Because domains remain isolated, future growth can occur incrementally.
 
-## 7. Architectural Principles
+---
 
-The following principles guide all future development decisions.
+## Architectural Principles
 
-Action over Planning
+All future architectural decisions should align with the following principles.
 
-Prioritize recording meaningful actions instead of enforcing schedules.
+### Action Over Planning
 
-Local-First
+Prioritize recording meaningful actions rather than enforcing schedules.
 
-Users own their data from the first interaction.
+### History Over Temporary State
 
-Low Friction
+Historical records should remain more important than transient interface state.
 
-Reduce unnecessary steps between action and recording.
+### Local Ownership First
 
-Modularity
+Users should control their own data from the first interaction.
 
-Each domain should have a single, well-defined responsibility.
+### Low Friction
 
-Scalability
+Reduce the distance between completing an action and recording it.
 
-New systems should extend the architecture without breaking existing functionality.
+### Modularity
 
-Consistency
+Each domain should have a single, clearly defined responsibility.
 
-Similar interactions should behave similarly throughout the platform.
+### Consistency
 
-User-Centric Evolution
+Similar interactions should behave similarly across the platform.
 
-Features are introduced to solve real user problems rather than increase complexity.
+### Scalability
 
-Architecture Summary
+New systems should extend existing architecture rather than replace it.
+
+### User-Centered Evolution
+
+Features should solve real user problems rather than increase complexity.
+
+---
+
+## Summary
 
 ACTA is built around a simple but fundamental idea:
 
-Progress should reflect what people actually do, not what they planned to do.
+> Progress should reflect what people actually do, not what they planned to do.
 
-Every architectural decision—from action-first workflows and event-driven processing to local-first storage and modular domains—supports this philosophy.
+Its architecture combines action-first workflows, modular domains, event-driven processing, and local-first principles into a cohesive productivity platform.
 
-ACTA is not intended to be another task manager.
+Rather than becoming another task manager, ACTA aims to provide a sustainable system for capturing actions, preserving history, recognizing progress, and helping users understand their long-term growth.
 
-Its goal is to become a flexible productivity platform that grows alongside its users, transforming everyday actions into meaningful long-term progress.
+Every architectural decision ultimately serves the same goal:
+
+**Turn meaningful actions into meaningful progress.**
