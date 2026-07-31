@@ -14,7 +14,7 @@ Today, ACTA represents more than a productivity application. It documents an ent
 
 ---
 
-![ACTA Hero](assets/banner/hero.png)
+![ACTA Hero](Assets/banner/hero.png)
 
 ---
 
@@ -137,25 +137,19 @@ ACTA is designed to work across desktop and mobile devices.
 
 ## Main Workspace
 
-![Home](assets/screenshots/desktop-home.png)
+![Home](Assets/screenshots/desktop-home.png)
 
 ## Statistics
 
-![Statistics](assets/screenshots/statistics.png)
+![Statistics](Assets/screenshots/statistics.png)
 
 ## To-Do List
 
-![Todo](assets/screenshots/todo.png)
+![Todo](Assets/screenshots/to-do.png)
 
 ## Settings
 
-![Settings](assets/screenshots/settings.png)
-
-## Mobile Interface
-
-![Mobile](assets/screenshots/mobile.png)
-
----
+![Settings](Assets/screenshots/settings.png)
 
 # Demo
 
